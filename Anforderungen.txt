@@ -1,0 +1,90 @@
+Holzer Webshop: E-Commerce Plattform
+
+Anforderungen:
+- voll funktionsfähige, webbasierte Benutzeroberfläche
+- HTML, CSS, JS, PHP
+- Datenbankanbindung
+- OOP
+- REST Architektur & Webservices
+
+
+Nutzbare Technologien:
+- Angular
+- Bootstrap
+- Yew
+- Node.js
+- React.js
+
+
+Etappen:
+
+1. Gerüst:
+- Erstellung der HTML Seiten und stylen mit CSS
+- Einfaches PHP zur Verarbeitung
+
+Aufgaben:
+- Webseiten in HTML:
+	landing-page / index
+	collections
+	pages
+	community
+	login
+	registration
+	collections/./products/.
+	account
+	cart
+	checkout
+	checkout/./information
+	checkout/./shipping
+	checkout/./payment
+	
+	
+- Stylesheets in CSS mit responsive Design
+- Navigation und Seiteninhalte
+	navbar mit collections
+	sidecontent with search
+
+- über php:
+	login / registration
+	accountinformationen ausgeben
+
+
+2. Funktionalität:
+- Anbindung an Datenbank
+- PHP CRUD Verbindung zur Datenbank
+
+Aufgaben:
+- Registrierungs und Login Funktionalität in PHP und MySQL
+- Sessions und Zugriff auf Webseiten kontrollieren
+- Eingabevalidierung
+- Prepared Statements
+- PHP RESTful API
+
+3. Refactor:
+- MVC Framework aufbauen in PHP
+- Authentifizierung
+
+Aufgaben:
+- OOP in PHP Code einbauen und aufräumen
+- Datenbankaccess klasse
+- Implementierung MVC Framework 
+- Token-basierte Authentifizierung (JWT)
+- Passwort Hashing & sessiinbasierte Sicherheitsmaßnahmen
+- CSRF und XSS Schutz
+
+4. Perfektion:
+- Anmelde und Registrierungssystem
+- externe API
+- REST Schnittstelle
+- Responsive Design
+- Optimierung für Handy, Tablet und Desktop
+- Caching (Redis bzw. Memcached)
+- Minimierung von Ladezeiten durch optimiertes Laden von Ressource (Lazy Loading, Minifizierung)
+- Schutz vor SQL-Injection, XSS, CSRF
+- SSL Verschlüsselung
+- Unit Test mit PHPUnit
+- Git
+- CL/CD Pipeline
+
+5. Testing:
+- Lighthouse

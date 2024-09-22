@@ -1,0 +1,19 @@
+<div class="main-content">
+    <h1>Login</h1>
+    <form id="login-form">
+        <div class="form-div">
+            <label class="form-label" for="email">E-mail:</label>
+            <input class="form-input" id="login-email" formControlName="email" />
+        </div>
+
+        <div class="form-div">
+            <label class="form-label" for="password">Password:</label>
+            <input class="form-input" id="login-password" type="password" formControlName="password" />
+        </div>
+
+        <app-sign-in-button></app-sign-in-button>
+    </form>
+
+    <a class="top-margin" routerLink="/password-reset">Forgot password?</a>
+    <a class="top-margin" routerLink="/registration">No account yet? Register here</a>
+</div>
