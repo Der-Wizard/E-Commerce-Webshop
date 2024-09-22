@@ -1,40 +1,5 @@
-.top-bar {
-    background-color: hsl(40,60%,90%);
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.nav-bar {
-    display: grid;
-    grid-template-columns: 50% auto 20%;
-    align-items: center;
-}
-
-.nav-bar * {
-    width: 100%;
+.content-layout {
     display: flex;
-    flex-direction: row;
-}
-
-.nav-bar-left {
-    margin-left: 10%;
-    justify-self: start;
-}
-
-.nav-bar-left a {
-    width: 20%;
-}
-
-.nav-bar-right {
-    justify-self: end;
-}
-
-.nav-bar-right a {
-    width: 20%;
-}
-
-.title {
-    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
