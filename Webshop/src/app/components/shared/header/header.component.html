@@ -1,0 +1,23 @@
+<header>
+    <h1 class="title">Mirabelle</h1>
+
+    <div class="nav-bar">
+        <nav class="nav-bar-left">
+            <a routerLink="">Home</a>
+            <a routerLink="/products">Products</a>
+            <a routerLink="/about">About</a>
+        </nav>
+        <div></div>
+        <nav class="nav-bar-right">
+            <div *isLoggedIn="false">
+                <a routerLink="/login">Sign In</a>
+                <a routerLink="/registration">Sign Up</a>
+            </div>
+            <div *isLoggedIn="true">
+                <a routerLink="/cart">Cart</a>
+                <a routerLink="/account">Account</a>
+            </div>
+        </nav>
+    </div>
+
+</header>

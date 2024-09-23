@@ -1,0 +1,14 @@
+$background-least-important: hsl(230,5%,1%);
+$background-less-important: hsl(230,10%,1%);
+$background-normal: hsl(230,10%,2%);
+$background-more-important: hsl(230,10%,5%);
+$background-most-important: hsl(230,10%,8%);
+
+$text-less-important: hsl(230,20%,50%);
+$text-normal: hsl(230,30%,70%);
+$text-more-important: hsl(230,40%,90%);
+$text-most-important: hsl(230,40%,95%);
+
+$link-normal: lighten(saturate($text-normal, 30%),10%);
+$link-hover: lighten(saturate($text-more-important, 30%),10%);
+$link-active: lighten(saturate($text-less-important, 30%),10%);

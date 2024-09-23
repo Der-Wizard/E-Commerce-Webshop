@@ -1,0 +1,22 @@
+@import './_variables';
+
+@import './tag-styling/text/a.scss';
+@import './tag-styling/text/h.scss';
+@import './tag-styling/text/text.scss';
+
+@import './tag-styling/input/input.scss';
+
+@import './behaviour/responsive.scss';
+
+.main-content {
+    @include flex-column-center();
+}
+
+main {
+    @include flex-column-center();
+    flex: 1;
+}
+
+html, body {
+    background: $background-normal;
+}

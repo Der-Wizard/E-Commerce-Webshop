@@ -1,0 +1,13 @@
+@import '../../variables.scss';
+
+a {
+    color: $link-normal;
+}
+
+a:hover {
+    color: $link-hover;
+}
+
+a:active {
+    color: $link-active;
+}
