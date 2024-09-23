@@ -12,3 +12,7 @@ $text-most-important: hsl(230,40%,95%);
 $link-normal: lighten(saturate($text-normal, 30%),10%);
 $link-hover: lighten(saturate($text-more-important, 30%),10%);
 $link-active: lighten(saturate($text-less-important, 30%),10%);
+
+$success-background:hsla(90,50%,50%,50%);
+$success-border:hsla(90,50%,50%,80%);
+$success-text:hsla(120,50%,50%,80%);

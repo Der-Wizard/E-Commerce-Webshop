@@ -1,8 +1,8 @@
 <footer>
     <section id="bottom-interactions">
         <address>
-            <h1>Contact me:</h1>
-            <p id="email-contact">E-Mail: </p><a href="mailto:holzersociety@outlook.com">Nikita Korman</a>
+            <h1>Contact us:</h1>
+            <p id="email-contact">E-Mail: </p><a href="mailto:mirabelle-shop@outlook.de">Customer Service</a>
         </address>
         <form [formGroup]="newsletterForm" (ngSubmit)="subscribeToNewsletter()">
             <h1>Subscribe to the newsletter</h1>
@@ -11,6 +11,9 @@
                 <input id="email-newsletter" formControlName="email" />
             </div>
             <button id="newsletter-sign-up" type="submit">Subscribe</button>
+            <div *ngIf="showMessage" class="success-message fade-in">
+                {{ successMessage }}
+            </div>
         </form>
         <div>
             <h1>Help:</h1>
@@ -18,6 +21,6 @@
         </div>
     </section>
     <section id="bottom-links">
-        <a routerLink="/" id="copy-right-link">&copy; 2024, Nikita Korman</a>
+        <a routerLink="/" id="copy-right-link">&copy; 2024, Mirabelle GbR</a>
     </section>
 </footer>
