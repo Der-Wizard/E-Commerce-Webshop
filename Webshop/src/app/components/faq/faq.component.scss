@@ -1,0 +1,54 @@
+@import '../../../styles/variables';
+
+:host {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+mat-accordion {
+    margin: 20px 50px;
+}
+
+mat-expansion-panel {
+    height: 100px;
+    border: $border-normal-size;
+    border-style: $border-normal-style;
+    border-color: $border-normal-color;
+    border-radius: $border-normal-radius;
+    margin-bottom: 10px;
+
+    overflow: hidden;
+}
+
+mat-expansion-panel.mat-expanded {
+    overflow: visible;
+    height: auto;
+}
+
+mat-panel-title {
+    padding-top: 10px;
+    padding-left: 50px;
+    color: $text-more-important;
+    font-weight: bold;
+    font-size: $h4-size;
+}
+
+mat-expansion-panel p {
+    padding-left: 60px;
+}
+
+.panel-body-content {
+    padding: 8px;
+    margin-top: 10px;
+    position: relative; 
+    z-index: 2;
+
+    background: $background-most-important-solid;
+    border: $border-normal-size;
+    border-style: $border-normal-style;
+    border-color: $border-normal-color;
+    border-radius: $border-normal-radius;
+}

@@ -1,28 +1,26 @@
-<div class="main-content">
-    <h1>Register</h1>
-    <form id="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div class="form-div">
-            <label class="form-label" for="username">Username:</label>
-            <input class="form-input" id="registration-username" formControlName="username" />
-        </div>
+<h1>Register</h1>
+<form id="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-div">
+        <label class="form-label" for="username">Username:</label>
+        <input class="form-input" id="registration-username" formControlName="username" />
+    </div>
 
-        <div class="form-div">
-            <label class="form-label" for="email">E-mail:</label>
-            <input class="form-input" id="registration-email" formControlName="email" />
-        </div>
+    <div class="form-div">
+        <label class="form-label" for="email">E-mail:</label>
+        <input class="form-input" id="registration-email" formControlName="email" />
+    </div>
 
-        <div class="form-div">
-            <label class="form-label" for="password">Password:</label>
-            <input class="form-input" id="registration-password" type="password" formControlName="password" />
-        </div>
+    <div class="form-div">
+        <label class="form-label" for="password">Password:</label>
+        <input class="form-input" id="registration-password" type="password" formControlName="password" />
+    </div>
 
-        <div class="form-div">
-            <label class="form-label" for="password">Enter Password again:</label>
-            <input class="form-input" id="registration-password-again" type="password" formControlName="password" />
-        </div>
+    <div class="form-div">
+        <label class="form-label" for="password">Enter Password again:</label>
+        <input class="form-input" id="registration-password-again" type="password" formControlName="password" />
+    </div>
 
-        <app-sign-up-button></app-sign-up-button>
-    </form>
+    <app-sign-up-button></app-sign-up-button>
+</form>
 
-    <a class="top-margin" routerLink="/login">Already have an account? Sign in</a>
-</div>
+<a class="top-margin" routerLink="/login">Already have an account? Sign in</a>

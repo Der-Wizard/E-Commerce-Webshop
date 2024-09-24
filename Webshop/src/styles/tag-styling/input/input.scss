@@ -6,11 +6,25 @@ button {
     font-size: 20px;
     font-weight: bold;
     color: $text-most-important;
-    
-    background-color: black;
+
+    background-color: $button-background;
     border-radius: 5px;
+
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.5s, transform 0.1s;
+}
+
+button:hover {
+    color: $button-color-hover;
+    background-color: $button-background-hover;
 }
 
 input {
+    font-size: 20px;
     border-radius: 5px;
+}
+
+input::placeholder {
+    color: $text-less-important;
+    font-family: 'Nunito', sans-serif;
 }

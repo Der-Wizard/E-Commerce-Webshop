@@ -1,8 +1,15 @@
-$background-least-important: hsl(230,5%,1%);
-$background-less-important: hsl(230,10%,1%);
-$background-normal: hsl(230,10%,2%);
-$background-more-important: hsl(230,10%,5%);
-$background-most-important: hsl(230,10%,8%);
+$background-least-important: hsl(230,5%,2%);
+$background-less-important: hsl(230,10%,3%);
+$background-normal: hsl(230,20%,10%);
+$background-more-important: hsl(230,20%,10%);
+$background-most-important: hsl(230,30%,15%);
+
+$background-most-important-solid: hsl(230,10%,15%,100%);
+
+$button-background: black;
+$button-background-hover: hsl(230,40%,90%);
+$button-color: hsl(230,40%,95%);
+$button-color-hover: invert(hsl(230,40%,95%));
 
 $text-less-important: hsl(230,20%,50%);
 $text-normal: hsl(230,30%,70%);
@@ -16,3 +23,16 @@ $link-active: lighten(saturate($text-less-important, 30%),10%);
 $success-background:hsla(90,50%,50%,50%);
 $success-border:hsla(90,50%,50%,80%);
 $success-text:hsla(120,50%,50%,80%);
+
+$text-size: 16px;
+$h1-size: 36px;
+$h2-size: 32px;
+$h3-size: 28px;
+$h4-size: 24px;
+$h5-size: 22px;
+$h6-size: 20px;
+
+$border-normal-size: 3px;
+$border-normal-color: hsla(200,20%,40%,50%);
+$border-normal-radius: 10px;
+$border-normal-style: solid;

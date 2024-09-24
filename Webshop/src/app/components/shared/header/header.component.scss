@@ -1,40 +1,65 @@
+@import '../../../../styles/styles.scss';
+
+:host {
+    background-color: $background-least-important;
+}
+
 header {
-    padding-bottom:10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-.nav-bar {
-    display: grid;
-    grid-template-columns: 50% auto 20%;
-    align-items: center;
-}
-
-.nav-bar * {
-    width: 100%;
+#nav-bar {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-.nav-bar-left {
-    margin-left: 10%;
-    justify-self: start;
-}
-
-.nav-bar-left a {
+#nav-bar-left {
+    margin-left:60px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 20%;
 }
 
-.nav-bar-right {
-    justify-self: end;
+#nav-bar-middle {
+    display: flex;
+    align-items: center;
+    width: 30%;
 }
 
-.nav-bar-right div a{
-    width: 20%;
+#nav-bar-middle button {
+    width: auto;
+}
+
+#search-bar {
+    width: 100%;
+}
+
+#nav-bar-right {
+    margin-right:60px;
+    width: 10%;
+}
+
+#nav-bar-right div {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title {
     text-align: center;
+}
+
+.search-icon {
+    font-size: 16px;
 }

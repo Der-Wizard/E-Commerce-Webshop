@@ -1,5 +1,9 @@
 @import '../../../styles/styles.scss';
 
+:host {
+    @include flex-column-center();
+}
+
 #login-form {
     @include flex-column-center();
     gap: 1rem;

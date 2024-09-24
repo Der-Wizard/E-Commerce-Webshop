@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AccountAuthService } from '../../services/account-auth.service';
 import { SignUpButtonComponent } from './sign-up-button/sign-up-button.component';
 
@@ -16,6 +16,7 @@ import { SignUpButtonComponent } from './sign-up-button/sign-up-button.component
 })
 export class RegistrationComponent {
   registerForm: FormGroup;
+  private router = inject(Router);
 
   constructor(private fb: FormBuilder, private authService: AccountAuthService) {
     this.registerForm = this.fb.group({
@@ -24,12 +25,13 @@ export class RegistrationComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-  
+
   onSubmit() {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.value).subscribe({
         next: (response) => {
           console.log(response.message);
+          this.router.navigate(['']);
         },
         error: (error) => {
           console.error('Registration failed:', error);

@@ -1,8 +1,15 @@
 @import '../../../../styles/styles.scss';
 
+:host {
+    background-color: $background-least-important;
+}
+
 footer {
     display: flex;
     flex-direction: column;
+    z-index: 0;
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 #bottom-interactions {

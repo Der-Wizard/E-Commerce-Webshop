@@ -1,0 +1,13 @@
+@import '../../../../styles/styles.scss';
+
+:host {
+    width: 20vw;
+    height: 20vh;
+
+    background-color: $background-most-important-solid;
+
+    border: $border-normal-size;
+    border-color: $border-normal-color;
+    border-radius: $border-normal-radius;
+    border-style: $border-normal-style;
+}

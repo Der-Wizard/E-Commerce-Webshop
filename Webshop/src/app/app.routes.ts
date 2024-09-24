@@ -9,6 +9,7 @@ import { AccountComponent } from './components/account/account.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { authGuard } from './guards/auth.guard';
 import { noAuthGuard } from './guards/no-auth.guard';
+import { FaqComponent } from './components/faq/faq.component';
 
 export const routes: Routes = [
     { path:'', component: HomeComponent, pathMatch: 'full' },
@@ -19,5 +20,6 @@ export const routes: Routes = [
     { path:'account', component: AccountComponent, canActivate: [authGuard]},
     { path:'checkout', component: CheckoutComponent},
     { path:'about', component: AboutComponent },
+    { path:'faq', component: FaqComponent },
     { path: '**', redirectTo: ''},
 ];

@@ -8,16 +8,15 @@
 
 @import './behaviour/responsive.scss';
 
-.main-content {
-    @include flex-column-center();
-}
-
 main {
     @include flex-column-center();
     flex: 1;
 }
 
-html, body {
-    background: $background-normal;
-    font-family: 'Nunito', sans-serif;
+html,
+body {
+    background: $background-less-important;
+    font-family: 'Nunito', 'Noto Sans',  sans-serif;
+    height: 100%;
+    margin: 0;
 }

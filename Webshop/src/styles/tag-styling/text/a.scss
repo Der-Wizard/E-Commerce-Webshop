@@ -1,7 +1,9 @@
 @import '../../variables.scss';
 
 a {
+    font-size: $text-size;
     color: $link-normal;
+    transition: color 0.5s, transform 0.1s;
 }
 
 a:hover {
