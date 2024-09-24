@@ -12,18 +12,28 @@ mat-accordion {
     margin: 20px 50px;
 }
 
+mat-accordion * {
+    border-radius: $border-normal-radius;
+}
+
 mat-expansion-panel {
     height: 100px;
     border: $border-normal-size;
     border-style: $border-normal-style;
     border-color: $border-normal-color;
-    border-radius: $border-normal-radius;
     margin-bottom: 10px;
 
     overflow: hidden;
 }
 
-mat-expansion-panel.mat-expanded {
+mat-accordion mat-expansion-panel:not(.mat-expanded),
+ mat-accordion mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+    border-radius: $border-normal-radius;
+}
+
+mat-accordion mat-expansion-panel.mat-expanded,
+ mat-accordion mat-expansion-panel.mat-expansion-panel-spacing {
+    border-radius: $border-normal-radius;
     overflow: visible;
     height: auto;
 }
