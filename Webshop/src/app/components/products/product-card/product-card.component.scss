@@ -2,7 +2,7 @@
 
 :host {
     width: 20vw;
-    height: 20vh;
+    height: 40vh;
 
     background-color: $background-most-important-solid;
 
@@ -10,4 +10,21 @@
     border-color: $border-normal-color;
     border-radius: $border-normal-radius;
     border-style: $border-normal-style;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.product-img {
+    height: 30vh;
+}
+.product-heading {
+    align-self: center;
+}
+.product-description {
+    padding-left: 5%;
+}
+.product-price {
+    align-self: flex-end;
+    padding-right: 5%;
 }

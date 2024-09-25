@@ -1,4 +1,4 @@
 <div class="product-img"></div>
-<h3>Product Name</h3>
-<p>Product Description</p>
-<p>39.99€</p>
+<h3 class="product-heading"> {{ product.name }}</h3>
+<p class="product-description"> {{ product.description }}</p>
+<p class="product-price"> {{ product.price | currency:'EUR':'symbol'}}</p>
