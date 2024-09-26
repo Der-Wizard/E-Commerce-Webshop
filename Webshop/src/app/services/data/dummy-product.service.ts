@@ -1507,7 +1507,7 @@ export class DummyProductService extends ProductService {
     { id: 1496, name: "Shirt", description: "", short_description: "Perfect for any occasion.", price: 24.06, category: "clothing" },
     { id: 1497, name: "Band Pins", description: "", short_description: "Perfect for bags and jackets.", price: 61.06, category: "pin sets" },
     { id: 1498, name: "Sweater", description: "", short_description: "Durable and fashionable.", price: 51.11, category: "clothing" },
-    { id: 1499, name: "Shirt", description: "", short_description: "Fits perfectly.", price: 27.11, category: "clothing" }
+    { id: 1499, name: "Pikachu", description: "", short_description: "Fits perfectly.", price: 27.11, category: "clothing" }
   ];
 
   override fetchProducts(searchTerm: string, page: number, pageSize: number): Observable<[Product[], number]> {

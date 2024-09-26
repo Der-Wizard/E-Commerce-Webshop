@@ -2,7 +2,7 @@
   [current_page_index]="current_page_index"
   [maximum_page_index]="maximum_page_index"
   (pageChanged)="handlePageChange($event)"
-  *ngIf="maximum_page_index !== 0">
+  *ngIf="maximum_page_index > 1">
 </app-search-carousel>
 
 <div class="flex-product-container full-size">
