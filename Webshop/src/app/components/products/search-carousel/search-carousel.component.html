@@ -1,0 +1,32 @@
+<div class="search-carousel">
+    <!-- Decrease Page Button -->
+    <button type="button" (click)="decrease_page_index()">
+        <i class="fas fa-play" style="transform: rotate(180deg);"></i>
+    </button>
+
+    <!-- First Two Page Buttons (ngIf) -->
+    <button (click)="skipToSearch(current_page_index - 2)">
+        <i *ngIf="current_page_index - 2 >= 1">{{ current_page_index - 2 }}</i>
+    </button>
+    <button (click)="skipToSearch(current_page_index - 1)">
+        <i *ngIf="current_page_index - 1 >= 1">{{ current_page_index - 1 }}</i>
+    </button>
+
+    <!-- Current Page Button -->
+    <button class="current_page">
+        <i>{{ current_page_index }}</i>
+    </button>
+
+    <!-- Next Two Page Buttons (ngIf) -->
+    <button (click)="skipToSearch(current_page_index + 1)">
+        <i *ngIf="current_page_index + 1 <= maximum_page_index">{{ current_page_index + 1 }}</i>
+    </button>
+    <button (click)="skipToSearch(current_page_index + 2)">
+        <i *ngIf="current_page_index + 2 <= maximum_page_index">{{ current_page_index + 2 }}</i>
+    </button>
+
+    <!-- Increase Page Button -->
+    <button type="button" (click)="increase_page_index()">
+        <i class="fas fa-play"></i>
+    </button>
+</div>

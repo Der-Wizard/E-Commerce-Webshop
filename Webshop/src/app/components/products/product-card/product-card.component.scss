@@ -2,7 +2,7 @@
 
 :host {
     width: 400px;
-    height: 400px;
+    height: 600px;
 
     background-color: $background-most-important-solid;
 
@@ -13,18 +13,33 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
 }
+
 .product-img {
-    height: 300px;
+    flex: 1;
+    background-color: white;
+    border-radius: $border-normal-radius $border-normal-radius 0px 0px;
 }
+
 .product-heading {
     align-self: center;
 }
-.product-description {
+
+.product-short-description {
     padding-left: 5%;
 }
+
 .product-price {
     align-self: flex-end;
     padding-right: 5%;
+}
+
+.product-information-short {
+    border-top: 3px solid;
+    border-radius: 0px 0px $border-normal-radius $border-normal-radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
 }

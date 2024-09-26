@@ -3,13 +3,13 @@
 
 :host {
     @include flex-column-center();
-    width: 100%;
+    padding: 1%;
 }
 
 
 #registration-form {
     @include flex-column-center();
-    width: inherit;
+    padding: 1%;
     gap: 1rem;
 }
 

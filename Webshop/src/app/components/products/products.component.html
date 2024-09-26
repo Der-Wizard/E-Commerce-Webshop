@@ -1,6 +1,19 @@
+<app-search-carousel
+  [current_page_index]="current_page_index"
+  [maximum_page_index]="maximum_page_index"
+  (pageChanged)="handlePageChange($event)"
+  *ngIf="maximum_page_index !== 0">
+</app-search-carousel>
+
 <div class="flex-product-container full-size">
   <product-card
     *ngFor="let product of filteredProducts"
-    [product]="product"
-  ></product-card>
+    [product]="product">
+  </product-card>
 </div>
+
+<app-search-carousel
+  [current_page_index]="current_page_index"
+  [maximum_page_index]="maximum_page_index"
+  (pageChanged)="handlePageChange($event)">
+</app-search-carousel>

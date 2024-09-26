@@ -2,11 +2,13 @@
 
 :host {
     @include flex-column-center();
+    padding:1%;
 }
 
 #login-form {
     @include flex-column-center();
     gap: 1rem;
+    padding:1%;
 }
 
 .form-input {

@@ -1,7 +1,7 @@
 @import '../../../../styles/styles.scss';
 
 :host {
-    background-color: $background-least-important;
+    background-color: black;
 }
 
 footer {
@@ -85,5 +85,9 @@ form {
         align-items: center;
         justify-content: center;
         text-align: center;
+    }
+    #email-newsletter {
+        width:auto;
+        margin: 0px 8px;
     }
 }
