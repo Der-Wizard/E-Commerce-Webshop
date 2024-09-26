@@ -1,8 +1,8 @@
 @import '../../../../styles/styles.scss';
 
 :host {
-    width: 20vw;
-    height: 40vh;
+    width: 400px;
+    height: 400px;
 
     background-color: $background-most-important-solid;
 
@@ -16,7 +16,7 @@
     justify-content: center;
 }
 .product-img {
-    height: 30vh;
+    height: 300px;
 }
 .product-heading {
     align-self: center;

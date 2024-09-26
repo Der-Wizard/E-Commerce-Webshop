@@ -7,13 +7,10 @@
         <form [formGroup]="newsletterForm" (ngSubmit)="subscribeToNewsletter()">
             <h3>Subscribe to the newsletter</h3>
             <div>
-                <label for="email">E-mail: </label>
+                <label for="email-newsletter">E-mail: </label>
                 <input id="email-newsletter" formControlName="email" />
             </div>
             <button id="newsletter-sign-up" type="submit">Subscribe</button>
-            <div *ngIf="showMessage" class="success-message fade-in">
-                  {{ successMessage }}  
-            </div>
         </form>
         <div>
             <h3>Help:</h3>
@@ -23,4 +20,8 @@
     <section id="bottom-links">
         <a routerLink="/" id="copy-right-link">&copy; 2024, Mirabelle GbR</a>
     </section>
+
+    <div *ngIf="showMessage" class="success-message fade-in">
+        {{ successMessage }}
+    </div>
 </footer>

@@ -14,6 +14,7 @@ mat-accordion {
 
 mat-accordion * {
     border-radius: $border-normal-radius;
+    background-color: $background-least-important;
 }
 
 mat-expansion-panel {
@@ -21,18 +22,23 @@ mat-expansion-panel {
     border: $border-normal-size;
     border-style: $border-normal-style;
     border-color: $border-normal-color;
+    background-color: $background-more-important;
     margin-bottom: 10px;
+    color: $text-more-important;
 
     overflow: hidden;
+
+    transition: color 0.3s;
 }
 
 mat-accordion mat-expansion-panel:not(.mat-expanded),
  mat-accordion mat-expansion-panel:not(.mat-expansion-panel-spacing) {
-    border-radius: $border-normal-radius;
+    color: #00000000;
 }
 
 mat-accordion mat-expansion-panel.mat-expanded,
  mat-accordion mat-expansion-panel.mat-expansion-panel-spacing {
+    color: $text-more-important;
     border-radius: $border-normal-radius;
     overflow: visible;
     height: auto;
@@ -47,7 +53,13 @@ mat-panel-title {
 }
 
 mat-expansion-panel p {
-    padding-left: 60px;
+    padding-left: 10px;
+    background: $background-most-important;
+    font-size: $h5-size;
+}
+
+mat-panel-description {
+    margin-top: 10px;
 }
 
 .panel-body-content {
@@ -56,9 +68,6 @@ mat-expansion-panel p {
     position: relative; 
     z-index: 2;
 
-    background: $background-most-important-solid;
-    border: $border-normal-size;
-    border-style: $border-normal-style;
-    border-color: $border-normal-color;
-    border-radius: $border-normal-radius;
+    border:none;
+    background: $background-most-important;
 }

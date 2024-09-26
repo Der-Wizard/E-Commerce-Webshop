@@ -1,7 +1,8 @@
 @import '../../variables.scss';
 
 a {
-    font-size: $text-size;
+    padding: 0px 8px;
+    font-size: $h5-size;
     color: $link-normal;
     transition: color 0.5s, transform 0.1s;
 }

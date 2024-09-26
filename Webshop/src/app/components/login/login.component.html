@@ -1,17 +1,11 @@
-    <h1>Login</h1>
-    <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="form-div">
-            <label class="form-label" for="email">E-mail:</label>
-            <input class="form-input" id="login-email" formControlName="email" />
-        </div>
+<h1>Login</h1>
+<form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input class="form-input" id="login-email" formControlName="email" placeholder="E-mail:" />
 
-        <div class="form-div">
-            <label class="form-label" for="password">Password:</label>
-            <input class="form-input" id="login-password" type="password" formControlName="password" />
-        </div>
+    <input class="form-input" id="login-password" type="password" formControlName="password" placeholder="Password:" />
 
-        <app-sign-in-button (buttonClick)="onSubmit()"></app-sign-in-button>
-    </form>
+    <app-sign-in-button (buttonClick)="onSubmit()"></app-sign-in-button>
+</form>
 
-    <a class="top-margin" routerLink="/password-reset">Forgot password?</a>
-    <a class="top-margin" routerLink="/registration">No account yet? Register here</a>
+<a class="top-margin txt-wrap" routerLink="/password-reset">Forgot password?</a>
+<a class="top-margin txt-wrap" routerLink="/registration">No account yet? Register here</a>

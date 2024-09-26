@@ -1,3 +1,6 @@
-<div class="product-container" #productContainer>
-    <!-- Product cards will be dynamically inserted here -->
-  </div>
+<div class="flex-product-container full-size">
+  <product-card
+    *ngFor="let product of filteredProducts"
+    [product]="product"
+  ></product-card>
+</div>

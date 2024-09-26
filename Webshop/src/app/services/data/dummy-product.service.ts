@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductService } from './product-service-interface';
+import { ProductService } from './abstract-product-service';
 import { Product } from './models/product';
 import { Observable, of } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class DummyProductService extends ProductService {
   private dummyData: Product[] = [
-    { id: 0, name: "Inspirational Quote", description: "Inspires creativity.", price: 6.78, category: "posters" },
+    { id: 0, name: "Hannah Montana", description: "Inspires creativity.", price: 6.78, category: "posters" },
     { id: 1, name: "Bear Plushie", description: "Adorable and huggable.", price: 98.8, category: "plushies" },
     { id: 2, name: "Car Sticker", description: "A must-have accessory.", price: 8.68, category: "stickers" },
     { id: 3, name: "Cartoon Pins", description: "A great gift.", price: 25.34, category: "pin sets" },

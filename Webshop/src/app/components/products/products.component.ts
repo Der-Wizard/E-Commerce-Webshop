@@ -4,12 +4,14 @@ import { Product } from '../../services/data/models/product';
 import { environment } from '../../../environments/environment';
 import { ApiProductService } from '../../services/data/api-product.service';
 import { DummyProductService } from '../../services/data/dummy-product.service';
-import { ProductService } from '../../services/data/product-service-interface';
+import { ProductService } from '../../services/data/abstract-product-service';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, CommonModule],
   providers: [
     {
       provide: ProductService,
@@ -20,22 +22,30 @@ import { ProductService } from '../../services/data/product-service-interface';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent implements OnInit {
-  @ViewChild('productContainer', { read: ViewContainerRef, static: true })
-  container!: ViewContainerRef;
   productService = inject(ProductService);
 
+  filteredProducts: Product[] = [];
+  searchTerm: string = '';
+
+  constructor(private route: ActivatedRoute) { }
+
   ngOnInit(): void {
-    this.renderProductCards();
+    this.route.queryParams.subscribe(params => {
+      this.searchTerm = params['search'] || '';
+      this.onSearch();
+    })
   }
 
-  renderProductCards(): void {
-    this.container.clear();
-    this.productService.getProducts(1,50).subscribe((products: Product[])=>{
-      products.forEach((product: Product) => {
-        console.log(product);
-        const componentRef = this.container.createComponent(ProductCardComponent);
-        componentRef.instance.product = product
-      })
-    })
+  onSearch() {
+    if (this.searchTerm) {
+      this.productService.getProducts(1, 50).subscribe((products: Product[]) => {
+        this.filteredProducts = products.filter(product =>
+          product.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+      });
+    } else {
+      this.productService.getProducts(1, 50).subscribe((products: Product[]) => {
+        this.filteredProducts = products;
+      });
+    }
   }
 }

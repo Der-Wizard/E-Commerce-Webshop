@@ -3,29 +3,40 @@
 
 :host {
     @include flex-column-center();
+    width: 100%;
 }
 
 
 #registration-form {
     @include flex-column-center();
+    width: inherit;
     gap: 1rem;
 }
 
-.form-div {
-    display: flex;
-    width: 500px;
-}
-
-.form-label {
-    justify-self: left;
-    width: 200px;
-}
-
 .form-input {
-    justify-self: right;
-    width: 250px;
+    width: auto;
 }
 
 .top-margin {
     margin-top: 10px;
+}
+
+.txt-wrap {
+    width:100%;
+    text-wrap: wrap;
+    text-align: center;
+}
+
+@media screen and (max-width: 600px){
+
+    .form-input {
+        width:60%;
+    }
+}
+
+@media screen and (max-width: 400px){
+
+    .form-input {
+        width:80%;
+    }
 }
