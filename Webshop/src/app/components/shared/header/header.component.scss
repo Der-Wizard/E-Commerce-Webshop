@@ -1,12 +1,9 @@
 @import '../../../../styles/styles.scss';
 
-:host {
-    background-color: black;
-}
-
 header {
     padding-top: 10px;
     padding-bottom: 20px;
+    background-color: black;
 }
 
 a:hover {

@@ -1,4 +1,3 @@
-
 @import './_variables';
 
 .light-mode {
@@ -10,3 +9,6 @@
   filter: $invert-colors;
 }
 
+.light-mode .no-invert {
+  filter: $invert-colors;
+}
