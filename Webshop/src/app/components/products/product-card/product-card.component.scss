@@ -14,6 +14,12 @@
 
     display: flex;
     flex-direction: column;
+
+    position: relative;
+}
+
+:host * {
+    text-decoration: none;
 }
 
 a {
@@ -34,20 +40,24 @@ a {
 .product-img {
     flex: 1;
     background-color: black;
-    border-radius: $border-normal-radius $border-normal-radius 0px 0px;
+    position: absolute;
 }
 
 .product-heading {
     align-self: center;
+    margin: 8px 0x;
 }
 
 .product-short-description {
     padding-left: 5%;
+    margin: 8px 0x;
 }
 
 .product-price {
-    align-self: flex-end;
     padding-right: 5%;
+    margin-bottom: 8px;
+    font-size: $h4-size;
+    color: $primary-bright;
 }
 
 .product-information-short {
@@ -57,4 +67,20 @@ a {
     flex-direction: column;
     justify-content: center;
     background-color: black;
+    margin: 8px 0x;
+}
+
+product-current-stock {
+    padding-left: 20px;
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+.price-stock-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

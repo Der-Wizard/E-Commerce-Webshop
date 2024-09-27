@@ -26,14 +26,11 @@ mat-expansion-panel {
     margin-bottom: 10px;
 
     overflow: hidden;
-
-    transition: color 0.3s;
 }
 
 mat-accordion mat-expansion-panel:not(.mat-expanded),
  mat-accordion mat-expansion-panel:not(.mat-expansion-panel-spacing) {
     border-radius: $border-normal-radius;
-    color: #00000000;
 }
 
 mat-accordion mat-expansion-panel.mat-expanded,

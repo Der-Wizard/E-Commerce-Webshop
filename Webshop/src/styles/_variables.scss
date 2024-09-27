@@ -6,20 +6,20 @@ $primary-accent-light: #FFD25A;
 $primary-color: #FFAA5A;
 $primary-accent-dark: #FF785A;
 
-$secondary-accent-bright: #1F1F1F;
-$secondary-accent-light: #1F1F1F;
+$secondary-accent-bright: #0a0a0a;
+$secondary-accent-light: #141414;
 $secondary-color: #1F1F1F;
-$secondary-accent-dim: #1F1F1F;
-$secondary-accent-dark: #1F1F1F;
+$secondary-accent-dim: #292929;
+$secondary-accent-dark: #333333;
 
 /**/
 $invert-colors: invert(1);
 
-$background-least-important: #0a0a0a;
-$background-less-important: #141414;
+$background-least-important: $secondary-accent-bright;
+$background-less-important: $secondary-accent-light;
 $background-normal: $secondary-color;
-$background-more-important: #292929;
-$background-most-important: #333333;
+$background-more-important: $secondary-accent-dim;
+$background-most-important: $secondary-accent-dark;
 
 $button-background: $primary-color;
 $button-background-hover: $primary-accent-dark;
