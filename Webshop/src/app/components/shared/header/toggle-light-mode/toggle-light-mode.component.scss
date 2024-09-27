@@ -1,0 +1,12 @@
+@import '../../../../../styles/styles.scss';
+
+p {
+    font-size: $h4-size;
+
+    transition: color 0.5s;
+}
+
+p:hover {
+    color: $text-more-important;
+}
+

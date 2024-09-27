@@ -1,0 +1,11 @@
+
+@import './_variables';
+
+.light-mode {
+  filter: $invert-colors;
+}
+
+.light-mode img,
+.light-mode video {
+  filter: $invert-colors;
+}

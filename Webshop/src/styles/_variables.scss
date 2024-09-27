@@ -1,28 +1,43 @@
+/*
+color palette:
+*/
+$primary-bright: #FFF05A;
+$primary-accent-light: #FFD25A;
+$primary-color: #FFAA5A;
+$primary-accent-dark: #FF785A;
+
+$secondary-accent-bright: #1F1F1F;
+$secondary-accent-light: #1F1F1F;
+$secondary-color: #1F1F1F;
+$secondary-accent-dim: #1F1F1F;
+$secondary-accent-dark: #1F1F1F;
+
+/**/
+$invert-colors: invert(1);
+
 $background-least-important: #0a0a0a;
 $background-less-important: #141414;
-$background-normal: #1f1f1f;
+$background-normal: $secondary-color;
 $background-more-important: #292929;
 $background-most-important: #333333;
 
-$page-background-gradient: #1f1f1f;
+$button-background: $primary-color;
+$button-background-hover: $primary-accent-dark;
+$button-color: $secondary-color;
+$button-color-hover: $primary-bright;
 
-$button-background: #ffaa5a;
-$button-background-hover: #ff785a;
-$button-color: #1f1f1f;
-$button-color-hover: #fff05a;
+$text-less-important: $primary-color;
+$text-normal: $primary-color;
+$text-more-important: $primary-accent-light;
+$text-most-important: $primary-bright;
 
-$text-less-important: #ff785a;
-$text-normal: #ffaa5a;
-$text-more-important: #ffd25a;
-$text-most-important: #fff05a;
+$link-normal: lighten(saturate($text-normal, 30%), 10%);
+$link-hover: lighten(saturate($text-more-important, 30%), 10%);
+$link-active: lighten(saturate($text-less-important, 30%), 10%);
 
-$link-normal: lighten(saturate($text-normal, 30%),10%);
-$link-hover: lighten(saturate($text-more-important, 30%),10%);
-$link-active: lighten(saturate($text-less-important, 30%),10%);
-
-$success-background:hsla(80,100%,95%,100%);
-$success-border:hsla(90,50%,50%,100%);
-$success-text:hsla(120,80%,50%,100%);
+$success-background: hsla(80, 100%, 95%, 100%);
+$success-border: hsla(90, 50%, 50%, 100%);
+$success-text: hsla(120, 80%, 50%, 100%);
 
 $text-size: 12px;
 $h1-size: 36px;
@@ -33,22 +48,10 @@ $h5-size: 16px;
 $h6-size: 14px;
 
 $border-normal-size: 3px;
-$border-normal-color: #ffd25a;
+$border-normal-color: $primary-accent-light;
 $border-normal-radius: 20px;
 $border-normal-style: solid;
 
-$border-focused-color: #fff05a;
+$border-focused-color: $primary-bright;
 
 $input-field-color: #3b3b3b;
-
-
-
-/*
-color palette:
-*/
-$color-maize: #FFF05A;
-$color-sunglow: #FFD25A;
-$color-sandy-brown: #FFAA5A;
-$color-bittersweet: #FF785A;
-$color-eerie-black: #1F1F1F;
-

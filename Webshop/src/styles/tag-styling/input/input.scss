@@ -39,6 +39,6 @@ input[type="text"]:invalid {
 }
 
 input::placeholder {
-    color: $text-normal;
+    color: $text-less-important;
     font-family: 'Nunito', sans-serif;
 }

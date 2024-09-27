@@ -24,7 +24,6 @@ mat-expansion-panel {
     border-color: $border-normal-color;
     background-color: $background-more-important;
     margin-bottom: 10px;
-    color: $text-more-important;
 
     overflow: hidden;
 
@@ -33,12 +32,13 @@ mat-expansion-panel {
 
 mat-accordion mat-expansion-panel:not(.mat-expanded),
  mat-accordion mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+    border-radius: $border-normal-radius;
     color: #00000000;
 }
 
 mat-accordion mat-expansion-panel.mat-expanded,
  mat-accordion mat-expansion-panel.mat-expansion-panel-spacing {
-    color: $text-more-important;
+    color: $text-normal;
     border-radius: $border-normal-radius;
     overflow: visible;
     height: auto;

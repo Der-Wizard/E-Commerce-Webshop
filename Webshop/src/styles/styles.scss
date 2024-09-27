@@ -8,6 +8,7 @@
 
 @import './behaviour/responsive.scss';
 
+
 main {
     display: flex;
     flex-direction: column;
@@ -18,11 +19,8 @@ main {
 
 html,
 body {
-    background: rgb(0,0,0);
-    background-image: $page-background-gradient;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background: $background-least-important;
     font-family: 'Nunito', 'Noto Sans',  sans-serif;
-    height: 100%;
+    height: auto;
     margin: 0;
 }
