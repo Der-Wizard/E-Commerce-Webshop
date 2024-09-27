@@ -50,7 +50,13 @@ export class ProductsComponent implements OnInit {
       this.pageSize = 50;
     }
 
-    this.handlePageChange(this.current_page_index);
+    this.productService.fetchProductPageCount(this.searchTerm, this.pageSize).subscribe((pageCount) => {
+      if (this.current_page_index > pageCount) {
+        this.current_page_index = pageCount;
+      }
+      this.handlePageChange(this.current_page_index);
+    });
+
   }
 
   private onResize() {

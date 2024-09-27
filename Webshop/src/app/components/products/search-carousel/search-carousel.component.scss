@@ -24,9 +24,9 @@
 }
 
 .current_page{
-    color: black;
-    background-color: white;
-    border-color: $border-focused-color;
+    color: $text-most-important;
+    background-color: #FF5833;
+    border-color: $color-bittersweet;
 }
 
 @media screen and (max-width: 600px){

@@ -77,6 +77,32 @@ form {
     // }
 }
 
+#back-to-the-top {
+    align-self: center;
+    margin-bottom: 10px;
+    width:auto;
+    text-wrap: wrap;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: bold;
+    color: $button-color;
+
+    background-color: $button-background;
+    border: $border-normal-size;
+    border-style: $border-normal-style;
+    border-color: $border-focused-color black black $border-focused-color;
+    border-radius: $border-normal-radius;
+
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.5s, transform 0.1s;
+}
+
+#back-to-the-top:hover {
+    color: $button-color-hover;
+    background-color: $button-background-hover;
+    border-color: $border-focused-color;
+}
 
 @media screen and (max-width: 750px) {
     #bottom-interactions {

@@ -1,20 +1,20 @@
-$background-least-important: hsl(230,5%,2%);
-$background-less-important: hsl(230,10%,3%);
-$background-normal: hsl(230,20%,10%);
-$background-more-important: hsl(230,20%,10%);
-$background-most-important: hsl(230,30%,15%);
+$background-least-important: #0a0a0a;
+$background-less-important: #141414;
+$background-normal: #1f1f1f;
+$background-more-important: #292929;
+$background-most-important: #333333;
 
-$background-most-important-solid: hsl(230,10%,15%,100%);
+$page-background-gradient: #1f1f1f;
 
-$button-background: black;
-$button-background-hover: hsl(230,40%,90%);
-$button-color: hsl(230,40%,95%);
-$button-color-hover: invert(hsl(230,40%,95%));
+$button-background: #ffaa5a;
+$button-background-hover: #ff785a;
+$button-color: #1f1f1f;
+$button-color-hover: #fff05a;
 
-$text-less-important: hsl(230,20%,50%);
-$text-normal: hsl(230,30%,70%);
-$text-more-important: hsl(230,40%,90%);
-$text-most-important: hsl(230,40%,95%);
+$text-less-important: #ff785a;
+$text-normal: #ffaa5a;
+$text-more-important: #ffd25a;
+$text-most-important: #fff05a;
 
 $link-normal: lighten(saturate($text-normal, 30%),10%);
 $link-hover: lighten(saturate($text-more-important, 30%),10%);
@@ -33,10 +33,22 @@ $h5-size: 16px;
 $h6-size: 14px;
 
 $border-normal-size: 3px;
-$border-normal-color: hsla(200,20%,40%,50%);
+$border-normal-color: #ffd25a;
 $border-normal-radius: 20px;
 $border-normal-style: solid;
 
-$border-focused-color: hsla(200,20%,90%,50%);
+$border-focused-color: #fff05a;
 
 $input-field-color: #3b3b3b;
+
+
+
+/*
+color palette:
+*/
+$color-maize: #FFF05A;
+$color-sunglow: #FFD25A;
+$color-sandy-brown: #FFAA5A;
+$color-bittersweet: #FF785A;
+$color-eerie-black: #1F1F1F;
+

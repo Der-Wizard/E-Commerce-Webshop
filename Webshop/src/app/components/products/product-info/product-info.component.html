@@ -1,8 +1,6 @@
-<a [routerLink]="['/products', product.id]">
     <div class="product-img"></div>
     <div class="product-information-short">
         <h3 class="product-heading"> {{ product.name }}</h3>
         <p class="product-short-description"> {{ product.short_description }}</p>
         <p class="product-price"> {{ product.price | currency:'EUR':'symbol'}}</p>
     </div>
-</a>

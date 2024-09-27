@@ -1,6 +1,5 @@
 @import '../../../../styles/styles.scss';
 
-
 :host {
     width: 400px;
     height: 600px;
@@ -16,24 +15,13 @@
     flex-direction: column;
 }
 
-a {
-    flex: 1;
-    padding: 0%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-
-
 :host:hover {
     border-color: lighten($border-focused-color, 50%);
 }
 
 .product-img {
     flex: 1;
-    background-color: black;
+    background-color: white;
     border-radius: $border-normal-radius $border-normal-radius 0px 0px;
 }
 

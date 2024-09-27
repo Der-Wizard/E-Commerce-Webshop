@@ -18,7 +18,10 @@ main {
 
 html,
 body {
-    background: $background-less-important;
+    background: rgb(0,0,0);
+    background-image: $page-background-gradient;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     font-family: 'Nunito', 'Noto Sans',  sans-serif;
     height: 100%;
     margin: 0;

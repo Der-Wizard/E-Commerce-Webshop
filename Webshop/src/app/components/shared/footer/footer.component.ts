@@ -45,4 +45,12 @@ export class FooterComponent {
     this.showMessage = false;
     this.successMessage = '';
   }
+
+  scrollToSearchBar(event: Event) {
+    event.preventDefault();
+    const searchBar = document.querySelector('#title');
+    if (searchBar) {
+      searchBar.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

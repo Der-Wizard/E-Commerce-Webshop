@@ -15,11 +15,15 @@ export class ApiProductService extends ProductService{
     super();
   }
 
+  override fetchProductPageCount(searchTerm: string, pageSize: number): Observable<number> {
+    return this.http.get<number>(this.apiUrl);
+  }
+
   override fetchProducts(searchTerm: string, page: number, pageSize: number): Observable<[Product[], number]> {
     return this.http.get<[Product[],number]>(this.apiUrl);
   }
 
-  override getProductById(id: number): Observable<Product> | undefined {
+  override getProductById(id: string): Observable<Product> | undefined {
     return this.http.get<Product>(`${this.apiUrl}/${id}`);
   }
 }
