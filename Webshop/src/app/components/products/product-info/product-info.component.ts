@@ -5,13 +5,21 @@ import { ProductService } from '../../../services/data/abstract-product-service'
 import { environment } from '../../../../environments/environment';
 import { ApiProductService } from '../../../services/data/api-product.service';
 import { DummyProductService } from '../../../services/data/dummy-product.service';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, NgFor, NgForOf, NgIf } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ProductCardComponent } from "../product-card/product-card.component";
+import { CurrentStockComponent } from '../current-stock/current-stock.component';
 
 @Component({
   selector: 'app-product-info',
   standalone: true,
   imports: [
-    CurrencyPipe
+    CurrencyPipe,
+    NgFor, NgForOf,
+    NgIf,
+    ReactiveFormsModule,
+    ProductCardComponent,
+    CurrentStockComponent
   ],
   providers: [
     {
@@ -23,12 +31,18 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './product-info.component.scss'
 })
 export class ProductInfoComponent implements OnInit {
+  quantityForm: FormGroup;
+
   productId: string | null | undefined = '';
   product!: Product;
   private productService = inject(ProductService);
   private router = inject(Router);
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private route: ActivatedRoute) {
+    this.quantityForm = this.fb.group({
+      quantity: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
+    });
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -53,5 +67,14 @@ export class ProductInfoComponent implements OnInit {
     observableProduct.subscribe((product: Product) => {
       this.product = product;
     })
+  }
+
+  onSubmit() {
+
+  }
+
+  generateStockArray(stock: number): number[] {
+    const maxLimit = 30;
+    return Array(Math.min(stock, maxLimit)).fill(0).map((_, i) => i + 1);
   }
 }
