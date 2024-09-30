@@ -4,15 +4,16 @@
     color: inherit;
     text-decoration: none;
     transition: color 0.1s;
-    
+
+    * {
+    text-wrap: nowrap;
+
+    }
 }
 
 a {
+    text-decoration: none;
     border: solid 1px;
     border-radius: $std-border-radius;
     padding: 1px 5px;
-}
-
-i {
-    text-wrap: nowrap;
 }

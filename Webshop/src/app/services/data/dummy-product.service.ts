@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ProductService } from './abstract-product-service';
 import { Product } from './models/product';
-import { Observable, of } from 'rxjs';
+import { filter, Observable, of } from 'rxjs';
+import { ProductSortOrder } from './models/product-sort-order';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DummyProductService extends ProductService {
+  override searchTerm!: string;
+  override searchCategory!: string;
+  override sorting: ProductSortOrder = ProductSortOrder.Normal;
+
   private dummyData: Product[] = [
     { id: "0", name: "Hannah Montana", description: "", short_description: "Inspires creativity.", stock: 0, price: 6.78, category: "posters" },
     { id: "1", name: "Bear Plushie", description: "", short_description: "Adorable and huggable.", stock: 770, price: 98.8, category: "plushies" },
@@ -1508,55 +1513,35 @@ export class DummyProductService extends ProductService {
     { id: "1497", name: "Band Pins", description: "", short_description: "Perfect for bags and jackets.", stock: 970, price: 61.06, category: "pin sets" },
     { id: "1498", name: "Sweater", description: "", short_description: "Durable and fashionable.", stock: 976, price: 51.11, category: "clothing" },
     { id: "1499", name: "Pikachu", description: "", short_description: "Fits perfectly.", stock: 565, price: 27.11, category: "clothing" }
-];
-  
-  constructor () {
+  ];
+
+  constructor() {
     super();
     this.dummyData.forEach(item => {
-      if ( item.stock > 100) {
-        item.stock = Math.floor(Math.random() * 100);
+      if (item.stock > 200) {
+        item.stock = Math.floor(Math.random() * 200);
       }
     });
-    console.log(this.dummyData);
   }
-  override fetchProductPageCount(searchTerm: string, pageSize: number): Observable<number> {
-    var filteredProducts: Product[];
 
-    var maxPageCount: number;
-
-    if (searchTerm) {
-      filteredProducts = this.dummyData.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-    else {
-      filteredProducts = this.dummyData;
-    }
-
-    maxPageCount = Math.ceil(filteredProducts.length / pageSize);
+  override fetchProductPageCount(pageSize: number): Observable<number> {
+    var filteredProducts: Product[] = this.filterProducts(this.dummyData);
+    var sortedProducts = this.sortProducts(filteredProducts, this.sorting);
+    var maxPageCount = Math.ceil(sortedProducts.length / pageSize);
     return of(maxPageCount);
   }
 
-  override fetchProducts(searchTerm: string, page: number, pageSize: number): Observable<[Product[], number]> {
+  override fetchProducts(page: number, pageSize: number): Observable<[Product[], number]> {
     const start = (page - 1) * pageSize;
     const end = start + pageSize;
 
-    var filteredProducts: Product[];
+    console.log(this.searchTerm, this.searchCategory);
 
-    var slicedProducts: Product[];
-    var maxPageCount: number;
+    var filteredProducts: Product[] = this.filterProducts(this.dummyData);
 
-    if (searchTerm) {
-      filteredProducts = this.dummyData.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-
-    } else {
-      filteredProducts = this.dummyData;
-    }
-
-    maxPageCount = Math.ceil(filteredProducts.length / pageSize);
-    slicedProducts = filteredProducts.slice(start, end);
+    var sortedProducts = this.sortProducts(filteredProducts,this.sorting);
+    var maxPageCount = Math.ceil(sortedProducts.length / pageSize);
+    var slicedProducts = sortedProducts.slice(start, end);
 
     return of([slicedProducts, maxPageCount]);
   }
@@ -1569,4 +1554,36 @@ export class DummyProductService extends ProductService {
     }
     return of(product);
   }
+
+
+  private filterProducts(filteredProducts: Product[]): Product[] {
+    if (this.searchCategory) {
+      filteredProducts = filteredProducts.filter(product =>
+        product.category === this.searchCategory
+      );
+    }
+
+    if (this.searchTerm) {
+      filteredProducts = filteredProducts.filter(product =>
+        product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+
+    return filteredProducts;
+  }
+
+  private sortProducts(products: Product[], sorting: ProductSortOrder): Product[] {
+    switch (sorting) {
+      case ProductSortOrder.Normal:
+        return products;
+      case ProductSortOrder.PriceHighToLow:
+        return products.sort((a, b) => a.price + b.price);
+      case ProductSortOrder.PriceLowToHigh:
+        return products.sort((a, b) => a.price - b.price);
+      default:
+        return products;
+    }
+  }
 }
+
+

@@ -8,22 +8,22 @@ import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiProductService extends ProductService{
-  private apiUrl = environment.apiUrl;
+export class ApiProductService {
+  // private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {
-    super();
-  }
+  // constructor(private http: HttpClient) {
+  //   super();
+  // }
 
-  override fetchProductPageCount(searchTerm: string, pageSize: number): Observable<number> {
-    return this.http.get<number>(this.apiUrl);
-  }
+  // override fetchProductPageCount(searchTerm: string, pageSize: number): Observable<number> {
+  //   return this.http.get<number>(this.apiUrl);
+  // }
 
-  override fetchProducts(searchTerm: string, page: number, pageSize: number): Observable<[Product[], number]> {
-    return this.http.get<[Product[],number]>(this.apiUrl);
-  }
+  // override fetchProducts(searchTerm: string, page: number, pageSize: number): Observable<[Product[], number]> {
+  //   return this.http.get<[Product[],number]>(this.apiUrl);
+  // }
 
-  override getProductById(id: string): Observable<Product> | undefined {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`);
-  }
+  // override getProductById(id: string): Observable<Product> | undefined {
+  //   return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  // }
 }

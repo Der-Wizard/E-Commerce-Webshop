@@ -1,44 +1,56 @@
 @import '../../variables';
 
 button {
-    padding: 0px 8px;
-    width: 100px;
-
-    font-size: 20px;
-    font-weight: bold;
-    color: $button-color;
-
-    background-color: $button-background;
-    border-radius: $border-normal-radius;
-    
-    cursor: pointer;
-    transition: color 0.5s, background-color 0.5s, transform 0.1s;
+    border-radius: $std-border-radius-circle;
 }
 
 button:hover {
-    color: $button-color-hover;
-    background-color: $button-background-hover;
+    filter:invert(1);
 }
 
 input {
-    padding-left: 8px;
-    font-size: 20px;
-    border-radius: 90px;
-
-    background-color: $input-field-color !important;
-    color: $text-more-important !important;
+    border-radius: $std-border-radius-circle;
 }
 
-input[type="text"]:focus {
-    border-color: $border-focused-color;
-}
+// button {
+//     padding: 0px 8px;
+//     width: 100px;
 
-input[type="text"]:invalid {
-    border-color: #dc3545;
-    background-color: $input-field-color;
-}
+//     font-size: 20px;
+//     font-weight: bold;
+//     color: $button-color;
 
-input::placeholder {
-    color: $text-less-important;
-    font-family: 'Nunito', sans-serif;
-}
+//     background-color: $button-background;
+//     border-radius: $border-normal-radius;
+    
+//     cursor: pointer;
+//     transition: color 0.5s, background-color 0.5s, transform 0.1s;
+// }
+
+// button:hover {
+//     color: $button-color-hover;
+//     background-color: $button-background-hover;
+// }
+
+// input {
+//     padding-left: 8px;
+//     font-size: 20px;
+//     border-radius: 90px;
+
+//     background-color: $input-field-color !important;
+//     color: $text-more-important !important;
+// }
+
+// input[type="text"]:focus {
+//     border-color: $border-focused-color;
+// }
+
+// input[type="text"]:invalid {
+//     border-color: #dc3545;
+//     background-color: $input-field-color;
+// }
+
+// input::placeholder {
+//     color: $text-less-important;
+//     font-family: 'Nunito', sans-serif;
+// }

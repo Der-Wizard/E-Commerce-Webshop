@@ -1,31 +1,17 @@
-@import './_variables';
-
+@import './variables';
+@import './global.scss';
 @import './tag-styling/text/a.scss';
-@import './tag-styling/text/h.scss';
-@import './tag-styling/text/text.scss';
-
 @import './tag-styling/input/input.scss';
-
-@import './behaviour/responsive.scss';
-
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-}
 
 html,
 body {
-    color-scheme: dark;
-    background: $background-least-important;
-    font-family: 'Nunito', 'Noto Sans',  sans-serif;
-    height: auto;
+    overflow-x: hidden;
     margin: 0;
-}
 
-body button {
-    color-scheme: light;
+    .inverted {
+        filter: invert(1);
+    }
+    * {
+        font-family: 'Nunito', 'Noto Sans', sans-serif;
+    }
 }

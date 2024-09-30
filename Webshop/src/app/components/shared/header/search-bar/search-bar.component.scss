@@ -1,69 +1,21 @@
 @import '../../../../../styles/styles.scss';
 
-#search-bar-middle {
-    margin-top: 8px;
-    display: flex;
+:host {
+    width: 50%;
+    position: relative;
+    display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-#search-bar-container {
-    min-width: 40%;
-    position: relative;
-    display:flex;
+#search-button {
+    position: absolute;
+    left: -5px;
+    z-index: 1;
 }
 
 #search-bar {
-    width:100%;
-}
-
-input[type="text"] {
-    flex: 1;
-    padding: 0px 10px;
-}
-
-.search-icon {
-    font-size: 16px;
-}
-
-#search-button {
-    margin-left:8px;
-    width: 80px;
-    text-shadow: none;
-}
-
-#reset-search-button {
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-    right:0%;
-    border: none;
-    background: none;
-    width: auto;
-    height: auto;
-    margin-right: 4px;
-    font-size: 20px;
-    color: $text-more-important;
-}
-
-
-#reset-search-button:hover {
-    color: $button-color-hover;
-}
-
-@media screen and (max-width: 600px) {
-    #search-bar-container {
-        width: 70%;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    #search-bar-container {
-        width: 90%;
-    }
-
-    #search-bar-middle {
-        flex-direction: column;
-    }
+    width: 100%;
+    padding-left: 40px;
 }

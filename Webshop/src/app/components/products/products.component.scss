@@ -1,25 +1,50 @@
 @import '../../../styles/styles.scss';
 
 :host {
-    margin: 20px auto;
     height: 100%;
-    width: 100%;
+    width:100%;
     box-sizing: border-box;
-
-    flex: 1;
-    display:flex;
+    padding-left: $std-padding;
+    padding-right: $std-padding;
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: center;
+    flex: 1;
 }
 
 
 .flex-product-container {
+    padding: $std-padding 0;
+    width:100%;
+    box-sizing: border-box;
     display: flex;
-    height: 100%;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    gap:8px;
+    justify-content: center;
+    gap: $std-gap;
+    align-items: center;
 }
 
+// :host {
+//     margin: 20px auto;
+//     height: 100%;
+//     width: 100%;
+//     box-sizing: border-box;
+
+//     flex: 1;
+//     display:flex;
+//     flex-direction: column;
+//     justify-content: flex-end;
+// }
+
+
+// .flex-product-container {
+//     display: flex;
+//     height: 100%;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
+//     flex-wrap: wrap;
+//     gap:8px;
+// }

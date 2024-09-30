@@ -8,6 +8,8 @@ import { ProductService } from '../../services/data/abstract-product-service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { SearchCarouselComponent } from './search-carousel/search-carousel.component';
+import { SearchOptionsComponent } from './search-options/search-options.component';
+import { ProductSortOrder } from '../../services/data/models/product-sort-order';
 
 @Component({
   selector: 'app-products',
@@ -15,12 +17,7 @@ import { SearchCarouselComponent } from './search-carousel/search-carousel.compo
   imports: [ProductCardComponent,
     CommonModule,
     SearchCarouselComponent,
-  ],
-  providers: [
-    {
-      provide: ProductService,
-      useClass: environment.production ? ApiProductService : DummyProductService,
-    },
+    SearchOptionsComponent
   ],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
@@ -29,18 +26,18 @@ export class ProductsComponent implements OnInit {
   private pageSize: number = 50;
   private resizeTimeout: any;
 
-  productService = inject(ProductService);
+  productService: ProductService;
 
   filteredProducts: Product[] = [];
-  searchTerm: string = '';
   current_page_index: number = 1;
   maximum_page_index: number = 1;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, p_productService: ProductService) {
+    this.productService = p_productService;
+   }
 
   getPageSizeBasedOnScreenSize() {
     var screenWidth = document.documentElement.clientWidth;
-    console.log(screenWidth);
 
     if (screenWidth < 400) {
       this.pageSize = 15;
@@ -50,7 +47,7 @@ export class ProductsComponent implements OnInit {
       this.pageSize = 50;
     }
 
-    this.productService.fetchProductPageCount(this.searchTerm, this.pageSize).subscribe((pageCount) => {
+    this.productService.fetchProductPageCount(this.pageSize).subscribe((pageCount) => {
       if (this.current_page_index > pageCount) {
         this.current_page_index = pageCount;
       }
@@ -68,7 +65,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      this.searchTerm = params['search'] || '';
+      this.productService.searchTerm = params['search'] || '';
       this.current_page_index = 1;
       this.onSearch();
     });
@@ -78,9 +75,8 @@ export class ProductsComponent implements OnInit {
 
   onSearch() {
     this.productService
-      .fetchProducts(this.searchTerm, this.current_page_index, this.pageSize)
+      .fetchProducts(this.current_page_index, this.pageSize)
       .subscribe(([products, max_page_index]) => {
-        console.log(products, max_page_index);
         this.filteredProducts = products;
         this.maximum_page_index = max_page_index;
       });

@@ -1,40 +1,40 @@
-@import '../../../styles/styles.scss';
+// @import '../../../styles/styles.scss';
 
-:host {
-    @include flex-column-center();
-    padding:1%;
-}
+// :host {
+//     @include flex-column-center();
+//     padding:1%;
+// }
 
-#login-form {
-    @include flex-column-center();
-    gap: 1rem;
-    padding:1%;
-}
+// #login-form {
+//     @include flex-column-center();
+//     gap: 1rem;
+//     padding:1%;
+// }
 
-.form-input {
-    width: auto;
-}
+// .form-input {
+//     width: auto;
+// }
 
-.top-margin {
-    margin-top: 10px;
-}
+// .top-margin {
+//     margin-top: 10px;
+// }
 
-.txt-wrap {
-    width:100%;
-    text-wrap: wrap;
-    text-align: center;
-}
+// .txt-wrap {
+//     width:100%;
+//     text-wrap: wrap;
+//     text-align: center;
+// }
 
-@media screen and (max-width: 600px){
+// @media screen and (max-width: 600px){
 
-    .form-input {
-        width:60%;
-    }
-}
+//     .form-input {
+//         width:60%;
+//     }
+// }
 
-@media screen and (max-width: 400px){
+// @media screen and (max-width: 400px){
 
-    .form-input {
-        width:80%;
-    }
-}
+//     .form-input {
+//         width:80%;
+//     }
+// }

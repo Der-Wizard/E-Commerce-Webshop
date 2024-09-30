@@ -14,5 +14,13 @@ import { CurrentStockComponent } from '../current-stock/current-stock.component'
   styleUrl: './product-card.component.scss'
 })
 export class ProductCardComponent {
-  @Input() product!: Product;
+  @Input() product: Product = {
+    id: '',
+    name: '',
+    description: '',
+    short_description: '',
+    price: 0,
+    stock: 0,
+    category: ''
+  };
 }

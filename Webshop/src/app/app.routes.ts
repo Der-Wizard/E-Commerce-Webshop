@@ -14,7 +14,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductInfoComponent } from './components/products/product-info/product-info.component';
 
 export const routes: Routes = [
-    { path:'', component: HomeComponent, pathMatch: 'full' },
+    { path:'', component: HomeComponent },
+    { path:'home', redirectTo: '' },
     { path:'products', component: ProductsComponent},
     { path:'products/:id', component: ProductInfoComponent},
     { path:'login', component: LoginComponent, canActivate: [noAuthGuard]},

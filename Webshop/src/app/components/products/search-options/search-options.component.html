@@ -1,0 +1,14 @@
+<div>
+    <label for="select-sorting-dropdown">Sort By:</label>
+    <select id="select-sorting-dropdown" [(ngModel)]="productService.sorting" (ngModelChange)="onSortingChange($event)">
+      <option *ngFor="let option of sortingOptions" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="select-category-dropdown">Category:</label>
+    <select id="select-category-dropdown" [(ngModel)]="productService.searchCategory" (ngModelChange)="onCategoryChange($event)">
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+  

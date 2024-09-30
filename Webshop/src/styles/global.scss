@@ -1,14 +1,36 @@
 @import './_variables';
 
 .light-mode {
-  filter: $invert-colors;
+  color: $light-text;
+  background-color: $light-bg;
+
+  .show-panel {
+    background-color: $light-panel;
+  }
+
+  .show-panel-highlight {
+    background-color: $light-bg;
+  }
+
+  .show-panel-highlight:hover {
+    filter: invert(1);
+  }
+
 }
 
-.light-mode img,
-.light-mode video {
-  filter: $invert-colors;
-}
+.dark-mode {
+  color: $dark-text;
+  background-color: $dark-bg;
 
-.light-mode .no-invert {
-  filter: $invert-colors;
+  .show-panel {
+    background-color: $dark-panel;
+  }
+
+  .show-panel-highlight {
+    background-color: $dark-bg;
+  }
+  
+  .show-panel-highlight:hover {
+    filter: invert(1);
+  }
 }

@@ -1,24 +1,21 @@
-<header>
-    <h1 id="title">Mirabelle</h1>
+<h1 id="title">Mirabelle</h1>
+<div id="nav-bar">
+    <nav id="nav-bar-left">
+        <app-toggle-light-mode></app-toggle-light-mode>
+        <app-nav-link link="home" icon_class="fa-home" content=" Home"></app-nav-link>
+        <app-nav-link link="products" icon_class="fa-box" content=" Products"></app-nav-link>
+        <app-nav-link link="about" icon_class="fa-info-circle" content=" About"></app-nav-link>
+    </nav>
 
-    <div id="nav-bar">
-        <nav id="nav-bar-left">
-            <a routerLink="">Home</a>
-            <a routerLink="/products">Products</a>
-            <a routerLink="/about">About</a>
-            <app-toggle-light-mode></app-toggle-light-mode>
-        </nav>
-        
-        <nav id="nav-bar-right">
-            <div *isLoggedIn="false">
-                <a routerLink="/login">Sign In</a>
-                <a routerLink="/registration">Sign Up</a>
-            </div>
-            <div *isLoggedIn="true">
-                <a routerLink="/cart">Cart</a>
-                <a routerLink="/account">Account</a>
-            </div>
-        </nav>
-    </div>
-    <app-search-bar></app-search-bar>
-</header>
+    <nav id="nav-bar-right">
+        <div *isLoggedIn="false">
+            <app-nav-link link="login" icon_class="fa-sign-in-alt" content=" Sign In"></app-nav-link>
+            <app-nav-link link="registration" icon_class="fa-user-plus" content=" Sign Up"></app-nav-link>
+        </div>
+        <div *isLoggedIn="true">
+            <app-nav-link link="cart" icon_class="fa-shopping-cart" content=" Cart"></app-nav-link>
+            <app-nav-link link="account" icon_class="fa-user" content=" Account"></app-nav-link>
+        </div>
+    </nav>
+</div>
+<app-search-bar></app-search-bar>

@@ -34,7 +34,7 @@
 
             <form id="quantity-form" [formGroup]="quantityForm" ngSubmit="onSubmit()">
                 <label for="quantity">Quantity: </label>
-                <select fomrControlName="quantity" id="select-quantity-dropdown">
+                <select formControlName="quantity" id="select-quantity-dropdown">
                     <option *ngFor="let i of generateStockArray(product.stock)" [value]="i">{{ i }}</option>
 
                 </select>

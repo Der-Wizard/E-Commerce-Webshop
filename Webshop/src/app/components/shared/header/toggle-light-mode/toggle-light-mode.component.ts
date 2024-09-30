@@ -11,10 +11,11 @@ import { Component } from '@angular/core';
   styleUrl: './toggle-light-mode.component.scss'
 })
 export class ToggleLightModeComponent {
-  isLightMode = false;
+  isLightMode = true;
 
   toggleLightMode() {
     this.isLightMode = !this.isLightMode;
+    document.body.classList.toggle('dark-mode', !this.isLightMode);
     document.body.classList.toggle('light-mode', this.isLightMode);
   }
 }
