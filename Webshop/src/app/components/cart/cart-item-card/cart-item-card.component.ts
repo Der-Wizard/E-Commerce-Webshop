@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CartItem } from '../../../services/checkout/models/cart-item';
 import { ProductService } from '../../../services/data/abstract-product-service';
 import { Product } from '../../../services/data/models/product';
@@ -20,7 +20,8 @@ export class CartItemCardComponent implements OnInit{
 
   @Output() onCartItemRemoved = new EventEmitter();
 
-  constructor(private productService: ProductService, private cartService: CartService) {}
+  constructor(private productService: ProductService, private cartService: CartService) {
+  }
 
   ngOnInit() {
     this.productService.getProductById(this.cartItem.id)?.subscribe((product) => {

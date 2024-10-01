@@ -1,9 +1,9 @@
 <div class="checkout-milestone-container">
-    <p class="checkout-milestone">Cart</p>
+    <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Cart'}">Cart</p>
     <i class="fas fa-greater-than"></i>
-    <p class="checkout-milestone">Information</p>
+    <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Information'}">Information</p>
     <i class="fas fa-greater-than"></i>
-    <p class="checkout-milestone selected">Shipping</p>
+    <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Shipping'}">Shipping</p>
     <i class="fas fa-greater-than"></i>
-    <p class="checkout-milestone">Payment</p>
+    <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Payment'}">Payment</p>
 </div>

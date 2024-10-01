@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
+  cartTotal: number = 0;
   constructor(public cartService: CartService, private cd: ChangeDetectorRef, private router:Router) {
    }
 

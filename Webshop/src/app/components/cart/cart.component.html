@@ -17,7 +17,7 @@
 </div>
 <hr>
 <cart-item-card *ngFor="let cartItem of cartService.getCart()" [cartItem]="cartItem"
-(onCartItemRemoved)="checkCart">
+(onCartItemRemoved)="checkCart()">
 </cart-item-card>
 <div *ngIf="cartService.getCart()?.length === 0">
     <p>There are no items in your cart</p>

@@ -1,17 +1,19 @@
-<h1>Register</h1>
-<form id="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <input class="form-input" id="registration-forname" formControlName="forname" placeholder="Forname:" />
-    <input class="form-input" id="registration-surname" formControlName="surname" placeholder="Surname:" />
+<div class="registration-container">
+    <h1>Register</h1>
+    <form id="registration-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input class="form-input" id="registration-forname" formControlName="forname" placeholder="Forname:" />
+        <input class="form-input" id="registration-surname" formControlName="surname" placeholder="Surname:" />
 
-    <input class="form-input" id="registration-email" formControlName="email" placeholder="E-mail:" />
+        <input class="form-input" id="registration-email" formControlName="email" placeholder="E-mail:" />
 
-    <input class="form-input" id="registration-password" type="password" formControlName="password"
-        placeholder="Password:" />
+        <input class="form-input" id="registration-password" type="password" formControlName="password"
+            placeholder="Password:" />
 
-    <input class="form-input" id="registration-password-again" type="password" formControlName="password"
-        placeholder="Enter Password again:" />
+        <input class="form-input" id="registration-password-again" type="password" formControlName="password"
+            placeholder="Enter Password again:" />
 
-    <app-sign-up-button></app-sign-up-button>
-</form>
+        <app-sign-up-button></app-sign-up-button>
+    </form>
 
-<a class="top-margin txt-wrap" routerLink="/login">Already have an account? Sign in</a>
+    <a class="top-margin txt-wrap" routerLink="/login">Already have an account? Sign in</a>
+</div>
