@@ -1,6 +1,8 @@
 @import '../../../../styles/styles.scss';
 
 :host {
+    @extend .show-panel;
+
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -10,6 +12,7 @@
     box-sizing: border-box;
     padding: $std-padding $std-padding * 2;
     position: relative;
+
 }
 
 a {
@@ -66,6 +69,11 @@ a {
     text-align: center;
 }
 
+@media screen and (max-width:400px) {
+    #bottom-interactions {
+        flex-direction: column-reverse;
+    }
+}
 
 // :host {
 //     background-color: black;

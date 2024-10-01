@@ -2,13 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Product } from '../../../services/data/models/product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../services/data/abstract-product-service';
-import { environment } from '../../../../environments/environment';
-import { ApiProductService } from '../../../services/data/api-product.service';
-import { DummyProductService } from '../../../services/data/dummy-product.service';
 import { CurrencyPipe, NgFor, NgForOf, NgIf } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { CurrentStockComponent } from '../current-stock/current-stock.component';
+import { CartService } from '../../../services/checkout/cart.service';
+import { AuthLoggedInDirective } from '../../../directives/auth-logged-in.directive';
 
 @Component({
   selector: 'app-product-info',
@@ -17,37 +16,31 @@ import { CurrentStockComponent } from '../current-stock/current-stock.component'
     CurrencyPipe,
     NgFor, NgForOf,
     NgIf,
+    FormsModule,
     ReactiveFormsModule,
     ProductCardComponent,
-    CurrentStockComponent
-  ],
-  providers: [
-    {
-      provide: ProductService,
-      useClass: environment.production ? ApiProductService : DummyProductService,
-    },
+    CurrentStockComponent,
+    AuthLoggedInDirective
   ],
   templateUrl: './product-info.component.html',
   styleUrl: './product-info.component.scss'
 })
 export class ProductInfoComponent implements OnInit {
-  quantityForm: FormGroup;
+  selectedQuantity!: number;
 
   productId: string | null | undefined = '';
   product!: Product;
-  private productService = inject(ProductService);
   private router = inject(Router);
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute) {
-    this.quantityForm = this.fb.group({
-      quantity: [null, [Validators.required, Validators.pattern('^[0-9]*$')]],
-    });
+  constructor(private route: ActivatedRoute, private cartService: CartService, private productService: ProductService) {
+
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.productId = params.get('id');
       this.loadProductDetails();
+      this.selectedQuantity = this.product.stock > 0 ? 1 : 0;
     });
   }
 
@@ -70,11 +63,17 @@ export class ProductInfoComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.selectedQuantity == 0 || this.product.stock < this.selectedQuantity) {
+      return;
+    }
+
+    this.cartService.addItemToCart(this.product.id,this.selectedQuantity);
+    this.router.navigate(['cart']);
 
   }
-
   generateStockArray(stock: number): number[] {
     const maxLimit = 30;
-    return Array(Math.min(stock, maxLimit)).fill(0).map((_, i) => i + 1);
+    const arr = Array(Math.min(stock, maxLimit)).fill(0).map((_, i) => i + 1);
+    return arr;
   }
 }

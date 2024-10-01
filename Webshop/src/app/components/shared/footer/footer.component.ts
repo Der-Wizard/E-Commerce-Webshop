@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { SuccessMessageComponent } from './success-message/success-message.component';
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,8 @@ import { RouterLink } from '@angular/router';
   imports: [
     RouterLink,
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    SuccessMessageComponent
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
@@ -48,7 +50,7 @@ export class FooterComponent {
 
   scrollToSearchBar(event: Event) {
     event.preventDefault();
-    const searchBar = document.querySelector('#title');
+    const searchBar = document.querySelector('#top-of-page');
     if (searchBar) {
       searchBar.scrollIntoView({ behavior: 'smooth' });
     }

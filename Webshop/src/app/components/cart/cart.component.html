@@ -1,3 +1,4 @@
-<div class="main-content">
-    <p>Hello</p>
+<div *ngFor="let cartItem of cartService.getCart()">
+    <p> {{cartItem.id}}</p>
+    <p> {{cartItem.quantity}}</p>
 </div>

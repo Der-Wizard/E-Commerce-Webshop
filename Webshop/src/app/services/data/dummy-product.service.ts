@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ProductService } from './abstract-product-service';
 import { Product } from './models/product';
 import { filter, Observable, of } from 'rxjs';
-import { ProductSortOrder } from './models/product-sort-order';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,6 @@ import { ProductSortOrder } from './models/product-sort-order';
 export class DummyProductService extends ProductService {
   override searchTerm!: string;
   override searchCategory!: string;
-  override sorting: ProductSortOrder = ProductSortOrder.Normal;
 
   private dummyData: Product[] = [
     { id: "0", name: "Hannah Montana", description: "", short_description: "Inspires creativity.", stock: 0, price: 6.78, category: "posters" },
@@ -1526,8 +1524,7 @@ export class DummyProductService extends ProductService {
 
   override fetchProductPageCount(pageSize: number): Observable<number> {
     var filteredProducts: Product[] = this.filterProducts(this.dummyData);
-    var sortedProducts = this.sortProducts(filteredProducts, this.sorting);
-    var maxPageCount = Math.ceil(sortedProducts.length / pageSize);
+    var maxPageCount = Math.ceil(filteredProducts.length / pageSize);
     return of(maxPageCount);
   }
 
@@ -1535,13 +1532,10 @@ export class DummyProductService extends ProductService {
     const start = (page - 1) * pageSize;
     const end = start + pageSize;
 
-    console.log(this.searchTerm, this.searchCategory);
-
     var filteredProducts: Product[] = this.filterProducts(this.dummyData);
 
-    var sortedProducts = this.sortProducts(filteredProducts,this.sorting);
-    var maxPageCount = Math.ceil(sortedProducts.length / pageSize);
-    var slicedProducts = sortedProducts.slice(start, end);
+    var maxPageCount = Math.ceil(filteredProducts.length / pageSize);
+    var slicedProducts = filteredProducts.slice(start, end);
 
     return of([slicedProducts, maxPageCount]);
   }
@@ -1570,19 +1564,6 @@ export class DummyProductService extends ProductService {
     }
 
     return filteredProducts;
-  }
-
-  private sortProducts(products: Product[], sorting: ProductSortOrder): Product[] {
-    switch (sorting) {
-      case ProductSortOrder.Normal:
-        return products;
-      case ProductSortOrder.PriceHighToLow:
-        return products.sort((a, b) => a.price + b.price);
-      case ProductSortOrder.PriceLowToHigh:
-        return products.sort((a, b) => a.price - b.price);
-      default:
-        return products;
-    }
   }
 }
 

@@ -1,8 +1,18 @@
 @import './_variables';
 
+.border-box {
+  border: 1px solid;
+  border-radius: $std-border-radius;
+}
+
 .light-mode {
   color: $light-text;
   background-color: $light-bg;
+
+  button {
+    background-color: $light-bg;
+    color: $light-text;
+  }
 
   .show-panel {
     background-color: $light-panel;
@@ -12,8 +22,10 @@
     background-color: $light-bg;
   }
 
-  .show-panel-highlight:hover {
-    filter: invert(1);
+  .border-box {
+    color: $light-text;
+    background-color: $light-bg;
+    border-color: $light-border;
   }
 
 }
@@ -22,6 +34,11 @@
   color: $dark-text;
   background-color: $dark-bg;
 
+  button {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+
   .show-panel {
     background-color: $dark-panel;
   }
@@ -29,8 +46,25 @@
   .show-panel-highlight {
     background-color: $dark-bg;
   }
-  
-  .show-panel-highlight:hover {
+
+
+  .border-box {
+    color: $dark-text;
+    background-color: $dark-bg;
+    border-color: $dark-border;
+  }
+}
+
+
+.show-panel-highlight:hover {
+  filter:invert(1);
+
+  img,
+  video {
     filter: invert(1);
+  }
+
+  .no-invert {
+    filter: invert(1) !important;
   }
 }

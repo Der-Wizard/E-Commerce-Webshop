@@ -1,0 +1,53 @@
+<nav class="navbar show-panel">
+  <ul class="menu ">
+    <li class="menu-item border-box"  (click)="selectingOption('')">
+      <p>
+        All
+      </p>
+    </li>
+    <li class="menu-item border-box">
+      <p>
+        Apparel
+      </p>
+      <ul class="dropdown left border-box">
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('hoodies')">Hoodies</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('shirts')">Shirts</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('hats')">Hats</li>
+      </ul>
+    </li>
+    <li class="menu-item border-box">
+      <p>
+        Accessories
+      </p>
+      <ul class="dropdown left border-box">
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('bags')">Bags</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('key chains')">Key Chains</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('stands')">Stands</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('lanyards')">Lanyards</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('desk')">Desk</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('homeware')">Homeware</li>
+      </ul>
+    </li>
+    <li class="menu-item border-box">
+      <p>
+        Collectibles
+      </p>
+      <ul class="dropdown right border-box">
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('posters')">Posters</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('pin sets')">Pin Sets</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('stickers')">Stickers</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('plushies')">Plushies</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('figures')">Figures</li>
+      </ul>
+    </li>
+    <li class="menu-item border-box">
+      <p>
+        Media
+      </p>
+      <ul class="dropdown right border-box">
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('videogames')">Videogames</li>
+        <li class="dropdown-item show-panel-highlight"  (click)="selectingOption('books')">Books</li>
+      </ul>
+    </li>
+  </ul>
+</nav>

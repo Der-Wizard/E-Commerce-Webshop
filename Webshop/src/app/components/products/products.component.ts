@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { SearchCarouselComponent } from './search-carousel/search-carousel.component';
 import { SearchOptionsComponent } from './search-options/search-options.component';
-import { ProductSortOrder } from '../../services/data/models/product-sort-order';
 
 @Component({
   selector: 'app-products',

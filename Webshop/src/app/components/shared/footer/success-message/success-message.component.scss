@@ -1,0 +1,8 @@
+@import '../../../../../styles/styles.scss';
+
+.sm {
+    width: fit-content;
+    padding-left: $std-padding * 2;
+    padding-right: $std-padding * 2;
+    text-wrap: nowrap;
+}

@@ -3,15 +3,28 @@
 @import './tag-styling/text/a.scss';
 @import './tag-styling/input/input.scss';
 
+
+
 html,
 body {
-    overflow-x: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
     margin: 0;
+    overflow-x: hidden;
 
     .inverted {
         filter: invert(1);
     }
+
     * {
         font-family: 'Nunito', 'Noto Sans', sans-serif;
+        -webkit-user-drag: none;
+        /* For Safari */
+        -moz-user-select: none;
+        /* For Firefox */
+        -ms-user-select: none;
+        /* For Internet Explorer and Edge */
+        user-select: none;
+        /* Non-prefixed version, currently supported by Chrome */
     }
 }

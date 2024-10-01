@@ -22,29 +22,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: $std-gap;
+    gap: calc($std-gap/2);
     align-items: center;
 }
-
-// :host {
-//     margin: 20px auto;
-//     height: 100%;
-//     width: 100%;
-//     box-sizing: border-box;
-
-//     flex: 1;
-//     display:flex;
-//     flex-direction: column;
-//     justify-content: flex-end;
-// }
-
-
-// .flex-product-container {
-//     display: flex;
-//     height: 100%;
-//     flex-direction: row;
-//     justify-content: center;
-//     align-items: center;
-//     flex-wrap: wrap;
-//     gap:8px;
-// }

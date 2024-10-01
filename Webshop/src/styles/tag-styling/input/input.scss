@@ -6,6 +6,14 @@ button {
 
 button:hover {
     filter:invert(1);
+
+    img,
+    video {
+        filter:invert(1);
+    }
+    .no-inver {
+        filter:invert(1);
+    }
 }
 
 input {

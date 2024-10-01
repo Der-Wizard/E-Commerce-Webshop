@@ -20,6 +20,5 @@
     <a routerLink="/" id="copy-right-link">&copy; 2024, Mirabelle GbR</a>
 </section>
 
-<div *ngIf="showMessage" class="success-message fade-in">
-    {{ successMessage }}
-</div>
+<footer-success-message *ngIf="showMessage" class="success-message"
+[successMessage]="successMessage"></footer-success-message>

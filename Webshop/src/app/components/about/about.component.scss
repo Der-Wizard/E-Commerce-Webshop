@@ -1,4 +1,4 @@
-// #undertext-slogan {
-//     font-size: smaller;
-//     color: grey;
-// }
+@import '../../../styles/styles.scss';
+:host {
+    margin: 0 $std-margin;
+}

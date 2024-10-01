@@ -6,6 +6,7 @@ import { ProductService } from './services/data/abstract-product-service';
 import { environment } from '../environments/environment';
 import { ApiProductService } from './services/data/api-product.service';
 import { DummyProductService } from './services/data/dummy-product.service';
+import { CartService } from './services/checkout/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,10 @@ import { DummyProductService } from './services/data/dummy-product.service';
       provide: ProductService,
       useClass: environment.production ? ApiProductService : DummyProductService,
     },
+    {
+      provide: CartService,
+      useClass: CartService
+    }
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

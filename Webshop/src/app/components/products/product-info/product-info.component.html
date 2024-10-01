@@ -1,11 +1,29 @@
 <section id="selling-section">
     <section id="image-gallery-section">
         <section id="image-selection-gallery">
-            <button type="button" class="select-image-button">
-                <img>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
             </button>
         </section>
-        <img id="main-product-image">
+        <img id="main-product-image" src="assets/img/icon-logo-fixed.png" class="no-invert">
     </section>
     <section id="product-information-section">
         <h2 id="product-name">
@@ -21,38 +39,37 @@
                     {{ product.short_description }}
                 </p>
             </div>
-            <h3 id="product-price">
-                32.99€
-            </h3>
         </div>
 
-        <h3 id="product-stock">
-            Current stock:
-        </h3>
-        <product-current-stock [stock]="product.stock"></product-current-stock>
+        <h2>
+            32.99€
+        </h2>
+        <div id="product-stock">
+            <h3>Current stock:</h3>
+            <product-current-stock [stock]="product.stock"></product-current-stock>
+        </div>
         <section id="buying-section">
 
-            <form id="quantity-form" [formGroup]="quantityForm" ngSubmit="onSubmit()">
-                <label for="quantity">Quantity: </label>
-                <select formControlName="quantity" id="select-quantity-dropdown">
+            <form id="quantity-form">
+                <label for="select-quantity-dropdown">Quantity: </label>
+                <select id="select-quantity-dropdown" class="border-box" [(ngModel)]="selectedQuantity" name="quantity">
                     <option *ngFor="let i of generateStockArray(product.stock)" [value]="i">{{ i }}</option>
-
-                </select>
-                <button type="submit" (click)="onSubmit()">ADD TO CART</button>
+                  </select>
             </form>
+            <button *isLoggedIn="true" type="submit" (click)="onSubmit()">ADD TO CART</button>
         </section>
     </section>
 
 </section>
 <div id="product-information-container">
-    <h3 id="product-desciption">
+    <h2 id="product-desciption">
         Product description
-    </h3>
+    </h2>
     <p>
         {{ product.description }}
     </p>
 </div>
-<h2 id="you-may-also-like">You may also like...</h2>
+<!-- <h2 id="you-may-also-like">You may also like...</h2>
 <section id="similar-products-section">
     <button type="button">
         <i class="fas fa-play" style="transform: rotate(180deg);"></i>
@@ -64,4 +81,4 @@
     <button type="button">
         <i class="fas fa-play"></i>
     </button>
-</section>
+</section> -->
