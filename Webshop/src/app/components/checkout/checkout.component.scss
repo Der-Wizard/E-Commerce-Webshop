@@ -1,0 +1,16 @@
+@import '../../../styles/styles.scss';
+
+.checkout-milestone-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:$std-gap;
+
+    * {
+        font-weight:lighter;
+    }
+    .checkout-milestone.selected {
+        font-weight: bolder;
+    }
+}

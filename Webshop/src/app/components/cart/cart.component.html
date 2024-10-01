@@ -1,4 +1,27 @@
-<div *ngFor="let cartItem of cartService.getCart()">
-    <p> {{cartItem.id}}</p>
-    <p> {{cartItem.quantity}}</p>
+<h2>
+    Shopping Cart
+</h2>
+<hr>
+<div id="order-information-container" *ngIf="cartService.getCart()?.length !== 0">
+    <div></div>
+    <div></div>
+    <h3 class="card-heading">
+        Price
+    </h3>
+    <h3 class="card-heading">
+        Quantity
+    </h3>
+    <h3 class="card-heading">
+        Total
+    </h3>
+</div>
+<hr>
+<cart-item-card *ngFor="let cartItem of cartService.getCart()" [cartItem]="cartItem"
+(onCartItemRemoved)="checkCart">
+</cart-item-card>
+<div *ngIf="cartService.getCart()?.length === 0">
+    <p>There are no items in your cart</p>
+</div>
+<div id="order-checkout-container" *ngIf="cartService.getCart()?.length !== 0">
+    <button (click)="navigateCheckOut()">Proceed with checkout</button>
 </div>

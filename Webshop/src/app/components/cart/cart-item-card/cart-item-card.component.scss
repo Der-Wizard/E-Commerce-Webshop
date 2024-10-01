@@ -1,0 +1,47 @@
+@import '../../../../styles/styles.scss';
+
+:host {
+    width: 100%;
+}
+
+.card-container {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 0.1fr;
+
+    justify-content: center;
+    align-items: center;
+
+    .card-field {
+        text-align: center;
+    }
+}
+
+hr {
+    width: 95%;
+}
+
+.product-img {
+    justify-self: center;
+    max-width: 300px;
+    width: 30%;
+}
+
+.information-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+    * {
+        text-align: left;
+    }
+}
+
+.quantity-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: $std-gap;
+}

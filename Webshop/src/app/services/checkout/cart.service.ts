@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../data/models/product';
-import { ProductService } from '../data/abstract-product-service';
+import { CartItem } from './models/cart-item';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +7,21 @@ import { ProductService } from '../data/abstract-product-service';
 export class CartService {
   private cartKey: string = 'cartKey';
 
-  constructor(private productService: ProductService) { }
+  removeItemFromCart(id: string) {
+    const cart = this.getCartDefinite();
+    const existingItemIndex = cart.findIndex(item => item.id === id);
 
-  addItemToCart(id: string,quantity: number): void {
-    const cart = this.getCart();
+    if (existingItemIndex === -1) {
+      return;
+    } else {
+      cart.splice(existingItemIndex, 1);
+    }
+
+    this.saveCart(cart);
+  }
+
+  addItemToCart(id: string, quantity: number): void {
+    const cart = this.getCartDefinite();
     const existingItemIndex = cart.findIndex(item => item.id === id);
 
     if (existingItemIndex !== -1) {
@@ -24,9 +34,28 @@ export class CartService {
     this.saveCart(cart);
   }
 
-  getCart(): CartItem[] {
+  changeQuantityOnItem(cartItem: CartItem){
+    const cart = this.getCartDefinite();
+    const existingItemIndex = cart.findIndex(item => item.id === cartItem.id);
+
+    if (existingItemIndex !== -1) {
+      var d_cartItem: CartItem = cart[existingItemIndex];
+      d_cartItem.quantity = cartItem.quantity;
+    } 
+    
+    this.saveCart(cart);
+  }
+
+  private getCartDefinite(): CartItem[] {
+    const cart = this.getCart();
+    if (cart === null)
+      return [];
+    return cart;
+  }
+
+  getCart(): CartItem[] | null {
     const cart = localStorage.getItem(this.cartKey);
-    return cart ? JSON.parse(cart) : [];
+    return cart ? JSON.parse(cart) : null;
   }
 
   private saveCart(cart: CartItem[]): void {
@@ -38,7 +67,3 @@ export class CartService {
   }
 }
 
-class CartItem {
-  id!: string;
-  quantity!: number;
-}
