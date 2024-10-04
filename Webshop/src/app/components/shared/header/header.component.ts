@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AuthLoggedInDirective } from '../../../directives/auth-logged-in.directive';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ToggleLightModeComponent } from './toggle-light-mode/toggle-light-mode.component';
@@ -20,6 +20,7 @@ import { CommonModule, NgIf } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent{
   constructor(public cartService: CartService) {}
+  
 }

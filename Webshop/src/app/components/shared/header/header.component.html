@@ -14,7 +14,7 @@
         </div>
         <div *isLoggedIn="true">
             <div id="cart-container">
-                <p id="cart-icon" class="bg inverted" [ngStyle]="{'display': cartService.getCartLength() === 0 ? 'none' : 'block' }"> {{ cartService.getCartLength() }} </p>
+                <p id="cart-icon" class="bg inverted" [ngStyle]="{'display': cartService.getCart()?.length == 0 ? 'none' : 'block' }"> {{ cartService.getCart()?.length }} </p>
                 <app-nav-link link="cart" icon_class="fa-shopping-cart" content=" Cart"></app-nav-link>
             </div>
             <app-nav-link link="account" icon_class="fa-user" content=" Account"></app-nav-link>

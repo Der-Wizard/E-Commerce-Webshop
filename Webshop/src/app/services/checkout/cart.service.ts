@@ -2,25 +2,19 @@ import { Injectable } from '@angular/core';
 import { CartItem } from './models/cart-item';
 import { ProductService } from '../data/abstract-product-service';
 import { Product } from '../data/models/product';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cartLengthCache: number = 0;
   private cartKey: string = 'cartKey';
 
   constructor(private productService: ProductService) {
 
   }
 
-  getCartLength(){
-    return this.cartLengthCache;
-  }
-
   removeItemFromCart(id: string) {
-    const cart = this.getCartDefinite();
+    const cart = this.getCart();
     const existingItemIndex = cart.findIndex(item => item.id === id);
 
     if (existingItemIndex === -1) {
@@ -30,11 +24,10 @@ export class CartService {
     }
 
     this.saveCart(cart);
-    this.cartLengthCache = cart.length;
   }
 
   addItemToCart(id: string, quantity: number): void {
-    const cart = this.getCartDefinite();
+    const cart = this.getCart();
     const existingItemIndex = cart.findIndex(item => item.id === id);
 
     if (existingItemIndex !== -1) {
@@ -45,11 +38,10 @@ export class CartService {
     }
 
     this.saveCart(cart);
-    this.cartLengthCache = cart.length;
   }
 
   changeQuantityOnItem(id: string, delta: number){
-    const cart = this.getCartDefinite();
+    const cart = this.getCart();
     const existingItemIndex = cart.findIndex(item => item.id === id);
 
     if (existingItemIndex !== -1) {
@@ -61,19 +53,11 @@ export class CartService {
     } 
     
     this.saveCart(cart);
-    this.cartLengthCache = cart.length;
   }
 
-  private getCartDefinite(): CartItem[] {
-    const cart = this.getCart();
-    if (cart === null)
-      return [];
-    return cart;
-  }
-
-  getCart(): CartItem[] | null {
+  getCart(): CartItem[] {
     const cart = localStorage.getItem(this.cartKey);
-    return cart ? JSON.parse(cart) : null;
+    return cart ? JSON.parse(cart) : [];
   }
 
   private saveCart(cart: CartItem[]): void {
@@ -81,12 +65,13 @@ export class CartService {
   }
 
   clearCart(): void {
+    const cart = this.getCart();
+    cart.length = 0;
     localStorage.removeItem(this.cartKey);
-    this.cartLengthCache = 0;
   }
 
   getTotal():number {
-    const cart = this.getCartDefinite();
+    const cart = this.getCart();
 
     var totalPrize = 0.00;
 

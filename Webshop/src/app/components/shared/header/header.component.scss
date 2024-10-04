@@ -66,6 +66,9 @@
         border-radius:$std-border-radius-circle;
         padding: $std-padding $std-padding*6;
         z-index: 100;
+        border: solid 1px;
+        border-right: none;
+        border-bottom: none;
     }
 }
 
