@@ -11,8 +11,10 @@ export class LabelSyncDirective implements OnInit{
   constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit(): void {
-    const inputValue = this.el.nativeElement.value;
-    this.updateLabel(inputValue);
+    setTimeout(() => {
+      const inputValue = this.el.nativeElement.value;
+      this.updateLabel(inputValue);
+    }, 0);
   }
 
   @HostListener('input') onInputChange() {

@@ -7,7 +7,7 @@ import { InputSelectComponent } from '../shared/input/input-select/input-select.
 import { InputTextComponent } from '../shared/input/text/input-text.component';
 import { InputTelComponent } from '../shared/input/input-tel/input-tel.component';
 import { InputRadioComponent } from '../shared/input/input-radio/input-radio.component';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LabelSyncDirective } from '../../directives/input/label-sync.directive';
 
 @Component({
@@ -23,14 +23,13 @@ import { LabelSyncDirective } from '../../directives/input/label-sync.directive'
     InputRadioComponent,
     CurrencyPipe,
     ReactiveFormsModule,
-    FormsModule,
   ],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent {
   contactForm: FormGroup;
-  shippingAddressFrom: FormGroup;
+  shippingAddressForm: FormGroup;
   shippingMethodForm: FormGroup;
   currentMilestone: string = 'Information';
 
@@ -40,41 +39,38 @@ export class CheckoutComponent {
     };
 
     this.contactForm = this.fb.group({
-      contact_user_email: ['', [Validators.required, Validators.email]],
+      contact_user_email: ['abc@web.de', [Validators.required, Validators.email]],
     });
 
-    this.shippingAddressFrom = this.fb.group({
-      shipping_address_user_country_code: ['', [Validators.required]],
-      shipping_address_user_forname: ['', [Validators.required]],
-      shipping_address_user_surname: ['', [Validators.required]],
-      shipping_address_user_company: [],
-      shipping_address_user_address: ['', [Validators.required]],
-      shipping_address_user_address_additional: [],
-      shipping_address_user_postalcode: ['', [Validators.required]],
-      shipping_address_user_city: ['', [Validators.required]],
-      shipping_address_user_phone: ['', [Validators.required, Validators.pattern(/^\+([1-9][0-9]{0,2})?\s?([0-9]{1,3})?[-.\s]?([0-9]{1,4})?[-.\s]?([0-9]{1,4})?[-.\s]?([0-9]{1,9})$/)]],
+    this.shippingAddressForm = this.fb.group({
+      shipping_address_user_country_code: ['AT', [Validators.required]],
+      shipping_address_user_forname: ['a', [Validators.required]],
+      shipping_address_user_surname: ['a', [Validators.required]],
+      shipping_address_user_company: [''],
+      shipping_address_user_address: ['a', [Validators.required]],
+      shipping_address_user_address_additional: [''],
+      shipping_address_user_postalcode: ['a', [Validators.required]],
+      shipping_address_user_city: ['a', [Validators.required]],
+      shipping_address_user_phone: ['+4917661474443', [Validators.required,
+      Validators.pattern(/^\+?(\d{1,3})?[-.\s]?(\d{1,4})?[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})$/)]],
     });
 
     this.shippingMethodForm = this.fb.group({
-      shipping_method_shipping_method: ['', [Validators.required]],
+      shipping_method_shipping_method: [null, [Validators.required]],
     });
 
   }
 
   onSubmitContactForm() {
-    if (this.contactForm.invalid) {
-      this.contactForm.markAllAsTouched();
-    } else {
-
-    }
+    this.continueToShipping();
   }
 
   onSubmitShippingAddressForm() {
-    if (this.contactForm.invalid) {
-      this.contactForm.markAllAsTouched();
-    } else {
+    this.continueToShipping();
+  }
 
-    }
+  onSubmitShippingMethodForm() {
+    this.continueToPayment();
   }
 
   shippingMethods = [
@@ -84,19 +80,6 @@ export class CheckoutComponent {
   ];
 
   selectedShippingMethod: { name: string, formattedCost: string } | null = null;
-
-  ngOnInit() {
-    this.selectedShippingMethod = this.getShippingMethod();
-  }
-
-  getShippingMethod(): { name: string, formattedCost: string } {
-    const index = Math.floor(Math.random() * this.shippingMethods.length);
-    const method = this.shippingMethods[index];
-    return {
-      name: method.name,
-      formattedCost: this.formatCurrency(method.cost)
-    };
-  }
 
   private formatCurrency(amount: number): string {
     return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(amount);
@@ -110,16 +93,31 @@ export class CheckoutComponent {
     this.currentMilestone = 'Information';
   }
   goToShipping() {
+    this.selectedShippingMethod = this.getShippingMethod();
     this.currentMilestone = 'Shipping';
   }
   goToPayment() {
-    this.currentMilestone = 'Shipping';
+    this.currentMilestone = 'Payment';
   }
 
   continueToShipping() {
-    if (this.shippingAddressFrom.valid)
-      this.goToShipping();
-    else {
-    }
+    if (this.contactForm.invalid || this.shippingAddressForm.invalid)
+      return;
+    this.goToShipping();
+  }
+
+  continueToPayment(){
+    if(this.shippingMethodForm.invalid) 
+      return;
+    this.goToPayment();
+  }
+
+  getShippingMethod(): { name: string, formattedCost: string } {
+    const index = Math.floor(Math.random() * this.shippingMethods.length);
+    const method = this.shippingMethods[index];
+    return {
+      name: method.name,
+      formattedCost: this.formatCurrency(method.cost)
+    };
   }
 }

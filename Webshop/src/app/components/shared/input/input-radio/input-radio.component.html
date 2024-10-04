@@ -1,4 +1,4 @@
-<div class="input-container border-box">
-    <label [for]="id" class="txt-less" #labelRef>{{ label_text }} <i *ngIf="is_important">*</i><span *ngIf="!is_important">(optional)</span></label>
-    <input type="radio" [id]="id" [labelSync]="labelRef">
+<div [formGroup]="formGroup" class="input-container border-box" (click)="toggleRadio()">
+    <label [for]="input_id" class="txt-less" #labelRef>{{ label_text }} <i *ngIf="is_important">*</i><span *ngIf="!is_important">(optional)</span></label>
+    <input type="radio" [id]="input_id" [labelSync]="labelRef">
 </div>

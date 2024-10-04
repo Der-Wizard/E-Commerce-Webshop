@@ -24,7 +24,15 @@ select {
     padding-left: $std-padding;
 }
 
+input:invalid,
+select:invalid {
+    border-color: red;
+}
+
 label i {
     color: red;
 }
 
+.error-hint {
+    color:red;
+}

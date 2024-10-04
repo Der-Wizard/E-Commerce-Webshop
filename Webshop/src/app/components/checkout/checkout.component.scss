@@ -1,16 +1,17 @@
 @import '../../../styles/styles.scss';
 
 :host {
-    height: 100vh;
     width: 100%;
+    height: 100vh;
+    display:flex;
 }
 
 #page {
-    height: 100%;
-    width: 100%;
+    flex:1;
     display: flex;
     flex-direction: row;
     justify-content: center;
+
 
     hr {
         margin: 0;
@@ -43,8 +44,7 @@
 
 #checkout-input-container {
     width: 700px;
-
-    
+    overflow-y:scroll;
 }
 
 #checkout-summary-container {
@@ -64,8 +64,8 @@
     flex-direction: row;
     gap:$std-gap;
 
-    *{
-        flex:1;
+    > *{
+        width: 100%;
     }
 }
 
@@ -90,4 +90,22 @@
         padding-left: $std-padding;
         padding-right: $std-padding;
     }
+}
+
+
+@media screen and (max-width: 1000px) {
+    #page {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #checkout-input-container {
+        flex:1;
+        width: 90%;
+    }
+    
+    #checkout-summary-container {
+        width: 90%;
+    }
+    
 }

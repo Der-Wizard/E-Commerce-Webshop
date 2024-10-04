@@ -1,7 +1,12 @@
 @import '../../../../../styles/styles.scss';
 
+:host {
+    width: 100%;
+}
+
 .input-container {
-    flex:1;
+    width: 100%;
+    flex: 1;
     position: relative;
     display: flex;
 
@@ -21,7 +26,8 @@
 
     input,
     select {
-        flex:1;
+        width: 100%;
+        flex: 1;
         height: $font-size-normal * 2;
     }
 }

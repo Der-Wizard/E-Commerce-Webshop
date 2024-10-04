@@ -1,6 +1,9 @@
-<input-base
-[id]="id"
-type="tel"
-[label_text]="label_text"
-[is_important]="is_important"
-></input-base>
+<input-base [input_id]="input_id" type="tel" [label_text]="label_text" [is_important]="is_important"
+    [formGroup]="formGroup"></input-base>
+<div
+    *ngIf="formGroup.get(input_id)?.invalid && (formGroup.get(input_id)?.touched || formGroup.get(input_id)?.dirty)">
+    <small class="error-hint" *ngIf="formGroup.get(input_id)?.errors?.['required']">Phone
+        number is required.</small>
+    <small class="error-hint" *ngIf="formGroup.get(input_id)?.errors?.['pattern']">Invalid
+        phone number format.</small>
+</div>

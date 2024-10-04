@@ -1,6 +1,6 @@
-<div class="input-container">
-    <label [for]="id" class="txt-less" #labelRef>{{ label_text }} <i *ngIf="is_important">*</i></label>
-    <select [id]="id" [labelSync]="labelRef">
+<div [formGroup]="formGroup" class="input-container">
+    <label [for]="input_id" class="txt-less" #labelRef>{{ label_text }} <i *ngIf="is_important">*</i></label>
+    <select [id]="input_id" [formControlName]="input_id" [labelSync]="labelRef">
         <option value="" disabled selected></option>
         <option value="AT">Austria</option>
         <option value="BE">Belgium</option>
