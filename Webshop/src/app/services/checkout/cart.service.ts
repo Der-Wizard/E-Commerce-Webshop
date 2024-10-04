@@ -2,14 +2,22 @@ import { Injectable } from '@angular/core';
 import { CartItem } from './models/cart-item';
 import { ProductService } from '../data/abstract-product-service';
 import { Product } from '../data/models/product';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  private cartLengthCache: number = 0;
   private cartKey: string = 'cartKey';
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) {
+
+  }
+
+  getCartLength(){
+    return this.cartLengthCache;
+  }
 
   removeItemFromCart(id: string) {
     const cart = this.getCartDefinite();
@@ -22,6 +30,7 @@ export class CartService {
     }
 
     this.saveCart(cart);
+    this.cartLengthCache = cart.length;
   }
 
   addItemToCart(id: string, quantity: number): void {
@@ -36,6 +45,7 @@ export class CartService {
     }
 
     this.saveCart(cart);
+    this.cartLengthCache = cart.length;
   }
 
   changeQuantityOnItem(id: string, delta: number){
@@ -51,6 +61,7 @@ export class CartService {
     } 
     
     this.saveCart(cart);
+    this.cartLengthCache = cart.length;
   }
 
   private getCartDefinite(): CartItem[] {
@@ -71,6 +82,7 @@ export class CartService {
 
   clearCart(): void {
     localStorage.removeItem(this.cartKey);
+    this.cartLengthCache = 0;
   }
 
   getTotal():number {

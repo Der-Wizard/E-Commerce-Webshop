@@ -19,5 +19,6 @@ export class InputBaseComponent{
   @Input('type') type!: string;
   @Input('label_text') label_text!: string;
   @Input('is_important') is_important!: any;
+  @Input('is_optional') is_optional: any = false;
   @Input('formGroup') formGroup!: FormGroup;
 }

@@ -32,6 +32,7 @@ export class CheckoutComponent {
   shippingAddressForm: FormGroup;
   shippingMethodForm: FormGroup;
   currentMilestone: string = 'Information';
+  paymentForm: FormGroup;
 
   constructor(private fb: FormBuilder, private cartService: CartService, private router: Router) {
     if (this.cartService.getCart()?.length === 0) {
@@ -59,6 +60,11 @@ export class CheckoutComponent {
       shipping_method_shipping_method: [null, [Validators.required]],
     });
 
+    this.paymentForm = this.fb.group({
+      paymentOption: [null, [Validators.required]]
+    });
+
+
   }
 
   onSubmitContactForm() {
@@ -71,6 +77,10 @@ export class CheckoutComponent {
 
   onSubmitShippingMethodForm() {
     this.continueToPayment();
+  }
+
+  onSubmitPaymentOption() {
+    this.confirmOrder();
   }
 
   shippingMethods = [
@@ -106,10 +116,15 @@ export class CheckoutComponent {
     this.goToShipping();
   }
 
-  continueToPayment(){
-    if(this.shippingMethodForm.invalid) 
+  continueToPayment() {
+    if (this.shippingMethodForm.invalid)
       return;
     this.goToPayment();
+  }
+
+  confirmOrder() {
+    this.cartService.clearCart();
+    this.router.navigate(['confirmation', 15]);
   }
 
   getShippingMethod(): { name: string, formattedCost: string } {

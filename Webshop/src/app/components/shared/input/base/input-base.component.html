@@ -1,7 +1,7 @@
 <div [formGroup]="formGroup" class="input-container">
     <label [for]="input_id" class="txt-less" #labelRef>{{ label_text }}
         <i *ngIf="is_important">*</i>
-        <span *ngIf="!is_important">(optional)</span>
+        <span *ngIf="is_optional">(optional)</span>
     </label>
     <input [type]="type" [id]="input_id"  [formControlName]="input_id" [labelSync]="labelRef">
 </div>

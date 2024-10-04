@@ -13,6 +13,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductInfoComponent } from './components/products/product-info/product-info.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ConfirmationComponent } from './components/checkout/confirmation/confirmation.component';
 
 export const routes: Routes = [
     { path:'', component: HomeComponent },
@@ -24,6 +25,7 @@ export const routes: Routes = [
     { path:'cart', component: CartComponent, canActivate: [authGuard]},
     { path:'account', component: AccountComponent, canActivate: [authGuard]},
     { path:'checkout', component: CheckoutComponent, canActivate: [authGuard]},
+    { path:'confirmation/:orderId', component: ConfirmationComponent, canActivate: [authGuard]},
     { path:'about', component: AboutComponent },
     { path:'contact', component: ContactFormComponent },
     { path:'faq', component: FaqComponent },

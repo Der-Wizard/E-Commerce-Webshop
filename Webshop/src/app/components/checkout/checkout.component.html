@@ -32,11 +32,11 @@
                             [is_important]="true" label_text="Surname"></input-text>
                     </div>
                     <input-text class="item" input_id="shipping_address_user_company" [formGroup]="shippingAddressForm"
-                        [is_important]="false" label_text="Company"></input-text>
+                        [is_optional]="true" label_text="Company"></input-text>
                     <input-text class="item" input_id="shipping_address_user_address" [formGroup]="shippingAddressForm"
                         [is_important]="true" label_text="Address"></input-text>
                     <input-text class="item" input_id="shipping_address_user_address_additional"
-                        [formGroup]="shippingAddressForm" [is_important]="false"
+                        [formGroup]="shippingAddressForm" [is_optional]="true"
                         label_text="Apartment, suite, etc."></input-text>
                     <input-text class="item" input_id="shipping_address_user_postalcode"
                         [formGroup]="shippingAddressForm" [is_important]="true" label_text="Postal code"></input-text>
@@ -78,6 +78,36 @@
                     <button class="continue-button item" (click)="continueToPayment()"
                         [disabled]="shippingMethodForm.invalid">
                         Continue to payment</button>
+                </div>
+            </div>
+
+            <div *ngIf="currentMilestone === 'Payment'">
+                <h2 class="item">Payment Option</h2>
+                <form [formGroup]="paymentForm" class="item" (ngSubmit)="onSubmitPaymentOption()">
+                    <input-radio input_id="paymentForm_Paypal" [formGroup]="paymentForm"
+                        label_text="Paypal">
+                    </input-radio>
+                    <input-radio input_id="paymentForm_Mastercard" [formGroup]="paymentForm"
+                        label_text="Mastercard">
+                    </input-radio>
+                    <input-radio input_id="paymentForm_SOFORT" [formGroup]="paymentForm"
+                        label_text="SOFORT">
+                    </input-radio>
+                    <input-radio input_id="paymentForm_Klarna" [formGroup]="paymentForm"
+                        label_text="Klarna">
+                    </input-radio>
+                    <button type="submit"
+                    style="display:none"><!--This shouldnt need to be here but for some reason it wont work--></button>
+                </form>
+
+                <div class="navigation-buttons">
+                    <button class="return-button item" (click)="goToShipping()">
+                        <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
+                        <p> Return to shipping</p>
+                    </button>
+                    <button class="continue-button item" (click)="confirmOrder()"
+                        [disabled]="shippingMethodForm.invalid">
+                        Order</button>
                 </div>
             </div>
 

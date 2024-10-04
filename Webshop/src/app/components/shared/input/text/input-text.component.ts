@@ -19,4 +19,5 @@ export class InputTextComponent {
   @Input('label_text') label_text!: string;
   @Input('is_important') is_important!: any;
   @Input('formGroup') formGroup!: FormGroup;
+  @Input('is_optional') is_optional!: any;
 }

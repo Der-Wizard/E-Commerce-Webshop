@@ -56,6 +56,19 @@
     border-radius: $std-border-radius-circle;
 }
 
+#cart-container {
+    position: relative;
+    #cart-icon {
+        pointer-events: none;
+        position: absolute;
+        top:-30px;
+        left:-15px;
+        border-radius:$std-border-radius-circle;
+        padding: $std-padding $std-padding*6;
+        z-index: 100;
+    }
+}
+
 @media screen and (max-width:600px) {
     #nav-bar {
         flex-direction: column;

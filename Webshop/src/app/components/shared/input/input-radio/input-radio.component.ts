@@ -20,6 +20,7 @@ export class InputRadioComponent {
   @Input('input_id') input_id!: string;
   @Input('label_text') label_text!: string;
   @Input('is_important') is_important!: any;
+  @Input('is_optional') is_optional: any = false;
   @Input('formGroup') formGroup!: FormGroup;
 
   toggleRadio() {
