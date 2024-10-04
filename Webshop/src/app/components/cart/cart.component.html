@@ -22,6 +22,18 @@
 <div *ngIf="cartService.getCart()?.length === 0">
     <p>There are no items in your cart</p>
 </div>
+
+<hr>
+<div id="order-total-container" *ngIf="cartService.getCart()?.length !== 0">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <h3 id="total-prize">
+        {{ totalPrize() | currency:'EUR':'symbol' }}
+    </h3>
+</div>
+
 <div id="order-checkout-container" *ngIf="cartService.getCart()?.length !== 0">
     <button (click)="navigateCheckOut()">Proceed with checkout</button>
 </div>

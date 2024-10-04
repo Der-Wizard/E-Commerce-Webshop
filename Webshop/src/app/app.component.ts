@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { ApiProductService } from './services/data/api-product.service';
 import { DummyProductService } from './services/data/dummy-product.service';
 import { CartService } from './services/checkout/cart.service';
+import { CheckOutDirective } from './directives/checkout/check-out.directive';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { CartService } from './services/checkout/cart.service';
   imports: [
     RouterOutlet, RouterLink,
     FooterComponent, HeaderComponent,
+    CheckOutDirective
   ],
   providers: [
     {

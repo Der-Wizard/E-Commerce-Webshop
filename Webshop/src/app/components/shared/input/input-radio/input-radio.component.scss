@@ -1,0 +1,18 @@
+@import '../../../../../styles/styles.scss';
+
+
+.input-container {
+    padding: $std-padding;
+    margin: $std-margin 0;
+    flex:1;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    input {
+        height: $font-size-normal * 2;
+        width: 20px;
+        height: 20px;
+    }
+}

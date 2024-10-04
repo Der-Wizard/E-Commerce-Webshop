@@ -27,4 +27,8 @@ export class CartComponent {
   navigateCheckOut(){
     this.router.navigate(['checkout']);
   }
+
+  totalPrize(): number {
+    return this.cartService.getTotal();
+  }
 }

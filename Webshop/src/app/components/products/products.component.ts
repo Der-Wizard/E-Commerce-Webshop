@@ -73,6 +73,11 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearch() {
+    this.productService.fetchProductPageCount(this.pageSize).subscribe((pageCount) => {
+      if (this.current_page_index > pageCount) {
+        this.current_page_index = pageCount;
+      }
+    });
     this.productService
       .fetchProducts(this.current_page_index, this.pageSize)
       .subscribe(([products, max_page_index]) => {

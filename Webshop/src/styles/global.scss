@@ -5,9 +5,26 @@
   border-radius: $std-border-radius;
 }
 
+
+.no-mode {
+  .nm-txt-less{
+    color: $light-text-less;
+  }
+}
+
+
 .light-mode {
+  color-scheme: light;
   color: $light-text;
   background-color: $light-bg;
+
+  .bg {
+    background-color: $light-bg;
+  }
+  
+  .txt-less {
+    color: $light-text-less;
+  }
 
   button {
     background-color: $light-bg;
@@ -22,6 +39,8 @@
     background-color: $light-bg;
   }
 
+  input,
+  select,
   .border-box {
     color: $light-text;
     background-color: $light-bg;
@@ -31,8 +50,17 @@
 }
 
 .dark-mode {
+  color-scheme: dark;
   color: $dark-text;
   background-color: $dark-bg;
+  
+  .bg {
+    background-color: $dark-bg;
+  }
+
+  .txt-less {
+    color: $dark-text-less;
+  }
 
   button {
     background-color: $dark-bg;
@@ -47,7 +75,8 @@
     background-color: $dark-bg;
   }
 
-
+  input,
+  select,
   .border-box {
     color: $dark-text;
     background-color: $dark-bg;

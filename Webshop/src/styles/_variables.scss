@@ -2,16 +2,19 @@ $std-padding: 2%;
 $std-gap: 1%;
 $std-margin: 2%;
 
+$font-size-normal: 1rem;
 
 $std-border-radius: 5px;
 $std-border-radius-circle: 90px;
 
 $light-text: black;
+$light-text-less: rgba(65, 65, 65, 75%);
 $light-bg: white;
 $light-panel: rgb(240,240,240);
 $light-border: black;
 
 $dark-text: white;
+$dark-text-less: rgba(191, 191, 191, 75%);
 $dark-bg: black;
 $dark-panel: black;
 $dark-border: white;

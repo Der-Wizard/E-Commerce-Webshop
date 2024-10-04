@@ -1516,8 +1516,8 @@ export class DummyProductService extends ProductService {
   constructor() {
     super();
     this.dummyData.forEach(item => {
-      if (item.stock > 200) {
-        item.stock = Math.floor(Math.random() * 200);
+      if (item.stock > 100) {
+        item.stock = Math.floor(item.stock / 100);
       }
     });
   }

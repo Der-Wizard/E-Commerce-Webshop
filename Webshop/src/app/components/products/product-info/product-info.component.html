@@ -42,7 +42,7 @@
         </div>
 
         <h2>
-            32.99€
+            {{ product.price | currency:'EUR':'symbol'}}
         </h2>
         <div id="product-stock">
             <h3>Current stock:</h3>

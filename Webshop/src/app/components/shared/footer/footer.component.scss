@@ -28,9 +28,7 @@ a {
 }
 
 
-#bottom-interactions #contact,
-#bottom-interactions #help,
-#bottom-interactions #newsletter-form {
+#bottom-interactions .f-c-cc {
     flex:1;
 }
 
@@ -68,6 +66,23 @@ a {
 
     text-align: center;
 }
+
+.f-c-cc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:$std-gap;
+}
+
+.f-r-cc  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:$std-gap*50;
+}
+
 
 @media screen and (max-width:400px) {
     #bottom-interactions {

@@ -1,0 +1,4 @@
+<div class="input-container">
+    <input [type]="type" [id]="id" [labelSync]="labelRef">
+    <label [for]="id" class="txt-less" #labelRef>{{ label_text }} <i *ngIf="is_important">*</i><span *ngIf="!is_important">(optional)</span></label>
+</div>

@@ -1,9 +1,86 @@
-<div class="checkout-milestone-container">
-    <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Cart'}">Cart</p>
-    <i class="fas fa-greater-than"></i>
-    <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Information'}">Information</p>
-    <i class="fas fa-greater-than"></i>
-    <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Shipping'}">Shipping</p>
-    <i class="fas fa-greater-than"></i>
-    <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Payment'}">Payment</p>
+<div id="page" class="show-panel">
+    <div id="checkout-input-container" class="bg">
+        <img src="assets/img/icon-logo-fixed.png" id="logo-img" alt="title logo">
+        <div class="checkout-milestone-container item">
+            <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Cart'}">Cart</p>
+            <i class="fas fa-greater-than"></i>
+            <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Information'}">
+                Information</p>
+            <i class="fas fa-greater-than"></i>
+            <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Shipping'}">Shipping
+            </p>
+            <i class="fas fa-greater-than"></i>
+            <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Payment'}">Payment</p>
+        </div>
+        <div id="checkout-information-input-container">
+            <div *ngIf="currentMilestone === 'Information'">
+                <h2 class="item">Contact</h2>
+                <form [formGroup]="contactForm" class="item" (ngSubmit)="onSubmitContactForm()">
+                    <input-email id="contact_user_email" [is_important]="true"></input-email>
+                </form>
+                <h2 class="item">Shipping address</h2>
+                <form [formGroup]="shippingAddressFrom" class="item" (ngSubmit)="onSubmitShippingAddressForm()">
+                    <input-select id="shipping_address_user_country_code" [is_important]="true"
+                        label_text="Select a country" class="item"></input-select>
+                    <div class="multiple-inputs">
+                        <input-text id="shipping_address_user_forname" [is_important]="true"
+                            label_text="Forname"></input-text>
+                        <input-text id="shipping_address_user_surname" [is_important]="true"
+                            label_text="Surname"></input-text>
+                    </div>
+                    <input-text class="item" id="shipping_address_user_company" [is_important]="false"
+                        label_text="Company"></input-text>
+                    <input-text class="item" id="shipping_address_user_address" [is_important]="true"
+                        label_text="Address"></input-text>
+                    <input-text class="item" id="shipping_address_user_address_additional" [is_important]="false"
+                        label_text="Apartment, suite, etc."></input-text>
+                    <input-text class="item" id="shipping_address_user_postalcode" [is_important]="true"
+                        label_text="Postal code"></input-text>
+                    <input-text class="item" id="shipping_address_user_city" [is_important]="true"
+                        label_text="City"></input-text>
+                    <input-tel class="item" id="shipping_address_user_phone" [is_important]="true"
+                        label_text="Phone"></input-tel>
+                    <div
+                        *ngIf="shippingAddressFrom.get('shipping_address_user_phone')?.invalid && (shippingAddressFrom.get('shipping_address_user_phone')?.touched || shippingAddressFrom.get('shipping_address_user_phone')?.dirty)">
+                        <small *ngIf="shippingAddressFrom.get('shipping_address_user_phone')?.errors?.['required']">Phone number is required.</small>
+                        <small *ngIf="shippingAddressFrom.get('shipping_address_user_phone')?.errors?.['pattern']">Invalid phone number format.</small>
+                    </div>
+                </form>
+
+                <div class="navigation-buttons">
+                    <button class="return-button item" (click)="navigate('cart')">
+                        <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
+                        <p> Return to cart</p>
+                    </button>
+                    <button class="continue-button item" (click)="continueToShipping()"
+                        [disabled]=" contactForm.invalid">
+                        Continue to shipping</button>
+                </div>
+            </div>
+
+            <div *ngIf="currentMilestone === 'Shipping'">
+                <h2 class="item">Shipping method</h2>
+                <form [formGroup]="shippingMethodForm" class="item">
+                    <input-radio id="shipping_method_shipping_method"
+                        [label_text]="selectedShippingMethod?.name + ': ' + selectedShippingMethod?.formattedCost"
+                        [is_important]="true">
+                    </input-radio>
+                </form>
+
+                <div class="navigation-buttons">
+                    <button class="return-button item" (click)="goToInformation()">
+                        <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
+                        <p> Return to information</p>
+                    </button>
+                    <button class="continue-button item" (click)="goToPayment()">
+                        Continue to payment</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <div id="checkout-summary-container">
+
+    </div>
 </div>

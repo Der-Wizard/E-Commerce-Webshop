@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { SuccessMessageComponent } from './success-message/success-message.component';
+import { ContactFormComponent } from '../../contact-form/contact-form.component';
 
 @Component({
   selector: 'app-footer',
@@ -11,7 +12,8 @@ import { SuccessMessageComponent } from './success-message/success-message.compo
     RouterLink,
     ReactiveFormsModule,
     NgIf,
-    SuccessMessageComponent
+    ContactFormComponent,
+    SuccessMessageComponent,
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'

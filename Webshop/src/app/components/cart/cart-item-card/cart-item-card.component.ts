@@ -14,7 +14,7 @@ import { CartService } from '../../../services/checkout/cart.service';
   templateUrl: './cart-item-card.component.html',
   styleUrl: './cart-item-card.component.scss'
 })
-export class CartItemCardComponent implements OnInit{
+export class CartItemCardComponent implements OnInit {
   @Input() cartItem!: CartItem;
   product!: Product;
 
@@ -29,23 +29,15 @@ export class CartItemCardComponent implements OnInit{
     });
   }
 
-  removeCartItem(){
+  removeCartItem() {
     this.cartService.removeItemFromCart(this.cartItem.id);
   }
 
-  increaseItemQuantity(){
-    this.cartItem.quantity += 1;
-    this.cartService.changeQuantityOnItem(this.cartItem);
+  increaseItemQuantity() {
+    this.cartService.changeQuantityOnItem(this.cartItem.id, 1);
   }
 
   decreaseItemQuantity() {
-    this.cartItem.quantity -= 1;
-    if(this.cartItem.quantity <= 0){
-      this.removeCartItem();
-    }
-    else {
-      this.cartService.changeQuantityOnItem(this.cartItem);
-    }
-
+    this.cartService.changeQuantityOnItem(this.cartItem.id, -1);
   }
 }
