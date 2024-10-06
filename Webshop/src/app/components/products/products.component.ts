@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { Product } from '../../services/data/models/product';
 import { environment } from '../../../environments/environment';
-import { ApiProductService } from '../../services/data/api-product.service';
 import { DummyProductService } from '../../services/data/dummy-product.service';
 import { ProductService } from '../../services/data/abstract-product-service';
 import { CommonModule } from '@angular/common';

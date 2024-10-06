@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { CartService } from '../../services/checkout/cart.service';
 import { CommonModule, NgFor } from '@angular/common';
 import { CartItemCardComponent } from './cart-item-card/cart-item-card.component';
 import { Router } from '@angular/router';
+import { DummyCartService } from '../../services/checkout/dummy-cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,8 +16,7 @@ import { Router } from '@angular/router';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  cartTotal: number = 0;
-  constructor(public cartService: CartService, private cd: ChangeDetectorRef, private router:Router) {
+  constructor(public cartService: DummyCartService, private cd: ChangeDetectorRef, private router:Router) {
    }
 
   checkCart() {
@@ -28,7 +27,4 @@ export class CartComponent {
     this.router.navigate(['checkout']);
   }
 
-  totalPrize(): number {
-    return this.cartService.getTotal();
-  }
 }

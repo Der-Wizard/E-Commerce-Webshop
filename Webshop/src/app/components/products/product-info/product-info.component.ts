@@ -6,8 +6,9 @@ import { CurrencyPipe, NgFor, NgForOf, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { CurrentStockComponent } from '../current-stock/current-stock.component';
-import { CartService } from '../../../services/checkout/cart.service';
+import { DummyCartService } from '../../../services/checkout/dummy-cart.service';
 import { AuthLoggedInDirective } from '../../../directives/auth-logged-in.directive';
+import { CartService } from '../../../services/checkout/abstract-cart-service';
 
 @Component({
   selector: 'app-product-info',
@@ -32,9 +33,7 @@ export class ProductInfoComponent implements OnInit {
   product!: Product;
   private router = inject(Router);
 
-  constructor(private route: ActivatedRoute, private cartService: CartService, private productService: ProductService) {
-
-  }
+  constructor(private route: ActivatedRoute, private cartService: CartService, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -67,7 +66,7 @@ export class ProductInfoComponent implements OnInit {
       return;
     }
 
-    this.cartService.addItemToCart(this.product.id,this.selectedQuantity);
+    this.cartService.add(this.product.id,this.selectedQuantity);
     this.router.navigate(['cart']);
 
   }

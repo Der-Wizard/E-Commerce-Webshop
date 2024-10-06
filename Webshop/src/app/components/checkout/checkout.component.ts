@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CartService } from '../../services/checkout/cart.service';
+import { DummyCartService } from '../../services/checkout/dummy-cart.service';
 import { Router } from '@angular/router';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { InputEmailComponent } from '../shared/input/email/input-email.component';
@@ -34,7 +34,7 @@ export class CheckoutComponent {
   currentMilestone: string = 'Information';
   paymentForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private cartService: CartService, private router: Router) {
+  constructor(private fb: FormBuilder, private cartService: DummyCartService, private router: Router) {
     if (this.cartService.getCart()?.length === 0) {
       this.navigate('');
     };
@@ -123,7 +123,7 @@ export class CheckoutComponent {
   }
 
   confirmOrder() {
-    this.cartService.clearCart();
+    this.cartService.clear();
     this.router.navigate(['confirmation', 15]);
   }
 

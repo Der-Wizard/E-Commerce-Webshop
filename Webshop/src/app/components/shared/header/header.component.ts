@@ -1,10 +1,11 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { AuthLoggedInDirective } from '../../../directives/auth-logged-in.directive';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ToggleLightModeComponent } from './toggle-light-mode/toggle-light-mode.component';
 import { NavLinkComponent } from './nav-link/nav-link.component';
-import { CartService } from '../../../services/checkout/cart.service';
+import { DummyCartService } from '../../../services/checkout/dummy-cart.service';
 import { CommonModule, NgIf } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,5 @@ import { CommonModule, NgIf } from '@angular/common';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent{
-  constructor(public cartService: CartService) {}
-  
+  constructor(public cartService: DummyCartService) {}
 }

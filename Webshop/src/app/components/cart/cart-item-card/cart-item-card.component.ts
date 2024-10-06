@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { CartItem } from '../../../services/checkout/models/cart-item';
 import { ProductService } from '../../../services/data/abstract-product-service';
 import { Product } from '../../../services/data/models/product';
 import { CurrencyPipe } from '@angular/common';
-import { CartService } from '../../../services/checkout/cart.service';
+import { CartService } from '../../../services/checkout/abstract-cart-service';
 
 @Component({
   selector: 'cart-item-card',
@@ -18,8 +18,6 @@ export class CartItemCardComponent implements OnInit {
   @Input() cartItem!: CartItem;
   product!: Product;
 
-  @Output() onCartItemRemoved = new EventEmitter();
-
   constructor(private productService: ProductService, private cartService: CartService) {
   }
 
@@ -30,14 +28,14 @@ export class CartItemCardComponent implements OnInit {
   }
 
   removeCartItem() {
-    this.cartService.removeItemFromCart(this.cartItem.id);
+    this.cartService.remove(this.cartItem.id);
   }
 
   increaseItemQuantity() {
-    this.cartService.changeQuantityOnItem(this.cartItem.id, 1);
+    this.cartService.changeQuantityBy(this.cartItem.id, 1);
   }
 
   decreaseItemQuantity() {
-    this.cartService.changeQuantityOnItem(this.cartItem.id, -1);
+    this.cartService.changeQuantityBy(this.cartItem.id, -1);
   }
 }
