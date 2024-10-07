@@ -14,21 +14,23 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductInfoComponent } from './components/products/product-info/product-info.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ConfirmationComponent } from './components/checkout/confirmation/confirmation.component';
+import { ContactFormConfirmationComponent } from './components/contact-form/contact-form-confirmation/contact-form-confirmation.component';
 
 export const routes: Routes = [
-    { path:'', component: HomeComponent },
-    { path:'home', redirectTo: '' },
-    { path:'products', component: ProductsComponent},
-    { path:'products/:id', component: ProductInfoComponent},
-    { path:'login', component: LoginComponent, canActivate: [noAuthGuard]},
-    { path:'registration', component: RegistrationComponent, canActivate: [noAuthGuard]},
-    { path:'cart', component: CartComponent, canActivate: [authGuard]},
-    { path:'account', component: AccountComponent, canActivate: [authGuard]},
-    { path:'checkout', component: CheckoutComponent, canActivate: [authGuard]},
-    { path:'confirmation/:orderId', component: ConfirmationComponent, canActivate: [authGuard]},
-    { path:'about', component: AboutComponent },
-    { path:'contact', component: ContactFormComponent },
-    { path:'faq', component: FaqComponent },
-    { path: '**', redirectTo: 'not-found'},
-    { path: 'not-found', component: NotFoundComponent},
+    { path: '', component: HomeComponent },
+    { path: 'home', redirectTo: 'products' },
+    { path: 'products', component: ProductsComponent },
+    { path: 'products/:id', component: ProductInfoComponent },
+    { path: 'login', component: LoginComponent, canActivate: [noAuthGuard] },
+    { path: 'registration', component: RegistrationComponent, canActivate: [noAuthGuard] },
+    { path: 'cart', component: CartComponent, canActivate: [authGuard] },
+    { path: 'account', component: AccountComponent, canActivate: [authGuard] },
+    { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
+    { path: 'confirmation/:orderId', component: ConfirmationComponent, canActivate: [authGuard] },
+    { path: 'about', component: AboutComponent },
+    { path: 'contact', component: ContactFormComponent },
+    { path: 'contact-form-confirmation', component: ContactFormConfirmationComponent },
+    { path: 'faq', component: FaqComponent },
+    { path: '**', redirectTo: 'not-found' },
+    { path: 'not-found', component: NotFoundComponent },
 ];

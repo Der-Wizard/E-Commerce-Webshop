@@ -2,6 +2,7 @@
 
 :host {
     width: 100%;
+    height: 2rem;
 }
 
 .input-container {
@@ -9,6 +10,7 @@
     flex: 1;
     position: relative;
     display: flex;
+    height: inherit;
 
     label {
         pointer-events: none;
@@ -29,5 +31,9 @@
         width: 100%;
         flex: 1;
         height: $font-size-normal * 2;
+    }
+
+    input {
+        height: inherit;
     }
 }

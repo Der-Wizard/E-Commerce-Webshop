@@ -1,1 +1,33 @@
-<p>contact-form works!</p>
+<div id="message-container">
+    <h1>Contact Formular</h1>
+    <p>You have a question in towards Mirabelle or our products?
+        You wish to voice your opinion?<br>
+        Or you possess a special business inquiry?
+        Then please feel free to fill out the formular below.<br>
+        We will be sure to respond to you.</p>
+</div>
+<div id="form-container">
+    <form [formGroup]="contactFormular" (ngSubmit)="onSubmit()">
+        <input-text-area id="question-field" input_id="question" [formGroup]="contactFormular" [is_important]="true"
+            label_text="Your question:"></input-text-area>
+        <input-select input_id="countryCode" [is_important]="true" label_text="Select a country"
+            [formGroup]="contactFormular" class="item"></input-select>
+        <input-text input_id="forname" [formGroup]="contactFormular" [is_important]="true"
+            label_text="Forname"></input-text>
+        <input-text input_id="surname" [formGroup]="contactFormular" [is_important]="true"
+            label_text="Surname"></input-text>
+        <input-text class="item" input_id="company" [formGroup]="contactFormular" [is_optional]="true"
+            label_text="Company"></input-text>
+        <input-text class="item" input_id="address" [formGroup]="contactFormular" [is_important]="true"
+            label_text="Address"></input-text>
+        <input-text class="item" input_id="addressAdditional" [formGroup]="contactFormular" [is_optional]="true"
+            label_text="Apartment, suite, etc."></input-text>
+        <input-text class="item" input_id="postalCode" [formGroup]="contactFormular" [is_important]="true"
+            label_text="Postal code"></input-text>
+        <input-text class="item" input_id="city" [formGroup]="contactFormular" [is_important]="true"
+            label_text="City"></input-text>
+        <input-tel class="item" input_id="phone" [formGroup]="contactFormular" [is_important]="true"
+            label_text="Phone"></input-tel>
+        <button type="submit">Submit</button>
+    </form>
+</div>

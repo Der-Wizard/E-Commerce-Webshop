@@ -3,7 +3,6 @@ import { CartItem } from './models/cart-item';
 import { Product } from '../data/models/product';
 import { CartService } from './abstract-cart-service';
 import { ProductService } from '../data/abstract-product-service';
-import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,17 +19,6 @@ export class DummyCartService extends CartService {
     super();
     this.readCartFromLocalStorage();
     this.updateCartInformation();
-  }
-
-  override getCartItemTotal(id: string): Observable<number> {
-    const existentCartItemIndex = this.getCartItemIndex(id);
-    if (existentCartItemIndex !== -1) {
-      var cartItem = this.cart[existentCartItemIndex];
-      this.productService.getProductById(cartItem.productId)?.subscribe((product: Product) => {
-        return of(cartItem.quantity * product.price);
-      });
-    }
-    return of(-1);
   }
 
   override add(id: string, quantity: number): void {

@@ -74,6 +74,9 @@ export class ProductsComponent implements OnInit {
       if (this.current_page_index > pageCount) {
         this.current_page_index = pageCount;
       }
+      if (this.current_page_index < 1 && pageCount > 0) {
+        this.current_page_index = 1;
+      }
     });
     this.productService
       .fetchProducts(this.current_page_index, this.pageSize)

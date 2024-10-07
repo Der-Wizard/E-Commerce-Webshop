@@ -1,4 +1,3 @@
-import { Observable } from "rxjs";
 import { CartItem } from "./models/cart-item";
 
 export abstract class CartService {
@@ -7,8 +6,6 @@ export abstract class CartService {
     abstract cartTotal: number;
     abstract isCartEmpty: boolean;
     abstract isCartNotEmpty: boolean;
-
-    abstract getCartItemTotal(id: string): Observable<number>;
 
     abstract add(id: string, quantity: number): void;
     abstract remove(id: string): void;

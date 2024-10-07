@@ -40,19 +40,19 @@ export class CheckoutComponent {
     };
 
     this.contactForm = this.fb.group({
-      contact_user_email: ['abc@web.de', [Validators.required, Validators.email]],
+      contact_user_email: ['', [Validators.required, Validators.email]],
     });
 
     this.shippingAddressForm = this.fb.group({
-      shipping_address_user_country_code: ['AT', [Validators.required]],
-      shipping_address_user_forname: ['a', [Validators.required]],
-      shipping_address_user_surname: ['a', [Validators.required]],
+      shipping_address_user_country_code: ['', [Validators.required]],
+      shipping_address_user_forname: ['', [Validators.required]],
+      shipping_address_user_surname: ['', [Validators.required]],
       shipping_address_user_company: [''],
-      shipping_address_user_address: ['a', [Validators.required]],
+      shipping_address_user_address: ['', [Validators.required]],
       shipping_address_user_address_additional: [''],
-      shipping_address_user_postalcode: ['a', [Validators.required]],
-      shipping_address_user_city: ['a', [Validators.required]],
-      shipping_address_user_phone: ['+4917661474443', [Validators.required,
+      shipping_address_user_postalcode: ['', [Validators.required]],
+      shipping_address_user_city: ['', [Validators.required]],
+      shipping_address_user_phone: ['', [Validators.required,
       Validators.pattern(/^\+?(\d{1,3})?[-.\s]?(\d{1,4})?[-.\s]?(\d{1,4})[-.\s]?(\d{1,9})$/)]],
     });
 
@@ -111,14 +111,19 @@ export class CheckoutComponent {
   }
 
   continueToShipping() {
-    if (this.contactForm.invalid || this.shippingAddressForm.invalid)
+    if (this.contactForm.invalid || this.shippingAddressForm.invalid){
+      this.contactForm.markAllAsTouched();
+      this.shippingAddressForm.markAsTouched();
       return;
+    }
     this.goToShipping();
   }
 
   continueToPayment() {
-    if (this.shippingMethodForm.invalid)
+    if (this.shippingMethodForm.invalid){
+      this.shippingMethodForm.markAllAsTouched();
       return;
+    }
     this.goToPayment();
   }
 

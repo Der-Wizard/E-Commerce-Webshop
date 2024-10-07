@@ -5,9 +5,12 @@
   border-radius: $std-border-radius;
 }
 
+.toggle-box {
+  border-radius: $std-border-radius;
+}
 
 .no-mode {
-  .nm-txt-less{
+  .nm-txt-less {
     color: $light-text-less;
   }
 }
@@ -18,10 +21,15 @@
   color: $light-text;
   background-color: $light-bg;
 
+  .toggle-box:hover {
+    border: 3px solid;
+    border-color: $light-border;
+  }
+
   .bg {
     background-color: $light-bg;
   }
-  
+
   .txt-less {
     color: $light-text-less;
   }
@@ -53,7 +61,12 @@
   color-scheme: dark;
   color: $dark-text;
   background-color: $dark-bg;
-  
+
+  .toggle-box:hover {
+    border: 3px solid;
+    border-color: $dark-border;
+  }
+
   .bg {
     background-color: $dark-bg;
   }
@@ -86,7 +99,7 @@
 
 
 .show-panel-highlight:hover {
-  filter:invert(1);
+  filter: invert(1);
 
   img,
   video {
