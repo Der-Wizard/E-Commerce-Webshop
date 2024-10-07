@@ -1,6 +1,7 @@
-<input-base [input_id]="input_id" type="text" [label_text]="label_text" [is_important]="is_important" [is_optional]="is_optional"
-    [formGroup]="formGroup"></input-base>
-    <div
-    *ngIf="formGroup.get(input_id)?.invalid && (formGroup.get(input_id)?.touched || formGroup.get(input_id)?.dirty)">
+<div>
+    <input-base [input_id]="input_id" type="text" [label_text]="label_text" [is_important]="is_important"
+        [is_optional]="is_optional" [formGroup]="formGroup"></input-base>
+</div>
+<div *ngIf="formGroup.get(input_id)?.invalid && (formGroup.get(input_id)?.touched || formGroup.get(input_id)?.dirty)">
     <small class="error-hint" *ngIf="formGroup.get(input_id)?.errors?.['required']">{{label_text}} is required.</small>
 </div>

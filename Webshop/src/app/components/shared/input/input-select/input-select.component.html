@@ -33,3 +33,6 @@
         <option value="US">United States</option>
     </select>
 </div>
+<div *ngIf="formGroup.get(input_id)?.invalid && (formGroup.get(input_id)?.touched || formGroup.get(input_id)?.dirty)">
+    <small class="error-hint" *ngIf="formGroup.get(input_id)?.errors?.['required']">{{label_text}} is required.</small>
+</div>

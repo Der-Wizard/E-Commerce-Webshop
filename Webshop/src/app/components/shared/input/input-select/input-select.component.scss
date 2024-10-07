@@ -1,5 +1,9 @@
 @import '../../../../../styles/styles.scss';
 
+:host {
+    display: block;
+}
+
 .input-container {
     flex:1;
     position: relative;

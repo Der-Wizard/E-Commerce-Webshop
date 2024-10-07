@@ -44,4 +44,15 @@ hr {
     justify-content: center;
     align-items: center;
     gap: $std-gap;
+
+    .quantity-remove-container {
+        position: relative;
+
+        .remove-button {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
 }

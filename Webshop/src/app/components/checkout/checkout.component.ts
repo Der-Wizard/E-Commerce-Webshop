@@ -82,13 +82,6 @@ export class CheckoutComponent {
   onSubmitPaymentOption() {
     this.confirmOrder();
   }
-
-  shippingMethods = [
-    { name: 'International', cost: 10.00 },
-    { name: 'Europe', cost: 3.00 },
-    { name: 'Germany', cost: 0.00 }
-  ];
-
   selectedShippingMethod: { name: string, formattedCost: string } | null = null;
 
   private formatCurrency(amount: number): string {
@@ -134,11 +127,19 @@ export class CheckoutComponent {
   }
 
   getShippingMethod(): { name: string, formattedCost: string } {
-    const index = Math.floor(Math.random() * this.shippingMethods.length);
-    const method = this.shippingMethods[index];
+    console.log(this.shippingAddressForm.controls['shipping_address_user_country_code'].value)
+    var method;
+    switch (this.shippingAddressForm.controls['shipping_address_user_country_code'].value) {
+      case 'DE':
+        method = { name: 'Germany', cost: 0 }
+        break;
+      default:
+        method = { name: 'International', cost: 15 };
+        break;
+    }
     return {
-      name: method.name,
-      formattedCost: this.formatCurrency(method.cost)
+      name: method?.name ?? '404',
+      formattedCost: this.formatCurrency(typeof method?.cost === 'number' ? method.cost : 404)
     };
   }
 }

@@ -7,11 +7,13 @@
     <p class="card-field"> {{ price | currency:'EUR':'symbol' }}</p>
     <div class="quantity-container">
         <button (click)="decreaseItemQuantity()"><i class="fas fa-minus"></i></button>
-        <p class="card-field"> {{ quantity }}</p>
+        <div class="quantity-remove-container"> 
+            <p class="card-field">{{ quantity }}</p>
+            <button (click)="removeCartItem()" class="remove-button">Remove</button>
+        </div>
         <button (click)="increaseItemQuantity()"><i class="fas fa-plus"></i></button>
     </div>
     <p class="card-field"> {{ total | currency:'EUR':'symbol' }}</p>
-    <button (click)="removeCartItem()"><i class="fas fa-x"></i></button>
 </div>
 
 <hr>

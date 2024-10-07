@@ -23,6 +23,12 @@
     }
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: $std-gap*2.5;
+}
+
 .checkout-milestone-container {
     font-size: smaller;
     flex: 1;
@@ -70,18 +76,21 @@
 }
 
 
-
 .navigation-buttons {
+    margin-top: $std-margin;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
     .return-button {
         display: flex;
         flex-direction: row;
-        justify-content: center;
         align-items: center;
         border: none;
+        > p {
+            margin: 0;
+        }
     }
 
     .continue-button {

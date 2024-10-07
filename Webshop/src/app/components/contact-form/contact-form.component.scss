@@ -29,14 +29,10 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    #question-field {
-        height: 100px;
-    }
+    gap:$std-gap * 3;
 
     >* {
         width: 500px;
-        margin-top: $std-gap;
     }
 }
 
@@ -44,7 +40,6 @@ form {
     form {
         >* {
             width: 90%;
-            margin-top: $std-gap*2;
         }
     }
 }

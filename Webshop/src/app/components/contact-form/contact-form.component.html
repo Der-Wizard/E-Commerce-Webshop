@@ -9,7 +9,7 @@
 <div id="form-container">
     <form [formGroup]="contactFormular" (ngSubmit)="onSubmit()">
         <input-text-area id="question-field" input_id="question" [formGroup]="contactFormular" [is_important]="true"
-            label_text="Your question:"></input-text-area>
+            label_text="Your question (maximum of 250 characters)"></input-text-area>
         <input-select input_id="countryCode" [is_important]="true" label_text="Select a country"
             [formGroup]="contactFormular" class="item"></input-select>
         <input-text input_id="forname" [formGroup]="contactFormular" [is_important]="true"

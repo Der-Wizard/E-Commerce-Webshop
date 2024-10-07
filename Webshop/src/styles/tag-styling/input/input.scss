@@ -18,14 +18,16 @@ button:hover {
 }
 
 input,
-select {
+select,
+textarea {
     border: solid 1px;
     border-radius: $std-border-radius;
     padding-left: $std-padding;
 }
 
 input:invalid,
-select:invalid {
+select:invalid,
+textarea {
     border-color: red;
 }
 

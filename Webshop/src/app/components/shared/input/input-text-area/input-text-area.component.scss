@@ -1,3 +1,40 @@
-input-base{
-    height: inherit;
+@import '../../../../../styles/styles.scss';
+
+:host {
+    width: 100%;
+}
+
+.input-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+
+    label {
+        pointer-events: none;
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        transition: font-size 0.3s, left 0.3s, top 0.3s;
+    }
+
+    label.filled {
+        font-size: calc($font-size-normal*0.75);
+        top: -20px;
+        left: 20px;
+    }
+
+    textarea,
+    select {
+        width: 100%;
+        flex: 1;
+        height: $font-size-normal * 2;
+    }
+
+    textarea {
+        height: 100px;
+        resize: none;
+        overflow: hidden;
+        border-color: unset;
+    }
+
 }

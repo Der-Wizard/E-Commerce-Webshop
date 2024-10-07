@@ -18,7 +18,7 @@
     flex-direction: row;
     box-sizing: border-box;
     justify-content: space-between;
-    gap: $std-gap * 2;
+    gap: $std-gap ;
     margin-bottom: $std-margin;
     margin-left: $std-margin;
 }
@@ -33,7 +33,7 @@
     flex-direction: row;
     align-items: center;
     box-sizing: border-box;
-    gap: $std-gap * 2;
+    gap: $std-gap;
 }
 
 #nav-bar-right div {
@@ -41,7 +41,7 @@
     flex-direction: row;
     justify-content: flex-end;
     box-sizing: border-box;
-    gap: $std-gap * 4;
+    gap: $std-gap;
 }
 
 #title {
@@ -64,7 +64,7 @@
         top:-30px;
         left:-15px;
         border-radius:$std-border-radius-circle;
-        padding: $std-padding $std-padding*6;
+        padding: calc($std-padding*0.1) calc($std-padding*0.5);
         z-index: 100;
         border: solid 1px;
         border-right: none;

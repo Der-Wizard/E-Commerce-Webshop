@@ -24,36 +24,36 @@
                 <h2 class="item">Shipping address</h2>
                 <form [formGroup]="shippingAddressForm" class="item" (ngSubmit)="onSubmitShippingAddressForm()">
                     <input-select input_id="shipping_address_user_country_code" [is_important]="true"
-                        label_text="Select a country" [formGroup]="shippingAddressForm" class="item"></input-select>
+                        label_text="Select a country" [formGroup]="shippingAddressForm"></input-select>
                     <div class="multiple-inputs">
                         <input-text input_id="shipping_address_user_forname" [formGroup]="shippingAddressForm"
                             [is_important]="true" label_text="Forname"></input-text>
                         <input-text input_id="shipping_address_user_surname" [formGroup]="shippingAddressForm"
                             [is_important]="true" label_text="Surname"></input-text>
                     </div>
-                    <input-text class="item" input_id="shipping_address_user_company" [formGroup]="shippingAddressForm"
+                    <input-text input_id="shipping_address_user_company" [formGroup]="shippingAddressForm"
                         [is_optional]="true" label_text="Company"></input-text>
-                    <input-text class="item" input_id="shipping_address_user_address" [formGroup]="shippingAddressForm"
+                    <input-text input_id="shipping_address_user_address" [formGroup]="shippingAddressForm"
                         [is_important]="true" label_text="Address"></input-text>
-                    <input-text class="item" input_id="shipping_address_user_address_additional"
+                    <input-text input_id="shipping_address_user_address_additional"
                         [formGroup]="shippingAddressForm" [is_optional]="true"
                         label_text="Apartment, suite, etc."></input-text>
-                    <input-text class="item" input_id="shipping_address_user_postalcode"
+                    <input-text input_id="shipping_address_user_postalcode"
                         [formGroup]="shippingAddressForm" [is_important]="true" label_text="Postal code"></input-text>
-                    <input-text class="item" input_id="shipping_address_user_city" [formGroup]="shippingAddressForm"
+                    <input-text input_id="shipping_address_user_city" [formGroup]="shippingAddressForm"
                         [is_important]="true" label_text="City"></input-text>
-                    <input-tel class="item" input_id="shipping_address_user_phone" [formGroup]="shippingAddressForm"
+                    <input-tel input_id="shipping_address_user_phone" [formGroup]="shippingAddressForm"
                         [is_important]="true" label_text="Phone"></input-tel>
                     <button type="submit"
                         style="display:none"><!--This shouldnt need to be here but for some reason it wont work--></button>
                 </form>
 
-                <div class="navigation-buttons">
-                    <button class="return-button item" (click)="navigate('cart')">
+                <div class="navigation-buttons item">
+                    <button class="return-button" (click)="navigate('cart')">
                         <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
                         <p> Return to cart</p>
                     </button>
-                    <button class="continue-button item" (click)="continueToShipping()"
+                    <button class="continue-button" (click)="continueToShipping()"
                         [disabled]="contactForm.invalid || shippingAddressForm.invalid">
                         Continue to shipping</button>
                 </div>
@@ -70,12 +70,12 @@
                     style="display:none"><!--This shouldnt need to be here but for some reason it wont work--></button>
                 </form>
 
-                <div class="navigation-buttons">
-                    <button class="return-button item" (click)="goToInformation()">
+                <div class="navigation-buttons item">
+                    <button class="return-button" (click)="goToInformation()">
                         <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
                         <p> Return to information</p>
                     </button>
-                    <button class="continue-button item" (click)="continueToPayment()"
+                    <button class="continue-button" (click)="continueToPayment()"
                         [disabled]="shippingMethodForm.invalid">
                         Continue to payment</button>
                 </div>
@@ -100,12 +100,12 @@
                     style="display:none"><!--This shouldnt need to be here but for some reason it wont work--></button>
                 </form>
 
-                <div class="navigation-buttons">
-                    <button class="return-button item" (click)="goToShipping()">
+                <div class="navigation-buttons item">
+                    <button class="return-button" (click)="goToShipping()">
                         <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
                         <p> Return to shipping</p>
                     </button>
-                    <button class="continue-button item" (click)="confirmOrder()"
+                    <button class="continue-button" (click)="confirmOrder()"
                         [disabled]="shippingMethodForm.invalid">
                         Order</button>
                 </div>

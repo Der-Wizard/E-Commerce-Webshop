@@ -17,7 +17,7 @@ import { ConfirmationComponent } from './components/checkout/confirmation/confir
 import { ContactFormConfirmationComponent } from './components/contact-form/contact-form-confirmation/contact-form-confirmation.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', component: ProductsComponent },
     { path: 'home', redirectTo: 'products' },
     { path: 'products', component: ProductsComponent },
     { path: 'products/:id', component: ProductInfoComponent },
