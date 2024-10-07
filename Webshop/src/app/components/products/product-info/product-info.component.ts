@@ -6,7 +6,6 @@ import { CurrencyPipe, NgFor, NgForOf, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { CurrentStockComponent } from '../current-stock/current-stock.component';
-import { DummyCartService } from '../../../services/checkout/dummy-cart.service';
 import { AuthLoggedInDirective } from '../../../directives/auth-logged-in.directive';
 import { CartService } from '../../../services/checkout/abstract-cart-service';
 
@@ -65,7 +64,7 @@ export class ProductInfoComponent implements OnInit {
     if (this.selectedQuantity == 0 || this.product.stock < this.selectedQuantity) {
       return;
     }
-
+    this.selectedQuantity = Number(this.selectedQuantity);
     this.cartService.add(this.product.id,this.selectedQuantity);
     this.router.navigate(['cart']);
 

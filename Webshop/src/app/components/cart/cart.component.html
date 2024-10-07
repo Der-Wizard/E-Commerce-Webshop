@@ -2,7 +2,7 @@
     Shopping Cart
 </h2>
 <hr>
-<div id="order-information-container" *ngIf="cartService.isCartNotEmpty()">
+<div id="order-information-container" *ngIf="cartService.isCartNotEmpty">
     <div></div>
     <div></div>
     <h3 class="card-heading">
@@ -16,22 +16,22 @@
     </h3>
 </div>
 <hr>
-<cart-item-card *ngFor="let cartItem of cartService.getCart()" [cartItem]="cartItem"></cart-item-card>
-<div *ngIf="cartService.isCartEmpty()">
+<cart-item-card *ngFor="let cartItem of cartService.cart" [cartItem]="cartItem"></cart-item-card>
+<div *ngIf="cartService.isCartEmpty">
     <p>There are no items in your cart</p>
 </div>
 
 <hr>
-<div id="order-total-container" *ngIf="cartService.isCartNotEmpty()">
+<div id="order-total-container" *ngIf="cartService.isCartNotEmpty">
     <div></div>
     <div></div>
     <div></div>
     <div></div>
     <h3 id="total-prize">
-        {{ cartService.getCartTotal() | currency:'EUR':'symbol' }}
+        {{ cartService.cartTotal | currency:'EUR':'symbol' }}
     </h3>
 </div>
 
-<div id="order-checkout-container" *ngIf="cartService.isCartNotEmpty()">
+<div id="order-checkout-container" *ngIf="cartService.isCartNotEmpty">
     <button (click)="navigateCheckOut()">Proceed with checkout</button>
 </div>

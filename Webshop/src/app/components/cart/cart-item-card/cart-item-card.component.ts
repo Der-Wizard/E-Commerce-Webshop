@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CartItem } from '../../../services/checkout/models/cart-item';
 import { ProductService } from '../../../services/data/abstract-product-service';
 import { Product } from '../../../services/data/models/product';
@@ -18,24 +18,35 @@ export class CartItemCardComponent implements OnInit {
   @Input() cartItem!: CartItem;
   product!: Product;
 
+  price: number = 0;
+  quantity: number = 0;
+  total: number = 0;
+
   constructor(private productService: ProductService, private cartService: CartService) {
   }
 
   ngOnInit() {
-    this.productService.getProductById(this.cartItem.id)?.subscribe((product) => {
+    this.productService.getProductById(this.cartItem.productId)?.subscribe((product) => {
       this.product = product;
+      this.price = product.price;
+      this.quantity = this.cartItem.quantity;
+      this.total = this.price * this.quantity;
     });
   }
 
   removeCartItem() {
-    this.cartService.remove(this.cartItem.id);
+    this.cartService.remove(this.cartItem.productId);
   }
 
   increaseItemQuantity() {
-    this.cartService.changeQuantityBy(this.cartItem.id, 1);
+    this.cartService.changeQuantityBy(this.cartItem.productId, 1);
+    this.quantity = this.cartItem.quantity;
+    this.total = this.price * this.quantity;
   }
 
   decreaseItemQuantity() {
-    this.cartService.changeQuantityBy(this.cartItem.id, -1);
+    this.cartService.changeQuantityBy(this.cartItem.productId, -1);
+    this.quantity = this.cartItem.quantity;
+    this.total = this.price * this.quantity;
   }
 }

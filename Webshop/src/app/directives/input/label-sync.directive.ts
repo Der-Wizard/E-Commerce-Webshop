@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, OnChanges, OnInit, Renderer2, SimpleChanges} from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[labelSync]',

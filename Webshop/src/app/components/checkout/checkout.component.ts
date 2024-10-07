@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DummyCartService } from '../../services/checkout/dummy-cart.service';
 import { Router } from '@angular/router';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { InputEmailComponent } from '../shared/input/email/input-email.component';
@@ -9,6 +8,7 @@ import { InputTelComponent } from '../shared/input/input-tel/input-tel.component
 import { InputRadioComponent } from '../shared/input/input-radio/input-radio.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LabelSyncDirective } from '../../directives/input/label-sync.directive';
+import { CartService } from '../../services/checkout/abstract-cart-service';
 
 @Component({
   selector: 'app-checkout',
@@ -34,8 +34,8 @@ export class CheckoutComponent {
   currentMilestone: string = 'Information';
   paymentForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private cartService: DummyCartService, private router: Router) {
-    if (this.cartService.getCart()?.length === 0) {
+  constructor(private fb: FormBuilder, private cartService: CartService, private router: Router) {
+    if (this.cartService.cartLength === 0) {
       this.navigate('');
     };
 

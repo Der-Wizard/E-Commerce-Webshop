@@ -1,10 +1,11 @@
 
 export class CartItem {
-    id!: string;
+    productId!: string;
     quantity!: number;
+    total!: number;
 
     constructor(_productId: string, _quantity: number) {
         this.quantity = _quantity;
-        this.id = _productId;
+        this.productId = _productId;
     }
 }

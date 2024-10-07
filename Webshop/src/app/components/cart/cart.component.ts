@@ -1,8 +1,8 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { CartItemCardComponent } from './cart-item-card/cart-item-card.component';
 import { Router } from '@angular/router';
-import { DummyCartService } from '../../services/checkout/dummy-cart.service';
+import { CartService } from '../../services/checkout/abstract-cart-service';
 
 @Component({
   selector: 'app-cart',
@@ -16,15 +16,10 @@ import { DummyCartService } from '../../services/checkout/dummy-cart.service';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  constructor(public cartService: DummyCartService, private cd: ChangeDetectorRef, private router:Router) {
-   }
-
-  checkCart() {
-    this.cd.detectChanges();
+  constructor(public cartService: CartService, private router: Router) {
   }
 
-  navigateCheckOut(){
+  navigateCheckOut() {
     this.router.navigate(['checkout']);
   }
-
 }
