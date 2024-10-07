@@ -12,14 +12,15 @@
     label {
         pointer-events: none;
         position: absolute;
-        top: 5px;
-        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
         transition: font-size 0.3s, left 0.3s, top 0.3s;
     }
 
     label.filled {
         font-size: calc($font-size-normal*0.75);
-        top: -20px;
+        top: -20%;
         left: 20px;
     }
 
