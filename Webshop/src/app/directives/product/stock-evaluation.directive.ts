@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
   standalone: true
 })
 export class StockEvaluationDirective implements OnInit {
-  @Input() stockEvaluation!: number; // Match the input with the selector
+  @Input() stockEvaluation!: number;
 
   constructor(private el: ElementRef) { }
 

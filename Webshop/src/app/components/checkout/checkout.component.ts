@@ -101,6 +101,7 @@ export class CheckoutComponent {
 
   goToInformation() {
     this.currentMilestone = 'Information';
+    this.shippingMethodForm.reset();
   }
   goToShipping() {
     this.selectedShippingMethod = this.getShippingMethod();
@@ -111,16 +112,16 @@ export class CheckoutComponent {
   }
 
   continueToShipping() {
-    if (this.contactForm.invalid || this.shippingAddressForm.invalid){
+    if (this.contactForm.invalid || this.shippingAddressForm.invalid) {
       this.contactForm.markAllAsTouched();
-      this.shippingAddressForm.markAsTouched();
+      this.shippingAddressForm.markAllAsTouched();
       return;
     }
     this.goToShipping();
   }
 
   continueToPayment() {
-    if (this.shippingMethodForm.invalid){
+    if (this.shippingMethodForm.invalid) {
       this.shippingMethodForm.markAllAsTouched();
       return;
     }

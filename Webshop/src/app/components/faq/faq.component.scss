@@ -3,7 +3,6 @@
 
 .mat-accordion {
     width: 100%;
-    // background-color: #f5f5f5; 
     border-radius: $std-border-radius;
 
     .mat-expansion-panel {
@@ -14,8 +13,6 @@
         border-radius: $std-border-radius;
 
         .mat-expansion-panel-header {
-            // background-color: #00796b; 
-            // color: white; 
             padding: $std-padding;
 
         }
