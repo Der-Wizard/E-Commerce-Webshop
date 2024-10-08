@@ -29,24 +29,12 @@
         <h2 id="product-name">
             {{ product.name }}
         </h2>
-        <div id="product-sd-p-container">
-            <div>
-                <h3 id="product-short-description">
-                    Product short description
-
-                </h3>
-                <p>
-                    {{ product.short_description }}
-                </p>
-            </div>
-        </div>
-
         <h2>
             {{ product.price | currency:'EUR':'symbol'}}
         </h2>
         <div id="product-stock">
             <h3>Current stock:</h3>
-            <product-current-stock [stock]="product.stock"></product-current-stock>
+            <product-current-stock [stock]="1"></product-current-stock>
         </div>
         <section id="buying-section">
 

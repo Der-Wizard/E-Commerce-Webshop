@@ -18,9 +18,7 @@ export class ProductCardComponent {
     id: '',
     name: '',
     description: '',
-    short_description: '',
     price: 0,
-    stock: 0,
     category: ''
   };
 }

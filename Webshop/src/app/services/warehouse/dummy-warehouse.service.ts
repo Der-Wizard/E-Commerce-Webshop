@@ -15,7 +15,7 @@ export class DummyWarehouseService extends WareHouseService{
 
   override getAvailableStock(productId: string): Observable<number> {
     var stock = 0;
-    const stockProduct = this.dummyData.find(x => x.product.id === productId);
+    const stockProduct = this.dummyData.find(x => x.productId === productId);
     if(stockProduct)
       stock = stockProduct.currentStock;
 
