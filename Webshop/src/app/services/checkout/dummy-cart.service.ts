@@ -93,13 +93,15 @@ export class DummyCartService extends CartService {
   private saveCart(): void {
     localStorage.setItem(this.cartKey, JSON.stringify(this.cart));
   }
-  private updateCartInformation(){
+  private updateCartInformation() {
     this.cartLength = this.cart.length;
     this.isCartEmpty = this.cart.length === 0;
     this.isCartNotEmpty = !this.isCartEmpty;
     var total = 0;
     this.cart.forEach((cartItem: CartItem) => {
-      this.productService.getProductById(cartItem.productId)?.subscribe((product: Product) => {
+      this.productService.getProductById(cartItem.productId)?.subscribe((product: Product | undefined) => {
+        if (product === undefined)
+          return;
         total += product.price * cartItem.quantity;
       });
     });

@@ -7,6 +7,8 @@ import { DummyCartService } from './services/checkout/dummy-cart.service';
 import { CheckOutDirective } from './directives/checkout/check-out.directive';
 import { CartService } from './services/checkout/abstract-cart-service';
 import { DummyProductService } from './services/data/dummy-product.service';
+import { WareHouseService } from './services/warehouse/warehouse-service';
+import { DummyWarehouseService } from './services/warehouse/dummy-warehouse.service';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +26,9 @@ import { DummyProductService } from './services/data/dummy-product.service';
     {
       provide: CartService,
       useClass: DummyCartService
+    },{
+      provide: WareHouseService,
+      useClass: DummyWarehouseService
     }
   ],
   templateUrl: './app.component.html',

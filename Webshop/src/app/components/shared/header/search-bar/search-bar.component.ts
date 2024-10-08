@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from '../../../../services/data/abstract-product-service';
@@ -8,19 +8,20 @@ import { ProductService } from '../../../../services/data/abstract-product-servi
   selector: 'app-search-bar',
   standalone: true,
   imports: [
-    CommonModule, FormsModule,
+    CommonModule, FormsModule
   ],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss'
 })
-export class SearchBarComponent {
-  private router = inject(Router);
-  productService: ProductService;
-
-  constructor(p_productService: ProductService) {
-    this.productService = p_productService;
+export class SearchBarComponent{
+  searchTerm!: string;
+  constructor(private router: Router, public productService: ProductService) { 
+    this.searchTerm = this.productService.getSearchTerm();
   }
+
   onSearch() {
-    this.router.navigate(['/products'], { queryParams: { search: this.productService.searchTerm } });
+    this.productService.setSearchTerm(this.searchTerm);
+    if (this.router.url !== '/products')
+      this.router.navigate(['/products']);
   }
 }

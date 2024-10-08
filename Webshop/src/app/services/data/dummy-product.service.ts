@@ -1,15 +1,104 @@
 import { Injectable } from '@angular/core';
 import { ProductService } from './abstract-product-service';
 import { Product } from './models/product';
-import { filter, Observable, of } from 'rxjs';
+import { BehaviorSubject, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DummyProductService extends ProductService {
-  override searchTerm!: string;
-  override searchCategory!: string;
+  protected override filteredProducts: Product[] = [];
+  protected override pageSize: number = 50;
+  override searchTerm: string = '';
+  protected override searchCategory: string = '';
 
+  override page$ = new BehaviorSubject<number>(1);
+  override pageCount$ = new BehaviorSubject<number>(1);
+  override currentProducts$ = new BehaviorSubject<Product[]>([]);
+
+  constructor() {
+    super();
+  }
+
+  override search(): void {
+    this.updateCurrentProducts();
+  }
+
+  private updateCurrentProducts(): void {
+    this.fetchProducts().subscribe((products: Product[]) => {
+      this.filteredProducts = products;
+
+      this.pageCount$.next(Math.ceil(this.filteredProducts.length / this.pageSize));
+      if(this.pageCount$.value < this.page$.value)
+        this.page$.next(this.pageCount$.value);
+      if(this.page$.value < 1)
+        this.page$.next(1);
+
+      const start = (this.page$.value - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      this.currentProducts$.next(this.filteredProducts.slice(start, end));
+    });
+  }
+
+  override increasePageIndex(): void {
+    if(this.page$.value >= this.pageCount$.value){
+      this.page$.value === this.pageCount$.value;
+      return;
+    }
+    this.page$.next(this.page$.value + 1)
+    this.updateCurrentProducts();
+  }
+  override decreasePageIndex(): void {
+    if(this.page$.value <= 1){
+      this.page$.value === 1;
+      return;
+    }
+    this.page$.next(this.page$.value - 1)
+    this.updateCurrentProducts();
+  }
+  override setPageIndex(value: number): void {
+    if (value < 1 || value > this.pageCount$.value) {
+      return;
+    }
+    this.page$.next(value);
+    this.updateCurrentProducts();
+  }
+
+  override setPageSize(value: number): void {
+    this.pageSize = value;
+    this.updateCurrentProducts();
+  }
+
+  override setSearchCategory(value: string): void {
+    this.searchCategory = value;
+    this.updateCurrentProducts();
+  }
+
+  override getSearchTerm(): string {
+    return this.searchTerm;
+  }
+
+  override setSearchTerm(value: string): void {
+    this.searchTerm = value;
+    this.updateCurrentProducts();
+  }
+
+  protected override fetchProducts(): Observable<Product[]> {
+    return of(this.dummyData.filter(x => this.searchCategory !== '' ? this.searchCategory === x.category : true)
+                            .filter(x => this.searchTerm !== '' ? x.name.toLowerCase().includes(this.searchTerm.toLowerCase()) : true)
+    );
+  }
+  protected override fetchProductById(id: string): Observable<Product | undefined> {
+    return of(this.dummyData.find(x => x.id === id) ?? undefined);
+  }
+  
+  override getProductById(id: string): Observable<Product | undefined> {
+    return this.fetchProductById(id).pipe(
+      map(product => product)
+    );
+  }
+
+  
   private dummyData: Product[] = [
     { id: "0", name: "Hannah Montana", description: "", short_description: "Inspires creativity.", stock: 0, price: 6.78, category: "posters" },
     { id: "1", name: "Bear Plushie", description: "", short_description: "Adorable and huggable.", stock: 770, price: 98.8, category: "plushies" },
@@ -1512,59 +1601,6 @@ export class DummyProductService extends ProductService {
     { id: "1498", name: "Sweater", description: "", short_description: "Durable and fashionable.", stock: 976, price: 51.11, category: "clothing" },
     { id: "1499", name: "Pikachu", description: "", short_description: "Fits perfectly.", stock: 565, price: 27.11, category: "clothing" }
   ];
-
-  constructor() {
-    super();
-    this.dummyData.forEach(item => {
-      if (item.stock > 100) {
-        item.stock = Math.floor(item.stock / 100);
-      }
-    });
-  }
-
-  override fetchProductPageCount(pageSize: number): Observable<number> {
-    var filteredProducts: Product[] = this.filterProducts(this.dummyData);
-    var maxPageCount = Math.ceil(filteredProducts.length / pageSize);
-    return of(maxPageCount);
-  }
-
-  override fetchProducts(page: number, pageSize: number): Observable<[Product[], number]> {
-    const start = (page - 1) * pageSize;
-    const end = start + pageSize;
-
-    var filteredProducts: Product[] = this.filterProducts(this.dummyData);
-
-    var maxPageCount = Math.ceil(filteredProducts.length / pageSize);
-    var slicedProducts = filteredProducts.slice(start, end);
-
-    return of([slicedProducts, maxPageCount]);
-  }
-
-  getProductById(id: string): Observable<Product> | undefined {
-    const product = this.dummyData.find(p => p.id === id);
-    if (product === undefined) {
-      console.warn("DummyProductService.getProductById: no product found with id: " + id);
-      return undefined;
-    }
-    return of(product);
-  }
-
-
-  private filterProducts(filteredProducts: Product[]): Product[] {
-    if (this.searchCategory) {
-      filteredProducts = filteredProducts.filter(product =>
-        product.category === this.searchCategory
-      );
-    }
-
-    if (this.searchTerm) {
-      filteredProducts = filteredProducts.filter(product =>
-        product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
-
-    return filteredProducts;
-  }
 }
 
 

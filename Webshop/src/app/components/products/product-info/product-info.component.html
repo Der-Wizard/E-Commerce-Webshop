@@ -53,7 +53,7 @@
             <form id="quantity-form">
                 <label for="select-quantity-dropdown">Quantity: </label>
                 <select id="select-quantity-dropdown" class="border-box" [(ngModel)]="selectedQuantity" name="quantity">
-                    <option *ngFor="let i of generateStockArray(product.stock)" [value]="i">{{ i }}</option>
+                    <option *ngFor="let i of stockArray" [value]="i">{{ i }}</option>
                   </select>
             </form>
             <button *isLoggedIn="true" type="submit" (click)="onSubmit()">ADD TO CART</button>
@@ -69,16 +69,3 @@
         {{ product.description }}
     </p>
 </div>
-<!-- <h2 id="you-may-also-like">You may also like...</h2>
-<section id="similar-products-section">
-    <button type="button">
-        <i class="fas fa-play" style="transform: rotate(180deg);"></i>
-    </button>
-    <product-card></product-card>
-    <product-card></product-card>
-    <product-card></product-card>
-    <product-card></product-card>
-    <button type="button">
-        <i class="fas fa-play"></i>
-    </button>
-</section> -->

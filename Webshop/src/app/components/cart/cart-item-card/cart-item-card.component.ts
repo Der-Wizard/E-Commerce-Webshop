@@ -27,6 +27,8 @@ export class CartItemCardComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getProductById(this.cartItem.productId)?.subscribe((product) => {
+      if (product === undefined)
+        return;
       this.product = product;
       this.price = product.price;
       this.quantity = this.cartItem.quantity;
