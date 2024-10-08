@@ -9,6 +9,7 @@ import { CurrentStockComponent } from '../current-stock/current-stock.component'
 import { AuthLoggedInDirective } from '../../../directives/auth-logged-in.directive';
 import { CartService } from '../../../services/checkout/abstract-cart-service';
 import { WareHouseService } from '../../../services/warehouse/warehouse-service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-product-info',
@@ -33,10 +34,12 @@ export class ProductInfoComponent {
   product!: Product;
 
   stockArray: number[] = [];
+  currentStock: number = 0;
 
   constructor(private router: Router, private route: ActivatedRoute, private cartService: CartService, private productService: ProductService,
     private wareHouseService: WareHouseService
   ) { }
+
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -48,6 +51,7 @@ export class ProductInfoComponent {
         const maxLimit = 30;
         const arr = Array(Math.min(stock, maxLimit)).fill(0).map((_, i) => i + 1);
         this.stockArray = arr;
+        this.currentStock = stock;
       });
     });
   }

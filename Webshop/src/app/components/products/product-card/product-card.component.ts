@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../../services/data/models/product';
-import { CurrencyPipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CurrentStockComponent } from '../current-stock/current-stock.component';
+import { WareHouseService } from '../../../services/warehouse/warehouse-service';
 
 @Component({
   selector: 'product-card',
   standalone: true,
   imports: [CurrencyPipe, RouterLink,
-    CurrentStockComponent
+    CurrentStockComponent, AsyncPipe
   ],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss'
@@ -21,4 +22,6 @@ export class ProductCardComponent {
     price: 0,
     category: ''
   };
+
+  constructor(public wareHouseService: WareHouseService) {}
 }
