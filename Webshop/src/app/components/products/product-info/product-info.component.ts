@@ -1,13 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Product } from '../../../services/data/models/product';
+import { Product } from '../../../services/product/models/product';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../../../services/data/abstract-product-service';
+import { ProductService } from '../../../services/product/abstract-product-service';
 import { CurrencyPipe, NgFor, NgForOf, NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { CurrentStockComponent } from '../current-stock/current-stock.component';
 import { AuthLoggedInDirective } from '../../../directives/auth-logged-in.directive';
-import { CartService } from '../../../services/checkout/abstract-cart-service';
+import { CartService } from '../../../services/cart/abstract-cart-service';
 import { WareHouseService } from '../../../services/warehouse/warehouse-service';
 import { map } from 'rxjs';
 

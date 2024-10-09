@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../../../services/data/abstract-product-service';
+import { ProductService } from '../../../services/product/abstract-product-service';
 
 @Component({
   selector: 'app-search-options',

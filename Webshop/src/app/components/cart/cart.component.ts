@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { CartItemCardComponent } from './cart-item-card/cart-item-card.component';
 import { Router } from '@angular/router';
-import { CartService } from '../../services/checkout/abstract-cart-service';
+import { CartService } from '../../services/cart/abstract-cart-service';
 
 @Component({
   selector: 'app-cart',

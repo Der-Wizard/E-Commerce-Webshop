@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { ProductService } from '../../services/data/abstract-product-service';
+import { ProductService } from '../../services/product/abstract-product-service';
 import { CommonModule } from '@angular/common';
 import { SearchCarouselComponent } from './search-carousel/search-carousel.component';
 import { SearchOptionsComponent } from './search-options/search-options.component';

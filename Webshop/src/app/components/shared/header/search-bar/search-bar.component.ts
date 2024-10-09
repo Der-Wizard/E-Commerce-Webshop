@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductService } from '../../../../services/data/abstract-product-service';
+import { ProductService } from '../../../../services/product/abstract-product-service';
 
 @Component({
   selector: 'app-search-bar',

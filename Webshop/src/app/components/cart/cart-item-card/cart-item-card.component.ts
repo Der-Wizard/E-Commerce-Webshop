@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CartItem } from '../../../services/checkout/models/cart-item';
-import { ProductService } from '../../../services/data/abstract-product-service';
-import { Product } from '../../../services/data/models/product';
+import { CartItem } from '../../../services/cart/models/cart-item';
+import { ProductService } from '../../../services/product/abstract-product-service';
+import { Product } from '../../../services/product/models/product';
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
-import { CartService } from '../../../services/checkout/abstract-cart-service';
+import { CartService } from '../../../services/cart/abstract-cart-service';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 

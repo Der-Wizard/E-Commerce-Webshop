@@ -2,11 +2,11 @@ import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeaderComponent } from './components/shared/header/header.component';
-import { ProductService } from './services/data/abstract-product-service';
-import { DummyCartService } from './services/checkout/dummy-cart.service';
+import { ProductService } from './services/product/abstract-product-service';
+import { DummyCartService } from './services/cart/dummy-cart.service';
 import { CheckOutDirective } from './directives/checkout/check-out.directive';
-import { CartService } from './services/checkout/abstract-cart-service';
-import { DummyProductService } from './services/data/dummy-product.service';
+import { CartService } from './services/cart/abstract-cart-service';
+import { DummyProductService } from './services/product/dummy-product.service';
 import { WareHouseService } from './services/warehouse/warehouse-service';
 import { DummyWarehouseService } from './services/warehouse/dummy-warehouse.service';
 

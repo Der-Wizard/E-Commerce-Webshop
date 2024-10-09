@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../../services/data/models/product';
+import { Product } from '../../../services/product/models/product';
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CurrentStockComponent } from '../current-stock/current-stock.component';

@@ -4,7 +4,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { ToggleLightModeComponent } from './toggle-light-mode/toggle-light-mode.component';
 import { NavLinkComponent } from './nav-link/nav-link.component';
 import { CommonModule, NgIf } from '@angular/common';
-import { CartService } from '../../../services/checkout/abstract-cart-service';
+import { CartService } from '../../../services/cart/abstract-cart-service';
 
 @Component({
   selector: 'app-header',
