@@ -305,6 +305,27 @@ export class DummyProductService extends ProductService {
     { id: "e1f2g3h4-80a2-5c4e-b49a-123456789111", name: "Ohn's Courage Hoodie", description: "A hoodie representing Ohn's courage.", price: 49.99, category: "Hoodies" },
     { id: "e1f2g3h4-80a2-5c4e-b49a-123456789112", name: "Epic Journey Hoodie", description: "A cozy hoodie for epic journeys.", price: 44.99, category: "Hoodies" },
     { id: "e1f2g3h4-80a2-5c4e-b49a-123456789113", name: "Lunatic's Rebellion Hoodie", description: "A hoodie representing the rebellion in Lunatic's realm.", price: 49.99, category: "Hoodies" },
+  
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789012", name: "Vaara's Shadow Mouse Pad", description: "A sleek mouse pad featuring the shadowy figure of Vaara.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789013", name: "Lunatic World Map Mouse Pad", description: "An artistic representation of the Lunatic world map.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789014", name: "Felix the Tyrant Mouse Pad", description: "A mouse pad showcasing Felix in his tyrannical glory.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789015", name: "Queen of Flowers Mouse Pad", description: "A beautiful mouse pad featuring the Queen of Flowers.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789016", name: "Zeya the Warrior Mouse Pad", description: "A dynamic mouse pad depicting Zeya in action.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789017", name: "Epic Battle Scenes Mouse Pad", description: "A mouse pad illustrating epic battle scenes from Throne.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789018", name: "Lunatic's Magical Creatures Mouse Pad", description: "A colorful mouse pad featuring magical creatures from Lunatic.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789019", name: "Guardians of the Realm Mouse Pad", description: "A mouse pad showcasing the guardians from both games.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789020", name: "Emblems of Hope Mouse Pad", description: "An inspiring mouse pad featuring emblems of hope.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789021", name: "Dreamy Lunatic Mouse Pad", description: "A whimsical mouse pad showcasing dreamy scenes from Lunatic.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789022", name: "Throne Legacy Mouse Pad", description: "A mouse pad highlighting the legacy of Throne.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789023", name: "Mythical Adventures Mouse Pad", description: "A mouse pad featuring various mythical adventures from the games.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789024", name: "Vaara's Powers Mouse Pad", description: "A mouse pad depicting the powers of Vaara in action.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789025", name: "Throne Alliances Mouse Pad", description: "A mouse pad showcasing the alliances formed in Throne.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789026", name: "Epic Heroes Mouse Pad", description: "A mouse pad featuring the epic heroes from both games.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789027", name: "Throne's Frozen Landscape Mouse Pad", description: "A mouse pad showcasing the frozen landscapes of Throne.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789028", name: "Lunatic's Dark Secrets Mouse Pad", description: "A mysterious mouse pad featuring dark secrets from Lunatic.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789029", name: "Magical Realms Mouse Pad", description: "A mouse pad depicting the magical realms from both games.", price: 19.99, category: "Desk" },
+    { id: "i1j2j3k4-80a1-4e8c-8b60-123456789030", name: "Legendary Quests Mouse Pad", description: "A mouse pad featuring legendary quests from Lunatic and Throne.", price: 19.99, category: "Desk" },
+
   ];
 }
 

@@ -1,18 +1,18 @@
 <div class="card-container">
     <img class="product-img" src="assets/img/icon-logo-fixed.png">
     <div class="card-field information-field">
-        <h3>{{product.name}}</h3>
+        <h3>{{ (product$ | async)?.name }}</h3>
     </div>
-    <p class="card-field"> {{ price | currency:'EUR':'symbol' }}</p>
+    <p class="card-field"> {{ (product$ | async)?.price | currency:'EUR':'symbol' }}</p>
     <div class="quantity-container">
         <button (click)="decreaseItemQuantity()"><i class="fas fa-minus"></i></button>
-        <div class="quantity-remove-container"> 
-            <p class="card-field">{{ quantity }}</p>
+        <div class="quantity-remove-container">
+            <p class="card-field">{{ (quantity$ | async) }}</p>
             <button (click)="removeCartItem()" class="remove-button">Remove</button>
         </div>
         <button (click)="increaseItemQuantity()"><i class="fas fa-plus"></i></button>
     </div>
-    <p class="card-field"> {{ total | currency:'EUR':'symbol' }}</p>
+    <p class="card-field"> {{ (total$ | async) | currency:'EUR':'symbol' }}</p>
 </div>
 
 <hr>

@@ -35,7 +35,7 @@ export class CheckoutComponent {
   paymentForm: FormGroup;
 
   constructor(private fb: FormBuilder, private cartService: CartService, private router: Router) {
-    if (this.cartService.cartLength === 0) {
+    if (this.cartService.isCartEmpty$.value) {
       this.navigate('');
     };
 
