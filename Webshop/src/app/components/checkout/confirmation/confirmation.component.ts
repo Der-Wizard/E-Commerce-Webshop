@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Order } from '../../../services/cart/models/order';
+import { Order } from '../../../services/checkout/models/order';
 
 @Component({
   selector: 'app-confirmation',

@@ -6,13 +6,12 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountAuthService{
-  private router = inject(Router);
   private loggedIn = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.loggedIn.asObservable();
 
   private mockUser = { email: 'abc@web.de', password: '123' };
 
-  constructor() {
+  constructor(private router: Router) {
     var token = this.getToken();
 
     if (token === null)

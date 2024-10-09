@@ -9,6 +9,7 @@ import { InputRadioComponent } from '../shared/input/input-radio/input-radio.com
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LabelSyncDirective } from '../../directives/input/label-sync.directive';
 import { CartService } from '../../services/cart/abstract-cart-service';
+import { OrderService } from '../../services/checkout/checkout.service';
 
 @Component({
   selector: 'app-checkout',
