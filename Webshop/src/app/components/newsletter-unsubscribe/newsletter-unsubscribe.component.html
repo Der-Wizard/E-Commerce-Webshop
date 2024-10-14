@@ -1,0 +1,8 @@
+<h3>Unsubscribe from our newsletter</h3>
+
+<form class="f-c-cc" id="newsletter-form" [formGroup]="newsletterForm" (ngSubmit)="unsubscribeToNewsletter()">
+    <label for="email-newsletter">E-mail: </label>
+    <input id="email-newsletter" formControlName="email" />
+    <button id="newsletter-sign-up" type="submit">Unsubscribe</button>
+</form>
+<success-message *ngIf="showMessage" class="success-message" [successMessage]="successMessage"></success-message>

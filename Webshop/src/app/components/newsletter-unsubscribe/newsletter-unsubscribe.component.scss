@@ -1,0 +1,58 @@
+@import '../../../styles/styles.scss';
+
+:host {
+    @extend .show-panel;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: $std-margin;
+    box-sizing: border-box;
+    padding: $std-padding $std-padding * 2;
+    position: relative;
+
+}
+
+#newsletter-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+#newsletter-form h3 {
+    margin: $std-margin 0;
+}
+
+#back-to-the-top {
+    margin-bottom: $std-margin;
+}
+
+
+.f-c-cc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:$std-gap;
+}
+
+
+.success-message {
+    position: absolute;
+    left:55%;
+    bottom:40%;
+    padding: 0px 10px;
+
+    text-align: center;
+}
+
+
+@media screen and (max-width:400px) {
+    #bottom-interactions {
+        flex-direction: column-reverse;
+    }
+}

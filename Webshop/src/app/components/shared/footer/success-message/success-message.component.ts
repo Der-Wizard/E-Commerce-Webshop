@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'footer-success-message',
+  selector: 'success-message',
   standalone: true,
   imports: [],
   templateUrl: './success-message.component.html',

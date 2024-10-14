@@ -9,6 +9,8 @@ import { CartService } from './services/cart/abstract-cart-service';
 import { DummyProductService } from './services/product/dummy-product.service';
 import { WareHouseService } from './services/warehouse/warehouse-service';
 import { DummyWarehouseService } from './services/warehouse/dummy-warehouse.service';
+import { NewsletterService } from './services/newsletter/newsletter-service';
+import { ApiNewsletterService } from './services/newsletter/api-newsletter.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,7 @@ import { DummyWarehouseService } from './services/warehouse/dummy-warehouse.serv
   imports: [
     RouterOutlet, RouterLink,
     FooterComponent, HeaderComponent,
-    CheckOutDirective
+    CheckOutDirective,
   ],
   providers: [
     {
@@ -26,9 +28,14 @@ import { DummyWarehouseService } from './services/warehouse/dummy-warehouse.serv
     {
       provide: CartService,
       useClass: DummyCartService
-    },{
+    }, 
+    {
       provide: WareHouseService,
       useClass: DummyWarehouseService
+    }, 
+    {
+      provide: NewsletterService,
+      useClass: ApiNewsletterService
     }
   ],
   templateUrl: './app.component.html',

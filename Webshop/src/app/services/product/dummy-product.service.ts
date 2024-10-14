@@ -7,7 +7,7 @@ import { BehaviorSubject, map, Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class DummyProductService extends ProductService {
-  protected override filteredProducts: Product[] = [];
+  protected filteredProducts: Product[] = [];
   protected override pageSize: number = 50;
   override searchTerm: string = '';
   protected override searchCategory: string = '';
@@ -22,22 +22,6 @@ export class DummyProductService extends ProductService {
 
   override search(): void {
     this.updateCurrentProducts();
-  }
-
-  private updateCurrentProducts(): void {
-    this.fetchProducts().subscribe((products: Product[]) => {
-      this.filteredProducts = products;
-
-      this.pageCount$.next(Math.ceil(this.filteredProducts.length / this.pageSize));
-      if (this.pageCount$.value < this.page$.value)
-        this.page$.next(this.pageCount$.value);
-      if (this.page$.value < 1)
-        this.page$.next(1);
-
-      const start = (this.page$.value - 1) * this.pageSize;
-      const end = start + this.pageSize;
-      this.currentProducts$.next(this.filteredProducts.slice(start, end));
-    });
   }
 
   override increasePageIndex(): void {
@@ -98,6 +82,21 @@ export class DummyProductService extends ProductService {
     );
   }
 
+  protected updateCurrentProducts(): void {
+    this.fetchProducts().subscribe((products: Product[]) => {
+        this.filteredProducts = products;
+
+        this.pageCount$.next(Math.ceil(this.filteredProducts.length / this.pageSize));
+        if (this.pageCount$.value < this.page$.value)
+            this.page$.next(this.pageCount$.value);
+        if (this.page$.value < 1)
+            this.page$.next(1);
+
+        const start = (this.page$.value - 1) * this.pageSize;
+        const end = start + this.pageSize;
+        this.currentProducts$.next(this.filteredProducts.slice(start, end));
+    });
+}
 
   private dummyData: Product[] = [
     { id: "e3b28f9c-1e51-4e0c-b1fc-6b3d1fef7491", name: "Lunatic : Switch", description: "A JRPG set in a post-apocalyptic world where players navigate a rich narrative and engage in turn-based combat with deep character development.", price: 39.99, category: "VideoGames" },

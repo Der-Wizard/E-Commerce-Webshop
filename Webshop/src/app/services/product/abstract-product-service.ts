@@ -2,7 +2,6 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { Product } from "./models/product";
 
 export abstract class ProductService {
-    protected abstract filteredProducts: Product[];
     protected abstract pageSize: number;
     protected abstract searchTerm: string;
     protected abstract searchCategory: string;
@@ -24,4 +23,5 @@ export abstract class ProductService {
 
     protected abstract fetchProducts(): Observable<Product[]>;
     protected abstract fetchProductById(id: string): Observable<Product | undefined>;
+
 }

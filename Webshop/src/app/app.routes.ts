@@ -15,6 +15,7 @@ import { ProductInfoComponent } from './components/products/product-info/product
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ConfirmationComponent } from './components/checkout/confirmation/confirmation.component';
 import { ContactFormConfirmationComponent } from './components/contact-form/contact-form-confirmation/contact-form-confirmation.component';
+import { NewsletterUnsubscribeComponent } from './components/newsletter-unsubscribe/newsletter-unsubscribe.component';
 
 export const routes: Routes = [
     { path: '', component: ProductsComponent },
@@ -30,6 +31,7 @@ export const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactFormComponent },
     { path: 'contact-form-confirmation', component: ContactFormConfirmationComponent },
+    { path: 'newsletter-unsubscribe', component: NewsletterUnsubscribeComponent },
     { path: 'faq', component: FaqComponent },
     { path: '**', redirectTo: 'not-found' },
     { path: 'not-found', component: NotFoundComponent },
