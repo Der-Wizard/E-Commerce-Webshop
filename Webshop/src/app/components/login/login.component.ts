@@ -3,7 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputTextComponent } from '../shared/input/text/input-text.component';
 import { InputPasswordComponent } from "../shared/input/input-password/input-password.component";
-// import { AccountAuthService } from '../../services/auth/account-auth-service';
+import { AccountAuthService } from '../../services/auth/account-auth-service';
 
 
 @Component({
@@ -21,18 +21,18 @@ import { InputPasswordComponent } from "../shared/input/input-password/input-pas
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, /* private authService: AccountAuthService */) {
+  constructor(private fb: FormBuilder, private authService: AccountAuthService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
 
-    // this.authService.isLoggedIn$.subscribe((value) => {
-    //   if (value)
-    //     return;
-    //   this.loginForm.reset();
-    //   this.loginForm.markAllAsTouched();
-    // });
+    this.authService.isLoggedIn$.subscribe((value) => {
+      if (value)
+        return;
+      this.loginForm.reset();
+      this.loginForm.markAllAsTouched();
+    });
   }
 
   onSubmit() {
@@ -40,6 +40,6 @@ export class LoginComponent {
       this.loginForm.markAllAsTouched();
       return;
     }
-    // this.authService.login(this.loginForm.value);
+    this.authService.login(this.loginForm.value);
   }
 }

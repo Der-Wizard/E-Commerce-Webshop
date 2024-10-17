@@ -14,6 +14,7 @@ import { ApiNewsletterService } from './services/newsletter/api-newsletter.servi
 import { CustomAlertService } from './services/messages/custom-alert.service';
 import { AccountAuthService } from './services/auth/account-auth-service';
 import { DummyAccountAuthService } from './services/auth/dummy-account-auth.service';
+import { ApiAccountAuthService } from './services/auth/api-account-auth.service';
 
 @Component({
   selector: 'app-root',
@@ -42,7 +43,7 @@ import { DummyAccountAuthService } from './services/auth/dummy-account-auth.serv
     },
     {
       provide: AccountAuthService,
-      useClass: DummyAccountAuthService
+      useClass: ApiAccountAuthService
     }
   ],
   templateUrl: './app.component.html',

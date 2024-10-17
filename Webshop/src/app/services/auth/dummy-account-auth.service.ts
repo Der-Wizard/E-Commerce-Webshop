@@ -3,14 +3,15 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { AccountAuthService } from './account-auth-service';
 
-@Injectable()
+@Injectable({
+  providedIn:'root'
+})
 export class DummyAccountAuthService extends AccountAuthService {
   override isLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   private mockUser = { email: 'abc@web.de', password: '123' };
 
   constructor(private router: Router) {
-    console.log('Dummy account auth instantiated');
     super();
     var token = this.getToken();
 
@@ -33,6 +34,7 @@ export class DummyAccountAuthService extends AccountAuthService {
   }
 
   login(credentials: { email: string, password: string }): Observable<any> {
+    console.log(credentials);
     if (this.mockUser.email != credentials.email || this.mockUser.password != credentials.password)
       return of({ success: false, message: 'mock denied' });
 

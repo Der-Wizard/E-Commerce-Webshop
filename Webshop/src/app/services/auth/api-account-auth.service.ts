@@ -7,7 +7,7 @@ import { CustomAlertService } from '../messages/custom-alert.service';
 import { AccountAuthService } from './account-auth-service';
 
 @Injectable()
-export class ApiAccountAuthService extends AccountAuthService {
+export class ApiAccountAuthService extends AccountAuthService{
   override  isLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   override isLoggedIn(): boolean {
@@ -16,7 +16,11 @@ export class ApiAccountAuthService extends AccountAuthService {
 
   constructor(private http: HttpClient, private router: Router, private alertService: CustomAlertService) {
     super();
-    console.log("Hi");
+    this.checkLoginCookie();
+  }
+
+  private checkLoginCookie(){
+    
   }
 
   override  login(credentials: { email: string; password: string; }): void {
@@ -32,7 +36,6 @@ export class ApiAccountAuthService extends AccountAuthService {
       },
       error: (err) => {
         if (err.status === 401) {
-          this.isLoggedIn$.next(false);
           this.alertService.createErrorMessage('Either the password or email address is wrong!');
         }
       }
