@@ -1,38 +1,43 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { AccountAuthService } from '../services/account-auth.service';
+import { map, take } from 'rxjs';
+// import { AccountAuthService } from '../services/auth/account-auth-service';
 
 @Directive({
   selector: '[isLoggedIn]',
   standalone: true
 })
 export class AuthLoggedInDirective {
-  private hasView = false;
   private condition: boolean | undefined;
 
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
-    private authService: AccountAuthService
-  ) { 
-    this.authService.isLoggedIn$.subscribe((isLoggedIn) => {
-      if (this.condition !== undefined) {
-        this.updateView(isLoggedIn === this.condition);
-      }
-    });
+    // private authService: AccountAuthService
+  ) {
+    // this.authService.isLoggedIn$.pipe(take(1)).subscribe((isLoggedIn) => {
+    //   this.updateView(isLoggedIn);
+    // });
   }
 
   @Input() set isLoggedIn(condition: boolean) {
     this.condition = condition;
-    this.updateView(this.authService.isLoggedIn() === condition);
+    this.updateView();
   }
 
-  private updateView(isMatch: boolean) {
-    if (isMatch && !this.hasView) {
-      this.viewContainer.createEmbeddedView(this.templateRef);
-      this.hasView = true;
-    } else if (!isMatch && this.hasView) {
+  private updateView(isAuthenticated?: boolean) {
+    this.viewContainer.clear()
+    this.viewContainer.createEmbeddedView(this.templateRef);
+    return;
+    if (isAuthenticated === undefined) return;
+
+    if (this.condition && isAuthenticated) {
       this.viewContainer.clear();
-      this.hasView = false;
+      this.viewContainer.createEmbeddedView(this.templateRef);
+    } else if (!this.condition && !isAuthenticated) {
+      this.viewContainer.clear();
+      this.viewContainer.createEmbeddedView(this.templateRef);
+    } else {
+      this.viewContainer.clear();
     }
   }
 

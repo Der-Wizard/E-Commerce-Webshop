@@ -3,9 +3,7 @@ import { ProductService } from './abstract-product-service';
 import { Product } from './models/product';
 import { BehaviorSubject, map, Observable, of } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DummyProductService extends ProductService {
   protected filteredProducts: Product[] = [];
   protected override pageSize: number = 50;

@@ -1,11 +1,8 @@
 <div class="login-container">
     <h1>Login</h1>
     <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input class="form-input" id="login-email" formControlName="email" placeholder="E-mail:" />
-
-        <input class="form-input" id="login-password" type="password" formControlName="password"
-            placeholder="Password:" />
-
+        <input-text [formGroup]="loginForm" input_id="email" label_text="E-mail" [is_important]="true" ></input-text>
+        <input-password [formGroup]="loginForm" input_id="password" label_text="Password" [is_important]="true"></input-password>
             <button type="submit">Sign In</button>
     </form>
 

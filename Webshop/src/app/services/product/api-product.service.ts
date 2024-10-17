@@ -5,9 +5,7 @@ import { Product } from './models/product';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiProductService extends ProductService {
   protected override pageSize: number = 50;
   protected override searchTerm: string = '';

@@ -11,11 +11,14 @@
 
 #search-button {
     position: absolute;
-    left: -5px;
+    left: -10px;
     z-index: 1;
+    font-size: $font-size-normal;
+    height: $font-size-normal * 2;
 }
 
 #search-bar {
     width: 100%;
     padding-left: 40px;
+    height: $font-size-normal * 2;
 }

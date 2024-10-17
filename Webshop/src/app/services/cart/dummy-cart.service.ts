@@ -5,9 +5,7 @@ import { ProductService } from '../product/abstract-product-service';
 import { BehaviorSubject, map, Observable, of } from 'rxjs';
 import { WareHouseService } from '../warehouse/warehouse-service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DummyCartService extends CartService {
   override cart$ = new BehaviorSubject<CartItem[]>([]);
   override cartLength$ = new BehaviorSubject<number>(0);

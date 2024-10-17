@@ -3,9 +3,7 @@ import { WareHouseService } from './warehouse-service';
 import { StockProduct } from './models/stock-product';
 import { Observable, of } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DummyWarehouseService extends WareHouseService{
   constructor() { 
     super();

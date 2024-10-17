@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AccountAuthService } from '../../services/account-auth.service';
+// import { AccountAuthService } from '../../services/auth/account-auth-service';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +16,7 @@ export class RegistrationComponent {
   registerForm: FormGroup;
   private router = inject(Router);
 
-  constructor(private fb: FormBuilder, private authService: AccountAuthService) {
+  constructor(private fb: FormBuilder, /* private authService: AccountAuthService */) {
     this.registerForm = this.fb.group({
       forname: ['', Validators.required],
       surname: ['', Validators.required],
@@ -26,16 +26,16 @@ export class RegistrationComponent {
   }
 
   onSubmit() {
-    if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe({
-        next: (response) => {
-          console.log(response.message);
-          this.router.navigate(['']);
-        },
-        error: (error) => {
-          console.error('Registration failed:', error);
-        },
-      });
-    }
+  //   if (this.registerForm.valid) {
+  //     this.authService.register(this.registerForm.value).subscribe({
+  //       next: (response) => {
+  //         console.log(response.message);
+  //         this.router.navigate(['']);
+  //       },
+  //       error: (error) => {
+  //         console.error('Registration failed:', error);
+  //       },
+  //     });
+  //   }
   }
 }

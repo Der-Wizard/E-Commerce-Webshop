@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AccountAuthService } from '../../services/account-auth.service';
+// import { AccountAuthService } from '../../services/auth/account-auth-service';
 
 @Component({
   selector: 'app-account',
@@ -9,10 +9,12 @@ import { AccountAuthService } from '../../services/account-auth.service';
   styleUrl: './account.component.scss'
 })
 export class AccountComponent {
-  private authService = inject(AccountAuthService);
+  // constructor(private authService: AccountAuthService) {
+
+  // }
 
   logout() {
-    this.authService.logout();
+    // this.authService.logout();
   }
 
 }

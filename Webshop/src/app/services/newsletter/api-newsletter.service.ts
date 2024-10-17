@@ -4,9 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ApiNewsletterService extends NewsletterService {
   constructor(private http: HttpClient) {
     super();

@@ -10,9 +10,8 @@
 
     <form class="f-c-cc" id="newsletter-form" [formGroup]="newsletterForm" (ngSubmit)="subscribeToNewsletter()">
         <h3>Subscribe to our newsletter</h3>
-        <label for="email-newsletter">E-mail: </label>
-        <input id="email-newsletter" formControlName="email" />
-        <button id="newsletter-sign-up" type="submit">Subscribe</button>
+        <input-email [formGroup]="newsletterForm" input_id="email_newsletter" label_text="Email" [is_important]="false"></input-email>
+        <button id="newsletter-sign-up" (ngSubmit)="subscribeToNewsletter()">Subscribe</button>
     </form>
     <div class="f-c-cc">
         <h3>Find us:</h3>

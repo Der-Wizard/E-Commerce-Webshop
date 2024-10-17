@@ -5,6 +5,8 @@ import { RouterLink } from '@angular/router';
 import { SuccessMessageComponent } from './success-message/success-message.component';
 import { ContactFormComponent } from '../../contact-form/contact-form.component';
 import { NewsletterService } from '../../../services/newsletter/newsletter-service';
+import { CustomAlertService } from '../../../services/messages/custom-alert.service';
+import { InputEmailComponent } from "../input/email/input-email.component";
 
 @Component({
   selector: 'app-footer',
@@ -15,7 +17,8 @@ import { NewsletterService } from '../../../services/newsletter/newsletter-servi
     NgIf,
     ContactFormComponent,
     SuccessMessageComponent,
-  ],
+    InputEmailComponent
+],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
@@ -26,15 +29,17 @@ export class FooterComponent {
   showMessage: boolean = false;
 
 
-  constructor(private fb: FormBuilder, private newsletterService: NewsletterService) {
+  constructor(private fb: FormBuilder, private newsletterService: NewsletterService, private alertService: CustomAlertService) {
     this.newsletterForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email_newsletter: ['', [Validators.required, Validators.email]],
     });
   }
   subscribeToNewsletter() {
     if (this.newsletterForm.valid) {
-      this.newsletterService.subscribeEmail(this.newsletterForm.value.email).subscribe(response => {
-        this.showResultMessage(`${response.message}`);
+      this.newsletterService.subscribeEmail(this.newsletterForm.value.email_newsletter).subscribe({
+        next: (response: any) => {
+          this.alertService.createSuccessMessage(response.message);
+        }
       })
     }
   }
