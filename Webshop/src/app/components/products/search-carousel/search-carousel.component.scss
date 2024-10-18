@@ -1,7 +1,15 @@
 @import '../../../../styles/styles.scss';
 
 :host {
-    margin:auto;
+    margin: auto;
+}
+
+#left-arrow-button {
+    position: relative;
+
+    * {
+        transform: rotate(180deg) translateX(50%);
+    }
 }
 
 .search-carousel {
@@ -18,14 +26,25 @@
     }
 }
 
-@media  screen and (max-width:400px) {
-    .disappearing-page-row-1-button{
+button {
+    &:hover {
+        padding: 0px $std-padding;
+    }
+
+    &:empty {
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width:400px) {
+    .disappearing-page-row-1-button {
         display: none;
     }
 }
 
-@media  screen and (max-width:500px) {
-    .disappearing-page-row-2-button{
+@media screen and (max-width:500px) {
+    .disappearing-page-row-2-button {
         display: none;
     }
 }

@@ -5,6 +5,13 @@
     text-decoration: none;
     transition: color 0.1s;
     
+    scale: 1;
+    transition: scale 0.3s ease;
+
+    &:hover {
+        text-decoration: underline;
+        scale: 1.2;
+    }
 }
 
 a {

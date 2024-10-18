@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InputTextComponent } from '../shared/input/text/input-text.component';
 import { InputPasswordComponent } from "../shared/input/input-password/input-password.component";
 import { AccountAuthService } from '../../services/auth/account-auth-service';
+import { InputEmailComponent } from '../shared/input/email/input-email.component';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { AccountAuthService } from '../../services/auth/account-auth-service';
   imports: [
     RouterLink,
     ReactiveFormsModule,
-    InputTextComponent, 
+    InputEmailComponent, 
     InputPasswordComponent
   ],
   templateUrl: './login.component.html',

@@ -1,6 +1,6 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { map, take } from 'rxjs';
-// import { AccountAuthService } from '../services/auth/account-auth-service';
+import { AccountAuthService } from '../services/auth/account-auth-service';
 
 @Directive({
   selector: '[isLoggedIn]',
@@ -12,22 +12,21 @@ export class AuthLoggedInDirective {
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
-    // private authService: AccountAuthService
+    private authService: AccountAuthService
   ) {
-    // this.authService.isLoggedIn$.pipe(take(1)).subscribe((isLoggedIn) => {
-    //   this.updateView(isLoggedIn);
-    // });
+    this.authService.isLoggedIn$.pipe(take(1)).subscribe((isLoggedIn) => {
+      this.updateView(isLoggedIn);
+    });
   }
 
   @Input() set isLoggedIn(condition: boolean) {
     this.condition = condition;
-    this.updateView();
+    this.authService.isLoggedIn$.pipe(take(1)).subscribe((isLoggedIn) => {
+      this.updateView(isLoggedIn);
+    });
   }
 
   private updateView(isAuthenticated?: boolean) {
-    this.viewContainer.clear()
-    this.viewContainer.createEmbeddedView(this.templateRef);
-    return;
     if (isAuthenticated === undefined) return;
 
     if (this.condition && isAuthenticated) {

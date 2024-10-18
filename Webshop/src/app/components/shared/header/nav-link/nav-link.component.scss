@@ -9,11 +9,19 @@
     text-wrap: nowrap;
 
     }
+
+    scale: 1;
+    transition: scale 0.3s ease;
+
+    &:hover {
+        text-decoration: underline;
+        scale: 1.2;
+    }
 }
 
 a {
-    text-decoration: none;
     border: solid 1px;
     border-radius: $std-border-radius;
     padding: 1px 5px;
 }
+

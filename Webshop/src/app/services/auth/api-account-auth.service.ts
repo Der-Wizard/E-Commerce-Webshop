@@ -7,7 +7,7 @@ import { CustomAlertService } from '../messages/custom-alert.service';
 import { AccountAuthService } from './account-auth-service';
 
 @Injectable()
-export class ApiAccountAuthService extends AccountAuthService{
+export class ApiAccountAuthService extends AccountAuthService {
   override  isLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   override isLoggedIn(): boolean {
@@ -19,8 +19,26 @@ export class ApiAccountAuthService extends AccountAuthService{
     this.checkLoginCookie();
   }
 
-  private checkLoginCookie(){
-    
+  private checkLoginCookie() {
+    this.http.post(`${environment.apiUrl}/check_session.php`, {
+      withCredentials: true,
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }).subscribe({
+      next: (response: any) => {
+        console.log(response)
+        if (response.loggedIn) {
+          this.isLoggedIn$.next(true);
+          this.router.navigate(['/account']);
+        }
+        else {
+          this.isLoggedIn$.next(false);
+        }
+      },
+      error: (err) => {
+      }
+    })
   }
 
   override  login(credentials: { email: string; password: string; }): void {
@@ -41,9 +59,13 @@ export class ApiAccountAuthService extends AccountAuthService{
       }
     })
   }
-  override  logout(): void {
-    this.isLoggedIn$.next(false);
-    this.router.navigate(['/login']);
+  override logout(): void {
+    this.http.post(`${environment.apiUrl}/logout.php`, {
+      withCredentials: true
+    }).subscribe(() => {
+      this.isLoggedIn$.next(false);
+      this.router.navigate(['/login']);
+    })
   }
   override register(credentials: {
     forname: string,

@@ -1,7 +1,14 @@
 @import '../../../../../styles/styles.scss';
 
+
 :host {
-    width: 100%;
+    display: block;
+    width: 300px;
+    transition: width 0.3s;
+    &:hover,
+    &:focus {
+        width: 400px;
+    }
 }
 
 .input-container {
@@ -23,18 +30,13 @@
         left: 20px;
     }
 
-    textarea,
-    select {
+    textarea {
         width: 100%;
         flex: 1;
-        height: $font-size-normal * 2;
-    }
-
-    textarea {
+        padding-top: $std-padding*0.75;
         height: 100px;
         resize: none;
         overflow: hidden;
         border-color: unset;
     }
-
 }
