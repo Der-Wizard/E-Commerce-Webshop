@@ -1,31 +1,26 @@
 <div class="search-carousel">
-    <!-- Decrease Page Button -->
-    <button type="button" (click)="decrease_page_index()">
-        <i class="fas fa-play" style="transform: rotate(180deg);"></i>
+    <button type="button" (click)="decrease_page_index()"  id="left-arrow-button">
+        <i class="fas fa-play"></i>
     </button>
 
-    <!-- First Two Page Buttons (ngIf) -->
-    <button class="disappearing-page-row-2-button" (click)="skipToSearch(current_page_index - 2)">
-        <i *ngIf="current_page_index - 2 >= 1">{{ current_page_index - 2 }}</i>
+    <button class="disappearing-page-row-2-button" (click)="skipToSearch(-2)">
+        <i *ngIf="((productService.page$ | async) ?? 0) - 2 >= 1">{{ ((productService.page$ | async) ?? 0) - 2 }}</i>
     </button>
-    <button class="disappearing-page-row-1-button" (click)="skipToSearch(current_page_index - 1)">
-        <i *ngIf="current_page_index - 1 >= 1">{{ current_page_index - 1 }}</i>
+    <button class="disappearing-page-row-1-button" (click)="skipToSearch(-1)">
+        <i *ngIf="((productService.page$ | async) ?? 0) - 1 >= 1">{{ ((productService.page$ | async) ?? 0) - 1 }}</i>
     </button>
 
-    <!-- Current Page Button -->
     <button class="center-item inverted">
-        <i>{{ current_page_index == 0 ? 1 : current_page_index}}</i>
+        <i>{{ (productService.page$ | async) === 0 ? 1 : (productService.page$ | async)}}</i>
     </button>
 
-    <!-- Next Two Page Buttons (ngIf) -->
-    <button class="disappearing-page-row-1-button" (click)="skipToSearch(current_page_index + 1)">
-        <i *ngIf="current_page_index + 1 <= maximum_page_index">{{ current_page_index + 1 }}</i>
+    <button class="disappearing-page-row-1-button" (click)="skipToSearch(1)">
+        <i *ngIf="((productService.page$ | async) ?? 0) + 1 <= ((productService.pageCount$ | async) ?? 0)">{{ ((productService.page$ | async) ?? 0) + 1 }}</i>
     </button>
-    <button class="disappearing-page-row-2-button" (click)="skipToSearch(current_page_index + 2)">
-        <i *ngIf="current_page_index + 2 <= maximum_page_index">{{ current_page_index + 2 }}</i>
+    <button class="disappearing-page-row-2-button" (click)="skipToSearch(2)">
+        <i *ngIf="((productService.page$ | async) ?? 0) + 2 <= ((productService.pageCount$ | async) ?? 0)">{{ ((productService.page$ | async) ?? 0) + 2 }}</i>
     </button>
 
-    <!-- Increase Page Button -->
     <button type="button" (click)="increase_page_index()">
         <i class="fas fa-play"></i>
     </button>

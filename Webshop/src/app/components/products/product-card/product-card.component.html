@@ -4,9 +4,8 @@
     </div>
     <div class="product-information-short">
         <h3 class="product-heading"> {{ product.name }}</h3>
-        <p class="product-short-description"> {{ product.short_description }}</p>
         <div class="price-stock-container">
-            <product-current-stock [stock]="product.stock"></product-current-stock>
+            <product-current-stock [stock]="((wareHouseService.getAvailableStock(product.id) | async) ?? 0) "></product-current-stock>
             <p class="product-price"> {{ product.price | currency:'EUR':'symbol'}}</p>
         </div>
     </div>

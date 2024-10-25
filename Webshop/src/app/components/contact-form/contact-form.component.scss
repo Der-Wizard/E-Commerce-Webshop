@@ -31,9 +31,6 @@ form {
     align-items: center;
     gap:$std-gap * 2;
 
-    >* {
-        width: 500px;
-    }
 }
 
 @media screen and (max-width: 600px) {

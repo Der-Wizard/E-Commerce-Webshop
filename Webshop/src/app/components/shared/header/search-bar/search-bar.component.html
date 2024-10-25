@@ -1,3 +1,3 @@
 <button type="button" id="search-button" (click)="onSearch()"><i class="search-icon fas fa-search"></i></button>
 <input type="search" id="search-bar" name="search" 
-(keydown.enter)="onSearch()" placeholder="Type in to search...">
+(keydown.enter)="onSearch()" placeholder="Type in to search..." [(ngModel)]="searchTerm" autocomplete="on">

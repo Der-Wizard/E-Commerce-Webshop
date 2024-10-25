@@ -2,8 +2,13 @@
 
 :host {
     display: block;
+    width: 300px;
+    transition: width 0.3s;
+    &:hover,
+    &:focus {
+        width: 400px;
+    }
 }
-
 .input-container {
     flex:1;
     position: relative;
@@ -24,7 +29,6 @@
         left: 20px;
     }
 
-    input,
     select {
         flex:1;
         height: $font-size-normal * 2;

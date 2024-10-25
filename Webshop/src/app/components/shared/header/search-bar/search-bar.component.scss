@@ -1,21 +1,34 @@
 @import '../../../../../styles/styles.scss';
 
 :host {
-    width: 50%;
+    width: 30%;
     position: relative;
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    transition: width 0.3s ease;
+
+    &:hover {
+        width: 40%;
+    }
 }
 
 #search-button {
     position: absolute;
-    left: -5px;
+    left: -10px;
     z-index: 1;
+    font-size: $font-size-normal;
+    height: $font-size-normal * 2;
+}
+
+button:hover {
+    padding: 0px $std-padding;
 }
 
 #search-bar {
     width: 100%;
-    padding-left: 40px;
+    padding-left: 50px;
+    height: $font-size-normal * 2;
 }

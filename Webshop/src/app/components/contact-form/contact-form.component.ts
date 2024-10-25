@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputEmailComponent } from '../shared/input/email/input-email.component';
 import { InputTelComponent } from '../shared/input/input-tel/input-tel.component';
-import { InputTextComponent } from '../shared/input/text/input-text.component';
+import { InputTextComponent } from '../shared/input/input-text/input-text.component';
 import { InputSelectComponent } from '../shared/input/input-select/input-select.component';
 import { InputTextAreaComponent } from '../shared/input/input-text-area/input-text-area.component';
 import { Router } from '@angular/router';

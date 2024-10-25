@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { InputEmailComponent } from '../shared/input/email/input-email.component';
 import { InputSelectComponent } from '../shared/input/input-select/input-select.component';
-import { InputTextComponent } from '../shared/input/text/input-text.component';
+import { InputTextComponent } from '../shared/input/input-text/input-text.component';
 import { InputTelComponent } from '../shared/input/input-tel/input-tel.component';
 import { InputRadioComponent } from '../shared/input/input-radio/input-radio.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LabelSyncDirective } from '../../directives/input/label-sync.directive';
-import { CartService } from '../../services/checkout/abstract-cart-service';
+import { CartService } from '../../services/cart/abstract-cart-service';
+import { OrderService } from '../../services/checkout/checkout.service';
 
 @Component({
   selector: 'app-checkout',
@@ -35,7 +36,7 @@ export class CheckoutComponent {
   paymentForm: FormGroup;
 
   constructor(private fb: FormBuilder, private cartService: CartService, private router: Router) {
-    if (this.cartService.cartLength === 0) {
+    if (this.cartService.isCartEmpty$.value) {
       this.navigate('');
     };
 

@@ -1,4 +1,4 @@
-<button type="button" id="back-to-the-top" (click)="scrollToSearchBar($event)">Back to the top <i
+<button type="button" id="back-to-the-top" (click)="scrollToTop($event)">Back to the top <i
         class="fas fa-arrow-up"></i></button>
 <section id="bottom-interactions">
     <address class="f-c-cc">
@@ -9,10 +9,9 @@
     </address>
 
     <form class="f-c-cc" id="newsletter-form" [formGroup]="newsletterForm" (ngSubmit)="subscribeToNewsletter()">
-        <h3>Subscribe to the newsletter</h3>
-        <label for="email-newsletter">E-mail: </label>
-        <input id="email-newsletter" formControlName="email" />
-        <button id="newsletter-sign-up" type="submit">Subscribe</button>
+        <h3>Subscribe to our newsletter</h3>
+        <input-email [formGroup]="newsletterForm" input_id="email_newsletter" label_text="Email" [is_important]="false"></input-email>
+        <button id="newsletter-sign-up" (ngSubmit)="subscribeToNewsletter()">Subscribe</button>
     </form>
     <div class="f-c-cc">
         <h3>Find us:</h3>
@@ -36,5 +35,5 @@
     <a routerLink="/" id="copy-right-link">&copy; 2024, Mirabelle GbR</a>
 </section>
 
-<footer-success-message *ngIf="showMessage" class="success-message"
-    [successMessage]="successMessage"></footer-success-message>
+<success-message *ngIf="showMessage" class="success-message"
+    [successMessage]="successMessage"></success-message>
