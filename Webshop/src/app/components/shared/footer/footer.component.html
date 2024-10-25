@@ -1,0 +1,39 @@
+<button type="button" id="back-to-the-top" (click)="scrollToTop($event)">Back to the top <i
+        class="fas fa-arrow-up"></i></button>
+<section id="bottom-interactions">
+    <address class="f-c-cc">
+        <h3>Help:</h3>
+        <a href="mailto:mirabelle-shop@outlook.de"><i class="fas fa-envelope">: E-mail</i></a>
+        <a routerLink="contact"><i class="fas fa-headset">: Support</i></a>
+        <a routerLink="/faq"><i class="fas fa-question-circle">: FAQ</i></a>
+    </address>
+
+    <form class="f-c-cc" id="newsletter-form" [formGroup]="newsletterForm" (ngSubmit)="subscribeToNewsletter()">
+        <h3>Subscribe to our newsletter</h3>
+        <input-email [formGroup]="newsletterForm" input_id="email_newsletter" label_text="Email" [is_important]="false"></input-email>
+        <button id="newsletter-sign-up" (ngSubmit)="subscribeToNewsletter()">Subscribe</button>
+    </form>
+    <div class="f-c-cc">
+        <h3>Find us:</h3>
+        <div class="f-r-cc">
+            <a href="https://twitter.com" target="_blank">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <i class="fa-brands fa-square-instagram"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="https://store.steampowered.com" target="_blank">
+                <i class="fa-brands fa-steam"></i>
+            </a>
+        </div>
+    </div>
+</section>
+<section id="bottom-links">
+    <a routerLink="/" id="copy-right-link">&copy; 2024, Mirabelle GbR</a>
+</section>
+
+<success-message *ngIf="showMessage" class="success-message"
+    [successMessage]="successMessage"></success-message>

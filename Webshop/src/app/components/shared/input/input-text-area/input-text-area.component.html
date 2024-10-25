@@ -1,0 +1,10 @@
+<div [formGroup]="formGroup" class="input-container">
+    <label [for]="input_id" class="txt-less" #labelRef>{{ label_text }}
+        <i *ngIf="is_important">*</i>
+        <span *ngIf="is_optional">(optional)</span>
+    </label>
+    <textarea [id]="input_id" [formControlName]="input_id" [labelSync]="labelRef" [ngModel]="textAreaInput" (ngModelChange)="onInputChanges($event)" autocomplete="on"></textarea>
+</div>
+<div class="error-container" *ngIf="formGroup.get(input_id)?.invalid && (formGroup.get(input_id)?.touched || formGroup.get(input_id)?.dirty)">
+    <small class="error-hint" *ngIf="formGroup.get(input_id)?.errors?.['required']">{{label_text}} is required.</small>
+</div>

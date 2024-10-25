@@ -1,0 +1,120 @@
+<div id="page" class="show-panel">
+    <div id="checkout-input-container" class="bg">
+        <img src="assets/img/icon-logo-fixed.png" id="logo-img" alt="title logo">
+        <div class="checkout-milestone-container item">
+            <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Cart'}">Cart</p>
+            <i class="fas fa-greater-than"></i>
+            <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Information'}">
+                Information</p>
+            <i class="fas fa-greater-than"></i>
+            <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Shipping'}">Shipping
+            </p>
+            <i class="fas fa-greater-than"></i>
+            <p class="checkout-milestone" [ngClass]="{'current-milestone' : currentMilestone === 'Payment'}">Payment</p>
+        </div>
+        <div id="checkout-information-input-container">
+            <div *ngIf="currentMilestone === 'Information'">
+                <h2 class="item">Contact</h2>
+                <form [formGroup]="contactForm" class="item" (ngSubmit)="onSubmitContactForm()">
+                    <input-email input_id="contact_user_email" [formGroup]="contactForm"
+                        [is_important]="true"></input-email>
+                    <button type="submit"
+                        style="display:none"><!--This shouldnt need to be here but for some reason it wont work--></button>
+                </form>
+                <h2 class="item">Shipping address</h2>
+                <form [formGroup]="shippingAddressForm" class="item" (ngSubmit)="onSubmitShippingAddressForm()">
+                    <input-select input_id="shipping_address_user_country_code" [is_important]="true"
+                        label_text="Select a country" [formGroup]="shippingAddressForm"></input-select>
+                    <div class="multiple-inputs">
+                        <input-text input_id="shipping_address_user_forname" [formGroup]="shippingAddressForm"
+                            [is_important]="true" label_text="Forname"></input-text>
+                        <input-text input_id="shipping_address_user_surname" [formGroup]="shippingAddressForm"
+                            [is_important]="true" label_text="Surname"></input-text>
+                    </div>
+                    <input-text input_id="shipping_address_user_company" [formGroup]="shippingAddressForm"
+                        [is_optional]="true" label_text="Company"></input-text>
+                    <input-text input_id="shipping_address_user_address" [formGroup]="shippingAddressForm"
+                        [is_important]="true" label_text="Address"></input-text>
+                    <input-text input_id="shipping_address_user_address_additional"
+                        [formGroup]="shippingAddressForm" [is_optional]="true"
+                        label_text="Apartment, suite, etc."></input-text>
+                    <input-text input_id="shipping_address_user_postalcode"
+                        [formGroup]="shippingAddressForm" [is_important]="true" label_text="Postal code"></input-text>
+                    <input-text input_id="shipping_address_user_city" [formGroup]="shippingAddressForm"
+                        [is_important]="true" label_text="City"></input-text>
+                    <input-tel input_id="shipping_address_user_phone" [formGroup]="shippingAddressForm"
+                        [is_important]="true" label_text="Phone"></input-tel>
+                    <button type="submit"
+                        style="display:none"><!--This shouldnt need to be here but for some reason it wont work--></button>
+                </form>
+
+                <div class="navigation-buttons item">
+                    <button class="return-button" (click)="navigate('cart')">
+                        <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
+                        <p> Return to cart</p>
+                    </button>
+                    <button class="continue-button" (click)="continueToShipping()"
+                        [disabled]="contactForm.invalid || shippingAddressForm.invalid">
+                        Continue to shipping</button>
+                </div>
+            </div>
+
+            <div *ngIf="currentMilestone === 'Shipping'">
+                <h2 class="item">Shipping method</h2>
+                <form [formGroup]="shippingMethodForm" class="item" (ngSubmit)="onSubmitShippingMethodForm()">
+                    <input-radio input_id="shipping_method_shipping_method" [formGroup]="shippingMethodForm"
+                        [label_text]="selectedShippingMethod?.name + ': ' + selectedShippingMethod?.formattedCost"
+                        [is_important]="true">
+                    </input-radio>
+                    <button type="submit"
+                    style="display:none"><!--This shouldnt need to be here but for some reason it wont work--></button>
+                </form>
+
+                <div class="navigation-buttons item">
+                    <button class="return-button" (click)="goToInformation()">
+                        <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
+                        <p> Return to information</p>
+                    </button>
+                    <button class="continue-button" (click)="continueToPayment()"
+                        [disabled]="shippingMethodForm.invalid">
+                        Continue to payment</button>
+                </div>
+            </div>
+
+            <div *ngIf="currentMilestone === 'Payment'">
+                <h2 class="item">Payment Option</h2>
+                <form [formGroup]="paymentForm" class="item" (ngSubmit)="onSubmitPaymentOption()">
+                    <input-radio input_id="paymentForm_Paypal" [formGroup]="paymentForm"
+                        label_text="Paypal">
+                    </input-radio>
+                    <input-radio input_id="paymentForm_Mastercard" [formGroup]="paymentForm"
+                        label_text="Mastercard">
+                    </input-radio>
+                    <input-radio input_id="paymentForm_SOFORT" [formGroup]="paymentForm"
+                        label_text="SOFORT">
+                    </input-radio>
+                    <input-radio input_id="paymentForm_Klarna" [formGroup]="paymentForm"
+                        label_text="Klarna">
+                    </input-radio>
+                    <button type="submit"
+                    style="display:none"><!--This shouldnt need to be here but for some reason it wont work--></button>
+                </form>
+
+                <div class="navigation-buttons item">
+                    <button class="return-button" (click)="goToShipping()">
+                        <i class="fas fa-chevron-left">&nbsp;&nbsp;&nbsp;</i>
+                        <p> Return to shipping</p>
+                    </button>
+                    <button class="continue-button" (click)="confirmOrder()"
+                        [disabled]="shippingMethodForm.invalid">
+                        Order</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <div id="checkout-summary-container">
+
+    </div>
+</div>

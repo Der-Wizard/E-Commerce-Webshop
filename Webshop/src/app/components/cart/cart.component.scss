@@ -1,0 +1,50 @@
+@import '../../../styles/styles.scss';
+
+:host {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+hr {
+    width: 95%;
+}
+
+#order-information-container {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 0.1fr;
+
+    .card-heading {
+        text-align: center;
+    }
+}
+
+#order-checkout-container {
+    width: 100%;
+    display:flex;
+    justify-content: flex-end;
+    margin-right:$std-margin;
+
+    button {
+        font-size: large;
+        font-weight: bolder;
+        padding-left: $std-padding;
+        padding-right: $std-padding;
+    }
+}
+
+#order-total-container {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 0.1fr;
+
+    #total-prize {
+        text-align: center;
+    }
+}

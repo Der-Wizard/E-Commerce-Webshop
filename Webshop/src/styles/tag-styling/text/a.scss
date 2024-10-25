@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+a {
+    color: inherit;
+    transition: color 0.1s;
+    text-decoration: none;
+    scale: 1;
+    transition: scale 0.3s ease;
+
+    &:hover {
+        text-decoration: underline;
+        scale: 1.2;
+    }
+
+}

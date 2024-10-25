@@ -1,0 +1,12 @@
+<a [routerLink]="['/products', product.id]" class="toggle-box">
+    <div class="product-img">
+        <img src="assets/img/icon-logo-fixed.png" class="no-invert" alt="Main image of the product card">
+    </div>
+    <div class="product-information-short">
+        <h3 class="product-heading"> {{ product.name }}</h3>
+        <div class="price-stock-container">
+            <product-current-stock [stock]="((wareHouseService.getAvailableStock(product.id) | async) ?? 0) "></product-current-stock>
+            <p class="product-price"> {{ product.price | currency:'EUR':'symbol'}}</p>
+        </div>
+    </div>
+</a>

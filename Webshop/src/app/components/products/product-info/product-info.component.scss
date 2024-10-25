@@ -1,0 +1,125 @@
+@import '../../../../styles/styles.scss';
+
+:host {
+    width: 100%;
+}
+
+#selling-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: $std-gap*3;
+}
+
+#image-gallery-section {
+    margin-left: $std-margin;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: $std-gap;
+}
+
+#image-selection-gallery {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $std-gap;
+}
+
+#main-product-image {
+    height: 500px;
+}
+
+.select-image-button {
+    width: 60px;
+    height: 60px;
+    border-radius: $std-border-radius;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: inherit;
+        height: inherit;
+    }
+}
+
+#product-information-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#product-stock {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: $std-gap;
+
+    product-current-stock {
+        font-size: larger;
+        font-weight: bolder;
+    }
+
+}
+
+#buying-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: $std-gap;
+}
+
+#quantity-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: $std-gap*2;
+}
+
+#select-quantity-dropdown {
+    min-width: 50px;
+}
+
+#product-information-container {
+    text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+    #selling-section {
+        flex-direction: column;
+        margin-left: $std-margin;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    #image-gallery-section {
+        margin: 0;
+        flex-direction: column;
+    }
+    
+    #image-selection-gallery {
+        height: fit-content;
+        margin-bottom: $std-margin;
+        flex-direction: row;
+    }
+}
+@media screen and (max-width: 500px) {
+    #main-product-image {
+        width: 90%;
+        height: 90%;
+    }
+    
+    #image-gallery-section {
+        flex-direction: column;
+    }
+
+}

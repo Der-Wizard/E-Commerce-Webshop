@@ -1,0 +1,42 @@
+@import '../../../../../styles/styles.scss';
+
+
+:host {
+    display: block;
+    width: 300px;
+    transition: width 0.3s;
+    &:hover,
+    &:focus {
+        width: 400px;
+    }
+}
+
+.input-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+
+    label {
+        pointer-events: none;
+        position: absolute;
+        top: 10%;
+        left: 20px;
+        transition: font-size 0.3s, left 0.3s, top 0.3s;
+    }
+
+    label.filled {
+        font-size: calc($font-size-normal*0.75);
+        top: -15%;
+        left: 20px;
+    }
+
+    textarea {
+        width: 100%;
+        flex: 1;
+        padding-top: $std-padding*0.75;
+        height: 100px;
+        resize: none;
+        overflow: hidden;
+        border-color: unset;
+    }
+}

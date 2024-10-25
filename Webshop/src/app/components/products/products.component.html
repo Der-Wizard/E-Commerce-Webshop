@@ -1,0 +1,9 @@
+<app-search-options></app-search-options>
+<app-search-carousel *ngIf="(productService.pageCount$| async) !== 0"></app-search-carousel>
+<div class="flex-product-container full-size">
+  <product-card
+    *ngFor="let product of productService.currentProducts$ | async"
+    [product]="product">
+  </product-card>
+</div>
+<app-search-carousel></app-search-carousel>

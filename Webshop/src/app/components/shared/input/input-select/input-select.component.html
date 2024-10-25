@@ -1,0 +1,38 @@
+<div [formGroup]="formGroup" class="input-container">
+    <label [for]="input_id" class="txt-less" #labelRef>{{ label_text }} <i *ngIf="is_important">*</i></label>
+    <select [id]="input_id" [formControlName]="input_id" [labelSync]="labelRef" autocomplete="on">
+        <option value="" disabled selected></option>
+        <option value="AT">Austria</option>
+        <option value="BE">Belgium</option>
+        <option value="BG">Bulgaria</option>
+        <option value="CH">Switzerland</option>
+        <option value="CZ">Czech Republic</option>
+        <option value="DE">Germany</option>
+        <option value="DK">Denmark</option>
+        <option value="EE">Estonia</option>
+        <option value="ES">Spain</option>
+        <option value="FI">Finland</option>
+        <option value="FR">France</option>
+        <option value="GB">United Kingdom</option>
+        <option value="GR">Greece</option>
+        <option value="HR">Croatia</option>
+        <option value="HU">Hungary</option>
+        <option value="IE">Ireland</option>
+        <option value="IT">Italy</option>
+        <option value="LT">Lithuania</option>
+        <option value="LU">Luxembourg</option>
+        <option value="LV">Latvia</option>
+        <option value="NL">Netherlands</option>
+        <option value="NO">Norway</option>
+        <option value="PL">Poland</option>
+        <option value="PT">Portugal</option>
+        <option value="RO">Romania</option>
+        <option value="SE">Sweden</option>
+        <option value="SK">Slovakia</option>
+        <option value="SI">Slovenia</option>
+        <option value="US">United States</option>
+    </select>
+</div>
+<div *ngIf="formGroup.get(input_id)?.invalid && (formGroup.get(input_id)?.touched || formGroup.get(input_id)?.dirty)">
+    <small class="error-hint" *ngIf="formGroup.get(input_id)?.errors?.['required']">{{label_text}} is required.</small>
+</div>

@@ -1,0 +1,9 @@
+<input-base [input_id]="input_id" type="email" [label_text]="label_text" [is_important]="is_important"
+    [formGroup]="formGroup"></input-base>
+<div
+    *ngIf="formGroup.get(input_id)?.invalid && (formGroup.get(input_id)?.touched || formGroup.get(input_id)?.dirty)">
+    <small class="error-hint" *ngIf="formGroup.get(input_id)?.errors?.['required']">Email is
+        required.</small>
+    <small class="error-hint" *ngIf="formGroup.get(input_id)?.errors?.['email']">Invalid email
+        format.</small>
+</div>

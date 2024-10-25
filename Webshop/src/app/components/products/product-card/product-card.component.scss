@@ -1,0 +1,56 @@
+@import '../../../../styles/styles.scss';
+
+:host {
+    margin: calc($std-margin*0.05);
+    width: 300px;
+    height: 500px;
+    box-sizing: border-box;
+    border-radius: $std-border-radius;
+
+    overflow: hidden;
+
+    text-align: center;
+    display: flex;
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.25);
+}
+
+a {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+
+
+.product-img {
+    flex: 1;
+    height: 40%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    display: flex;
+
+    img {
+        box-sizing: border-box;
+        flex: 1;
+        width: inherit;
+    }
+}
+
+.price-stock-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    * {
+        font-size: larger;
+        padding: 0%;
+        font-weight: bolder;
+    }
+}

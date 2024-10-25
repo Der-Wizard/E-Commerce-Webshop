@@ -1,5 +1,36 @@
-.content-layout {
+
+#content-layout {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
+    width: 100%;
+}
+
+#main-content {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    > * {
+        flex-grow: 1;
+        width: 100%;
+        height: 100%;
+    }
+
+    router-outlet {
+        flex-grow: 0;
+        height: 0px;
+    }
+}
+
+#top-of-page {
+    height: 0;
+    width: 0;
+    visibility: hidden;
 }

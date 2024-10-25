@@ -1,0 +1,27 @@
+@import '../../../styles/styles.scss';
+
+:host {
+    height: 100%;
+    width:100%;
+    box-sizing: border-box;
+    padding-left: $std-padding;
+    padding-right: $std-padding;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+
+.flex-product-container {
+    padding: $std-padding 0;
+    width:100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:$std-gap*1.5;
+}

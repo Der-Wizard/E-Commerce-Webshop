@@ -1,0 +1,33 @@
+@import '../../../styles/styles.scss';
+
+
+.mat-accordion {
+    width: 100%;
+    border-radius: $std-border-radius;
+
+    .mat-expansion-panel {
+        margin: calc($std-margin/3) 0;
+        box-shadow: none;
+
+        transition: background-color 0.5s;
+        border-radius: $std-border-radius;
+
+        .mat-expansion-panel-header {
+            padding: $std-padding;
+
+        }
+
+        .mat-panel-title {
+            font-weight: bold;
+        }
+
+        .mat-panel-description {
+            font-size: 0.9em;
+        }
+
+        p {
+            padding: $std-padding;
+            font-size: 1em;
+        }
+    }
+}

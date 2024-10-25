@@ -1,0 +1,59 @@
+<section id="selling-section">
+    <section id="image-gallery-section">
+        <section id="image-selection-gallery">
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+            <button type="button" class="select-image-button no-invert">
+                <img src="assets/img/icon-logo-fixed.png" class="no-invert">
+            </button>
+        </section>
+        <img id="main-product-image" src="assets/img/icon-logo-fixed.png" class="no-invert">
+    </section>
+    <section id="product-information-section">
+        <h2 id="product-name">
+            {{ product.name }}
+        </h2>
+        <h2>
+            {{ product.price | currency:'EUR':'symbol'}}
+        </h2>
+        <div id="product-stock">
+            <h3>Current stock:</h3>
+            <product-current-stock [stock]="currentStock"></product-current-stock>
+        </div>
+        <section id="buying-section">
+
+            <form id="quantity-form">
+                <label for="select-quantity-dropdown">Quantity: </label>
+                <select id="select-quantity-dropdown" class="border-box" [(ngModel)]="selectedQuantity" name="quantity">
+                    <option *ngFor="let i of stockArray" [value]="i">{{ i }}</option>
+                  </select>
+            </form>
+            <button *isLoggedIn="true" type="submit" (click)="onSubmit()">ADD TO CART</button>
+        </section>
+    </section>
+
+</section>
+<div id="product-information-container">
+    <h2 id="product-desciption">
+        Product description
+    </h2>
+    <p>
+        {{ product.description }}
+    </p>
+</div>

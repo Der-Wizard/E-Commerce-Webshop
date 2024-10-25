@@ -1,7 +1,9 @@
-<div class="content-layout">
-  <app-header></app-header>
-  <main>
-    <router-outlet />
+<div id="top-of-page"></div>
+<div id="content-layout">
+  <app-header *isCheckOut="false"></app-header>
+  <main id="main-content">
+    <router-outlet/>
   </main>
-  <app-footer></app-footer>
+  <app-footer *isCheckOut="false"></app-footer>
 </div>
+<div #alert_container></div>

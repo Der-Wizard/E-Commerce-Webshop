@@ -1,0 +1,19 @@
+@import '../../../../../styles/styles.scss';
+
+.input-container {
+    padding: $std-padding;
+    flex:1;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    label {
+        flex:1;
+    }
+
+    input {
+        width: 20px;
+        height: 20px;
+    }
+}

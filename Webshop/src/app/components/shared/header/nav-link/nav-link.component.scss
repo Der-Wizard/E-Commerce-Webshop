@@ -1,0 +1,27 @@
+@import '../../../../../styles/styles.scss';
+
+:host {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.1s;
+
+    * {
+    text-wrap: nowrap;
+
+    }
+
+    scale: 1;
+    transition: scale 0.3s ease;
+
+    &:hover {
+        text-decoration: underline;
+        scale: 1.2;
+    }
+}
+
+a {
+    border: solid 1px;
+    border-radius: $std-border-radius;
+    padding: 1px 5px;
+}
+

@@ -1,0 +1,35 @@
+@import '../../../../../styles/styles.scss';
+
+:host {
+    width: 30%;
+}
+
+
+.input-container {
+    width: 100%;
+    flex: 1;
+    position: relative;
+    display: flex;
+
+    label {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 20px;
+        transition: font-size 0.3s, left 0.3s, top 0.3s;
+    }
+
+    label.filled {
+        font-size: calc($font-size-normal*0.75);
+        top: -20%;
+        left: 20px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        flex: 1;
+        height: $font-size-normal * 2;
+    }
+}

@@ -1,0 +1,27 @@
+<div class="search-carousel">
+    <button type="button" (click)="decrease_page_index()"  id="left-arrow-button">
+        <i class="fas fa-play"></i>
+    </button>
+
+    <button class="disappearing-page-row-2-button" (click)="skipToSearch(-2)">
+        <i *ngIf="((productService.page$ | async) ?? 0) - 2 >= 1">{{ ((productService.page$ | async) ?? 0) - 2 }}</i>
+    </button>
+    <button class="disappearing-page-row-1-button" (click)="skipToSearch(-1)">
+        <i *ngIf="((productService.page$ | async) ?? 0) - 1 >= 1">{{ ((productService.page$ | async) ?? 0) - 1 }}</i>
+    </button>
+
+    <button class="center-item inverted">
+        <i>{{ (productService.page$ | async) === 0 ? 1 : (productService.page$ | async)}}</i>
+    </button>
+
+    <button class="disappearing-page-row-1-button" (click)="skipToSearch(1)">
+        <i *ngIf="((productService.page$ | async) ?? 0) + 1 <= ((productService.pageCount$ | async) ?? 0)">{{ ((productService.page$ | async) ?? 0) + 1 }}</i>
+    </button>
+    <button class="disappearing-page-row-2-button" (click)="skipToSearch(2)">
+        <i *ngIf="((productService.page$ | async) ?? 0) + 2 <= ((productService.pageCount$ | async) ?? 0)">{{ ((productService.page$ | async) ?? 0) + 2 }}</i>
+    </button>
+
+    <button type="button" (click)="increase_page_index()">
+        <i class="fas fa-play"></i>
+    </button>
+</div>

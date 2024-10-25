@@ -1,0 +1,115 @@
+@import './_variables';
+
+.border-box {
+  border: 1px solid;
+  border-bottom-width: 5px;
+  border-radius: $std-border-radius;
+}
+
+.toggle-box {
+  border-radius: $std-border-radius;
+}
+
+.no-mode {
+  .nm-txt-less {
+    color: $light-text-less;
+  }
+}
+
+
+.light-mode {
+  color-scheme: light;
+  color: $light-text;
+  background-color: $light-bg;
+
+  .toggle-box:hover {
+    border: 3px solid;
+    border-color: $light-border;
+  }
+
+  .bg {
+    background-color: $light-bg;
+  }
+
+  .txt-less {
+    color: $light-text-less;
+  }
+
+  button {
+    background-color: $light-bg;
+    color: $light-text;
+  }
+
+  .show-panel {
+    background-color: $light-panel;
+  }
+
+  .show-panel-highlight {
+    background-color: $light-bg;
+  }
+
+  input,
+  select,
+  textarea,
+  .border-box {
+    color: $light-text;
+    background-color: $light-bg;
+    border-color: $light-border;
+  }
+
+}
+
+.dark-mode {
+  color-scheme: dark;
+  color: $dark-text;
+  background-color: $dark-bg;
+
+  .toggle-box:hover {
+    border: 3px solid;
+    border-color: $dark-border;
+  }
+
+  .bg {
+    background-color: $dark-bg;
+  }
+
+  .txt-less {
+    color: $dark-text-less;
+  }
+
+  button {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+
+  .show-panel {
+    background-color: $dark-panel;
+  }
+
+  .show-panel-highlight {
+    background-color: $dark-bg;
+  }
+
+  input,
+  select,
+  textarea,
+  .border-box {
+    color: $dark-text;
+    background-color: $dark-bg;
+    border-color: $dark-border;
+  }
+}
+
+
+.show-panel-highlight:hover {
+  filter: invert(1);
+
+  img,
+  video {
+    filter: invert(1);
+  }
+
+  .no-invert {
+    filter: invert(1) !important;
+  }
+}

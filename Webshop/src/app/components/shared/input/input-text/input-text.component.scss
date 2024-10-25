@@ -1,0 +1,12 @@
+@import '../../../../../styles/styles.scss';
+
+
+:host {
+    display: block;
+    width: 300px;
+    transition: width 0.3s;
+    &:hover,
+    &:focus {
+        width: 400px;
+    }
+}

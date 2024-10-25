@@ -1,0 +1,94 @@
+@import '../../../../styles/styles.scss';
+
+:host {
+    @extend .show-panel;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: $std-margin;
+    box-sizing: border-box;
+    padding: $std-padding $std-padding * 2;
+    position: relative;
+
+}
+
+a {
+    border: initial;
+}
+
+#bottom-interactions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+
+#bottom-interactions .f-c-cc {
+    flex:1;
+}
+
+#newsletter-sign-up {
+    margin-top: 3px;
+}
+
+#newsletter-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+#newsletter-form h3 {
+    margin: $std-margin 0;
+}
+
+#back-to-the-top {
+    margin-bottom: $std-margin;
+}
+
+#bottom-links {
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: $std-margin 0;
+}
+
+.success-message {
+    position: absolute;
+    left:55%;
+    bottom:55%;
+    padding: 0px 10px;
+
+    text-align: center;
+}
+
+.f-c-cc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:$std-gap;
+}
+
+.f-r-cc  {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:$std-gap * 5;
+}
+
+
+@media screen and (max-width:400px) {
+    #bottom-interactions {
+        flex-direction: column-reverse;
+    }
+}
