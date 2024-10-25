@@ -14,6 +14,7 @@ import { NewsletterService } from './services/newsletter/newsletter-service';
 import { ApiNewsletterService } from './services/newsletter/api-newsletter.service';
 import { AccountAuthService } from './services/auth/account-auth-service';
 import { ApiAccountAuthService } from './services/auth/api-account-auth.service';
+import { DummyAccountAuthService } from './services/auth/dummy-account-auth.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -38,7 +39,7 @@ export const appConfig: ApplicationConfig = {
     },
     {
       provide: AccountAuthService,
-      useClass: ApiAccountAuthService
+      useClass: DummyAccountAuthService
     }
   ]
 };
